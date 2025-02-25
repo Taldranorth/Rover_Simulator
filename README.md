@@ -48,6 +48,7 @@ Bibliothèque Graphique:
   - Pouvoir Utiliser des Heightmap
   - Point d'intéret aléatoire pour les échantillons
 
+(https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/803050/ss_f9ef6053f923abe60d4503327800e16c597990ba.1920x1080.jpg?t=1733496904)
 
 Bonus:
 - Prise en Compte des Grottes
