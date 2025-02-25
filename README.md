@@ -18,21 +18,42 @@ Exigence Simulation:
 - L'utilisateur Doit pouvoir gérer des paramètres poussés de la simulation
 
 ----------
+Bibliothèque Graphique:
+- Django
+- PyQt
+
+
 - Représentation des rovers par des icones
-- 2 types de Rovers:
+- 3 types de Rovers:
  - Exploration
  - Collecte d'échantillon
+ - Réparation
+- 2 types de Déploiement de Rovers:
+  - En Constellation / dans une Zone précise avec un nombre précis
+  - En Solo
 - paramètre Simulation:
   - Vitesse de la Simulation
   - Rovers
      - Usure
      - Vitesse des Rovers
+     - Distance de communications entre les rovers
   - Météo
      - Niveau d'alerte
      - placement des tempêtes de sables
      - radiation Solaire
      - fréquence des séisme
      - fréquence des pluies de météorites
+     - Cycle Jour/Nuit
+- Génération Procédurale de la Carte
+  - Pouvoir Utiliser des Heightmap
+  - Point d'intéret aléatoire pour les échantillons
 
+
+Bonus:
+- Prise en Compte des Grottes
+- Température
+- Mars la bleue
+- Mars la Verte
+- Carte Sphère
 
 https://www.canva.com/design/DAGgH0kv9-E/PxUw5Kih1vXR7gL8gdp84A/edit?utm_content=DAGgH0kv9-E&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
