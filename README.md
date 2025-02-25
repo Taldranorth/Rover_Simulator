@@ -1,6 +1,5 @@
 # genie_logiciel
 Exigence Rover:
- 
 - Doit être connecté entre eux
 - Doit pouvoir gérer la perte d'un membre de manière automatique
 - Doit pouvoir gérer sa trajectoire selon la topographie
@@ -9,7 +8,6 @@ Exigence Rover:
 - Doit pouvoir gérer un réseau de Rover
 
 Exigence Simulation:
- 
 - Doit pouvoir sélectionner le Spawn des Rovers
 - Doit pouvoir gérer la taille de la carte
 - Doit pouvoir Simuler une météo basique
@@ -32,6 +30,8 @@ Bibliothèque Graphique:
   - En Constellation / dans une Zone précise avec un nombre précis
   - En Solo
 - paramètre Simulation:
+  - gravité
+  - abrasion du sol
   - Vitesse de la Simulation
   - Rovers
      - Usure
