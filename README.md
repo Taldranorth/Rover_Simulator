@@ -23,12 +23,16 @@ Exigence Simulation:
  - Exploration
  - Collecte d'échantillon
 - paramètre Simulation:
-  - Usure
   - Vitesse de la Simulation
-  - Vitesse du Rover
+  - Rovers
+     - Usure
+     - Vitesse des Rovers
   - Météo
      - Niveau d'alerte
-     - placement du Nuage
-  - séismé
+     - placement des tempêtes de sables
+     - radiation Solaire
+     - fréquence des séisme
+     - fréquence des pluies de météorites
+
 
 https://www.canva.com/design/DAGgH0kv9-E/PxUw5Kih1vXR7gL8gdp84A/edit?utm_content=DAGgH0kv9-E&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
