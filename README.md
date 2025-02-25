@@ -15,4 +15,20 @@ Exigence Simulation:
 - Doit pouvoir Simuler une météo basique
 - Doit pouvoir gérer une carte souterraine(à définir)
 - Doit pouvoir gérer la Durée de la Simulation est l'objectif
+- L'utilisateur Doit pouvoir gérer des paramètres poussés de la simulation
+
+----------
+- Représentation des rovers par des icones
+- 2 types de Rovers:
+ - Exploration
+ - Collecte d'échantillon
+- paramètre Simulation:
+  - Usure
+  - Vitesse de la Simulation
+  - Vitesse du Rover
+  - Météo
+     - Niveau d'alerte
+     - placement du Nuage
+  - séismé
+
 https://www.canva.com/design/DAGgH0kv9-E/PxUw5Kih1vXR7gL8gdp84A/edit?utm_content=DAGgH0kv9-E&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
