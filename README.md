@@ -1,4 +1,4 @@
- # genie_logiciel
+ # Projet simulateur de rover (Génie logiciel)
 Exigence Rover:
 - Doit être connecté entre eux
 - Doit pouvoir gérer la perte d'un membre de manière automatique
