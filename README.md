@@ -1,4 +1,4 @@
-# genie_logiciel
+ # genie_logiciel
 Exigence Rover:
 - Doit être connecté entre eux
 - Doit pouvoir gérer la perte d'un membre de manière automatique
@@ -22,6 +22,7 @@ Bibliothèque Graphique:
 
 
 - Représentation des rovers par des icones
+- Rover décomposé en plusieurs parties (roue,chassis,corps,panneau solaire, caméra, bras articulé(s))
 - 2 types de Rovers:
  - Exploration
  - Collecte d'échantillon
