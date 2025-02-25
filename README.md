@@ -12,7 +12,7 @@ Exigence Simulation:
 - Doit pouvoir gérer la taille de la carte
 - Doit pouvoir Simuler une météo basique
 - Doit pouvoir gérer une carte souterraine(à définir)
-- Doit pouvoir gérer la Durée de la Simulation est l'objectif
+- Doit pouvoir gérer la Durée de la Simulation et l'objectif
 - L'utilisateur Doit pouvoir gérer des paramètres poussés de la simulation
 
 ----------
@@ -22,10 +22,9 @@ Bibliothèque Graphique:
 
 
 - Représentation des rovers par des icones
-- 3 types de Rovers:
+- 2 types de Rovers:
  - Exploration
  - Collecte d'échantillon
- - Réparation
 - 2 types de Déploiement de Rovers:
   - En Constellation / dans une Zone précise avec un nombre précis
   - En Solo
