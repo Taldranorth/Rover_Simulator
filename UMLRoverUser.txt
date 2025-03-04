@@ -1,5 +1,23 @@
 V1:
-
+@startuml
+left to right direction
+rectangle "Server"
+actor User 
+package SI{
+User --(paramètre la simulation)
+User --(s'authentifier) 
+User --(lance la simulation)
+User --(sauvegarder)
+User --(charger)
+User --(exporter les resultats)
+}
+(s'authentifier)  -- Server
+(lance la simulation) -- Server
+(charger)-- Server
+(sauvegarder)-- Server
+(exporter les resultats) -- Server
+(paramètre la simulation) -- Server
+@enduml
 V2:
 @startuml
 left to right direction
