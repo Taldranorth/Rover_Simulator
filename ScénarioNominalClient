@@ -1,0 +1,18 @@
+Scénario Nominal client: Lancer une simulation
+1. Le client accède au serveur
+2. Le client s'authentifie sur le serveur 
+3. Le client configure sa simulation (choisit le temps, la météo, etc)
+4. La simulation se lance
+5. Durant la simulation le Client peut modifier les paramètres de celle-ci
+6. Le client sauvegarde la simulation
+7. Après validation de la sauvegarde par le serveur le client peut exporter les résultats de la simulation en local
+
+Exceptions:
+-E1: Le serveur est indisponible ou inexistant
+	1. Le client n'arrive pas à accéder au serveur
+	2. Un message d'erreur s'affiche expliquant la raison
+-E2: Le client ne peut pas s'authentifier
+	3. Le serveur envoie un message d'échec de connexion.
+	4. Le client rentre correctement ses identifiants
+
+
