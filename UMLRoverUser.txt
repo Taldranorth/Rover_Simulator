@@ -1,16 +1,23 @@
 @startuml
+left to right direction
 rectangle "Server"
-User -- (paramètre la simulation)
-User -- (s'authentifier) 
-(s'authentifier)  -- Server
-User -- (lance la simulation)
-User -- (sauvegarder)
+actor User 
+package SI{
+User --(paramètre la simulation)
+User --(s'authentifier) 
+User --(lance la simulation)
+User --(sauvegarder)
  (sauvegarder)<-- (les paramètres de la simulation)
  (sauvegarder)<--(la simulation)
 User --(charger)
  (charger)<--(les paramètres de la simulation)
  (charger) <-- (la simulation) 
 User --(exporter les resultats)
-Server -- (sauvegarder)
-Server -- (charger)
+}
+(s'authentifier)  -- Server
+(lance la simulation) -- Server
+(charger)-- Server
+(sauvegarder)-- Server
+(exporter les resultats) -- Server
+(paramètre la simulation) -- Server
 @enduml
