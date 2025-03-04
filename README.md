@@ -15,6 +15,8 @@ Exigence Simulation:
 - Doit pouvoir gérer la Durée de la Simulation et l'objectif
 - L'utilisateur Doit pouvoir gérer des paramètres poussés de la simulation
 - Doit pouvoir enregistrer un setup de pramaètres (preset)
+- Doit pouvoir exporter les résultats de la simulation (fichier txt)
+-Doit pouvoir sauvegarder et charger une simulation encore en cours
 
 ----------
 Bibliothèque Graphique:
