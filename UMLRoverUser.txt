@@ -4,20 +4,23 @@ left to right direction
 rectangle "Server"
 actor User 
 package SI{
-User --(paramètre la simulation)
-User --(s'authentifier) 
-User --(lance la simulation)
-User --(sauvegarder)
-User --(charger)
-User --(exporter les resultats)
+User --(Configure)
+User --(LogIn) 
+User --(Manage)
+User --(Save)
+User --(Load)
+User --(ExportResults)
 }
-(s'authentifier)  -- Server
-(lance la simulation) -- Server
-(charger)-- Server
-(sauvegarder)-- Server
-(exporter les resultats) -- Server
-(paramètre la simulation) -- Server
+(Configure)  -- Server
+(LogIn) -- Server
+(Manage)-- Server
+(Save)-- Server
+(Load) -- Server
+(ExportResults) -- Server
 @enduml
+
+---------------------
+
 V2:
 @startuml
 left to right direction
