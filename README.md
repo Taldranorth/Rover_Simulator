@@ -14,6 +14,7 @@ Exigence Simulation:
 - Doit pouvoir gérer une carte souterraine(à définir)
 - Doit pouvoir gérer la Durée de la Simulation et l'objectif
 - L'utilisateur Doit pouvoir gérer des paramètres poussés de la simulation
+- Doit pouvoir enregistrer un setup de pramaètres (preset)
 
 ----------
 Bibliothèque Graphique:
