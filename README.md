@@ -16,7 +16,7 @@ Exigence Simulation:
 - L'utilisateur Doit pouvoir gérer des paramètres poussés de la simulation
 - Doit pouvoir enregistrer un setup de pramaètres (preset)
 - Doit pouvoir exporter les résultats de la simulation (fichier txt)
--Doit pouvoir sauvegarder et charger une simulation encore en cours
+- Doit pouvoir sauvegarder et charger une simulation encore en cours
 
 ----------
 Bibliothèque Graphique:
