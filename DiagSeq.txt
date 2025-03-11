@@ -1,6 +1,9 @@
 @startuml
 == Authentification ==
 Client -> Server:accède au serveur 
+note right
+  E1: Le serveur est indisponible
+end note
 
 Client -> Server:s'authentifie
 alt Authentification réussie  
