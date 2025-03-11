@@ -1,21 +1,21 @@
 @startuml
-== Authentification ==
+== Authentifier ==
 Client -> Server:accède au serveur 
 note right
   E1: Le serveur est indisponible
 end note
-
 Client -> Server:s'authentifie
 alt Authentification réussie  
   Server --> Client:autorise l’authentification 
 else Authentification échoué
  loop
-  Server --> Client:envoie un message d'échec de connexion
+  Server --> Client:retour d'échec de connexion
   Server --> Client:permet de s'authentifier à nouveau
   Client -> Server:s'authentifie
  end
 end
-== Paramétrage de la simulation ==
+
+== Paramétrer la simulation ==
 Client -> Server:configure sa simulation
 alt configuration tempête de sable
   Client -> Server:paramètre le pourcentage de tempête de sable 
@@ -29,22 +29,23 @@ Client -> Server:augmente la durabilité des roues
 Server --> Client:enregistre le paramètre 
 alt Sauvegarde locale
   Client -> Server:enregistre un préréglage de la configuration 
-  Server --> Client:envoie un fichier de données
+  Server --> Client:exporte le fichier de données 
 else Sauvegarde sur serveur
   Server --> Client:met à jour la liste des préréglage 
 end
+
 == Simulation ==
 Client -> Server:lance la simulation 
-Server -> Server:lance la simulation
+Server --> Client:débute la simulation
 alt Un seul rover 
   Client -> Server:modifie les paramètres de résistance du rover
 else Tous les rovers
   Client -> Server:modifie les paramètres de résistance des rovers
 end
 Server --> Client:enregistre la modification 
-== Sauvegarde ==
+
+== Sauvegarder ==
 Client -> Server:sauvegarde la simulation
 Server --> Client:crée un emplacement pour la sauvegarde 
-Client -> Server:exporte les résultats
-Server --> Client:envoie vers le client les résultats
+Server --> Client:exporte les résultats
 @enduml
