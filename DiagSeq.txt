@@ -1,0 +1,47 @@
+@startuml
+== Authentification ==
+Client -> Server:accède au serveur 
+
+Client -> Server:s'authentifie
+alt Authentification réussie  
+  Server --> Client:autorise l’authentification 
+else Authentification échoué
+ loop
+  Server --> Client:envoie un message d'échec de connexion
+  Server --> Client:permet de s'authentifier à nouveau
+  Client -> Server:s'authentifie
+ end
+end
+== Paramétrage de la simulation ==
+Client -> Server:configure sa simulation
+alt configuration tempête de sable
+  Client -> Server:paramètre le pourcentage de tempête de sable 
+else configuration pluie de météorite
+  Client -> Server:paramètre le pourcentage d'une pluie de météorite
+else configuration séisme
+  Client -> Server:paramètre le pourcentage d'un séisme
+end
+Server --> Client:enregistre le paramètre
+Client -> Server:augmente la durabilité des roues 
+Server --> Client:enregistre le paramètre 
+alt Sauvegarde locale
+  Client -> Server:enregistre un préréglage de la configuration 
+  Server --> Client:envoie un fichier de données
+else Sauvegarde sur serveur
+  Server --> Client:met à jour la liste des préréglage 
+end
+== Simulation ==
+Client -> Server:lance la simulation 
+Server -> Server:lance la simulation
+alt Un seul rover 
+  Client -> Server:modifie les paramètres de résistance du rover
+else Tous les rovers
+  Client -> Server:modifie les paramètres de résistance des rovers
+end
+Server --> Client:enregistre la modification 
+== Sauvegarde ==
+Client -> Server:sauvegarde la simulation
+Server --> Client:crée un emplacement pour la sauvegarde 
+Client -> Server:exporte les résultats
+Server --> Client:envoie vers le client les résultats
+@enduml
