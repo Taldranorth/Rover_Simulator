@@ -47,13 +47,6 @@ Afin de définir le cadre du projet, nous avons établi une liste des exigences 
 - Doit pouvoir enregistrer un setup de pramaètres (preset)
 - Doit pouvoir exporter les résultats de la simulation (fichier txt)
 - Doit pouvoir sauvegarder et charger une simulation encore en cours
-- Doit pouvoir Simuler une météo basique
-- Doit pouvoir gérer une carte souterraine(à définir)
-- Doit pouvoir gérer la Durée de la Simulation et l'objectif
-- L'utilisateur doit pouvoir gérer des paramètres poussés de la simulation
-- Doit pouvoir enregistrer un setup de pramaètres (preset)
-- Doit pouvoir exporter les résultats de la simulation (fichier txt)
-- Doit pouvoir sauvegarder et charger une simulation encore en cours
 
 ---
 
