@@ -3,13 +3,13 @@
 
 ## Table des matières  
 - [Introduction](#introduction)  
-- [1. Axe Statique](#1-axe-statique)  
+- [1. Axe Fonctionnel](#1-axe-statique)  
   - [a. Exigences](#a-exigences)  
   - [b. Acteurs](#b-acteurs)  
   - [c. Diagramme UML](#c-diagramme-uml)  
   - [d. Scénario Nominal](#d-scénario-nominal)  
   - [e. Diagramme de Séquence](#e-diagramme-de-séquence)  
-- [2. Axe Fonctionnel](#2-axe-fonctionnel)  
+- [2. Axe Statique](#2-axe-fonctionnel)  
 - [3. Axe Dynamique](#3-axe-dynamique)  
 - [Conclusion](#conclusion)  
 - [Annexes](#annexes)  
@@ -23,7 +23,7 @@ L'objectif du projet est de simuler l'exploration autonome de rovers sur un terr
 
 ---
 
-## 1. Axe Statique  
+## 1. Axe Fonctionnel  
 
 ### a. Exigences  
 Afin de définir le cadre du projet, nous avons établi une liste des exigences essentielles.  
@@ -101,7 +101,7 @@ Le scénario nominal nous a permis de concevoir un **diagramme de séquence** d�
 
 ---
 
-## 2. Axe Fonctionnel  
+## 2. Axe Statique
 *(Contenu à venir...)*  
 
 ---
