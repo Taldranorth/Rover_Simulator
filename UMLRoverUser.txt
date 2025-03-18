@@ -25,8 +25,8 @@ actor User
 package SI{
 User -- (LogIn) 
 User -- (Configure Parameters)
-  (Load parameters) <. (Configure Parameters): extends
-  (Save parameters) <. (Configure Parameters): extends
+  (Load \nparameters) <. (Configure Parameters): extends
+  (Save \nparameters) <. (Configure Parameters): extends
 User -- (Manage Simulation)
   (Load) <. (Manage Simulation): extends
   (Save) <. (Manage Simulation): extends
