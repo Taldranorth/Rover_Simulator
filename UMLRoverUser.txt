@@ -4,19 +4,15 @@ left to right direction
 rectangle "Server"
 actor User 
 package SI{
-User --(Configure)
 User --(LogIn) 
-User --(Manage)
-User --(Save)
-User --(Load)
-User --(ExportResults)
+User --(Configure Parameters)
+User --(Manage Simulation)
 }
-(Configure)  -- Server
+
+
+(Configure Parameters)  -- Server
+(Manage Simulation)-- Server
 (LogIn) -- Server
-(Manage)-- Server
-(Save)-- Server
-(Load) -- Server
-(ExportResults) -- Server
 @enduml
 
 ---------------------
