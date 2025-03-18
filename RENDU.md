@@ -3,13 +3,13 @@
 
 ## Table des matières  
 - [Introduction](#introduction)  
-- [1. Axe Fonctionnel](#1-axe-statique)  
+- [1. Axe Fonctionnel](#1-axe-fonctionnel)  
   - [a. Exigences](#a-exigences)  
   - [b. Acteurs](#b-acteurs)  
   - [c. Diagramme UML](#c-diagramme-uml)  
   - [d. Scénario Nominal](#d-scénario-nominal)  
   - [e. Diagramme de Séquence](#e-diagramme-de-séquence)  
-- [2. Axe Statique](#2-axe-fonctionnel)  
+- [2. Axe Statique](#2-axe-statique)  
 - [3. Axe Dynamique](#3-axe-dynamique)  
 - [Conclusion](#conclusion)  
 - [Annexes](#annexes)  
