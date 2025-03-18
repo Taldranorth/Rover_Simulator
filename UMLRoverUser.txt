@@ -23,21 +23,17 @@ left to right direction
 rectangle "Server"
 actor User 
 package SI{
-User --(Configure)
-User --(LogIn) 
-User --(Manage)
-User --(Save)
- (Save)<-- (Parameters)
- (Save)<--(Simulation)
-User --(Load)
- (Load)<-- (Parameters)
- (Load)<--(Simulation)
-User --(ExportResults)
-}
-(Configure)  -- Server
+User -- (LogIn) 
+User -- (Configure Parameters)
+  (Load parameters) <. (Configure Parameters): extends
+  (Save parameters) <. (Configure Parameters): extends
+User -- (Manage Simulation)
+  (Load) <. (Manage Simulation): extends
+  (Save) <. (Manage Simulation): extends
+  (Export Results) <. (Manage Simulation): extends
+
+(Configure Parameters) -- Server
+(Manage Simulation) -- Server
 (LogIn) -- Server
-(Manage)-- Server
-(Save)-- Server
-(Load) -- Server
-(ExportResults) -- Server
+}
 @enduml
