@@ -58,10 +58,10 @@ Nous avons identifié les principaux acteurs intervenant dans la simulation :
 
 ### c. Diagramme UML  
 Nous avons réalisé un premier diagramme UML (L1) pour représenter l’utilisateur principal du système :  
-![Diagramme UML LL1](./imageRendu/UMLRoverUserV1.png)  
+![Diagramme UML LL1](./imageRendu/DiagUC_v1.png)  
 
 Ce premier diagramme nous a permis d'affiner notre modèle et de proposer une version améliorée (L2) :  
-![Diagramme UML LL2](./imageRendu/UMLRoverUserV2.png)  
+![Diagramme UML LL2](./imageRendu/DiagUC_v2.png) 
 
 ---
 
@@ -90,7 +90,7 @@ Nous avons défini un **scénario nominal** pour illustrer le processus standard
 
 ### e. Diagramme de Séquence  
 Le scénario nominal nous a permis de concevoir un **diagramme de séquence** décrivant les interactions entre les différentes entités :  
-![Diagramme de Séquence](./imageRendu/DiagrammeSequence.png)  
+![Diagramme de Séquence](./imageRendu/DiagSeq_EN.png)  
 
 ---
 
