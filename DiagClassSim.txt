@@ -1,0 +1,20 @@
+@startuml
+left to right direction
+CMenuGUI *-- CButtonGUI
+CMenuGUI ..> CMenuCTRL
+CMenuCTRL ..> CSimulationFactory
+CSimulationFactory ..> CSimulation
+CMenuCTRL ..> CSimulationGUI
+note "Sing" as S
+S .. CSimulationFactory
+S .. CRoverFactory
+CSimulationGUI *-- CButtonGUI
+CSimulationGUI ..> CSimulationCTRL
+CSimulationCTRL ..> CRoverFactory
+CRoverFactory ..> CRover
+CSimulationCTRL ..> CRover
+CSimulation ..> CMenuCTRL
+CMenuCTRL ..> CSimulationDAO
+CData <..> CSimulationCTRL
+CSimulation ..> CSimulationCTRL
+@enduml
