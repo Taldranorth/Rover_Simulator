@@ -2,4 +2,8 @@
 # Fichier qui vient Contenir la Classe Factory de la Simulation
 ########################################################################
 
-from "./Simulation/CSimulation.py" import CSimulation
+from src.Simulation.CSimulation import CSimulation
+
+class CSimulationFactory:
+	def __init__(self):
+		pass

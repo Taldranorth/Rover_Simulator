@@ -2,7 +2,7 @@
 # Fichier qui vient Contenir la Classe Composants
 ########################################################################
 
-class CComposants:
+class CComponents:
 	def __init__(self, nm, rs):
 		# Initialisation des Attributs
 		# Nom du Composants
@@ -16,4 +16,4 @@ class CComposants:
 		# Méthode pour changer la durabilité selon la résistance
 		durability = change*(rs/100)
 
-		
+

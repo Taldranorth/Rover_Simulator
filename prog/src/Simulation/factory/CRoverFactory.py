@@ -1,7 +1,7 @@
 ########################################################################
 # Fichier qui vient Contenir la Classe Factory du Rover
 ########################################################################
-from "./src/Simulation/CRover.py" import CRover
+from src.Simulation.CRover import CRover
 
 class CRoverFactory:
 	def __init__(self):

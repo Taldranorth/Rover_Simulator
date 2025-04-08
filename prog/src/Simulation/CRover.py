@@ -2,7 +2,7 @@
 # Fichier qui vient Contenir la Classe du Rover
 ########################################################################
 
-from "./usr/Simulation/CComponents.py" import CComponents
+from src.Simulation.CComponents import CComponents
 
 
 class CRover:
