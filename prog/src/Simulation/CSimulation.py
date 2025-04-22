@@ -66,7 +66,7 @@ class CSimulation:
 				rover.apply_damage_sandstorm(self.parameters.sandstorm_damage, self.sandstorm_intensity)
 			if self.is_solarstorm:
 				rover.apply_damage_solarstorm(self.parameters.solarstorm_damage, self.solarstorm_intensity)
-				
+
 			ls_damage = [self.parameters.wheel_damage,
 						self.parameters.arm_damage,
 						self.parameters.frame_damage,
@@ -74,7 +74,7 @@ class CSimulation:
 						self.parameters.solar_panel_damage,
 						self.parameters.cell_damage,
 						self.parameters.antenna_damage]
-			rover.apply_damage_global(ls_damage)
+			rover.apply_damage_global(ls_damage, self.temp)
 			
 	def update_temp(self):
 		# Update la temperature
@@ -107,10 +107,10 @@ class CSimulation:
 		else:
 			for i, rover in enumerate(self.factory.ls_rover):
 				print(f"[Rover {i+1}] Nom : {rover.name if hasattr(rover, 'name') else 'Inconnu'}")
-				if hasattr(rover, 'get_status'):  # Si le rover a une méthode de status
-					print(rover.get_status())
+				if hasattr(rover, 'show_status'):  # Si le rover a une méthode de status
+					print(rover.show_status())
 				else:
-					print("  → Détail indisponible (ajouter une méthode `get_status` dans le rover)")
+					print("  → Détail indisponible (ajouter une méthode `show_status` dans le rover)")
 		print("====================================\n")
 
 

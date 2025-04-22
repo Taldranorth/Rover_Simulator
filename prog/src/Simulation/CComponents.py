@@ -14,7 +14,7 @@ class CComponents:
 
 	def damage_durability(self, change):
 		# Méthode pour abimer la durabilité du composants selon la résistance
-		self.durability = change*(self.resistance/100)
+		self.durability -= change*(self.resistance/100)
 
 	def change_durability(self, change):
 		# Méthode pour changer la durabilité selon la résistance

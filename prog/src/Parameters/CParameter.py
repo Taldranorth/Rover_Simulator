@@ -71,6 +71,8 @@ class CParameter:
 		self.cell_damage = 1
 		#Antenne
 		self.antenna_damage = 1
+		
+        
 
 
 
