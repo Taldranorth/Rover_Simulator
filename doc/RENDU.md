@@ -32,7 +32,7 @@ Afin de définir le cadre du projet, nous avons établi une liste des exigences 
 - Doit être connecté entre eux
 - Doit pouvoir gérer la perte d'un membre de manière automatique
 - Doit pouvoir gérer sa trajectoire selon la topographie
-- Doit pouvoir gérer le carburant/l'Usure
+- Doit pouvoir gérer l'usure
 - Doit pouvoir gérer la positions des échantillons
 - Doit pouvoir gérer un réseau de Rover
 
@@ -66,7 +66,6 @@ Ce premier diagramme nous a permis d'affiner notre modèle et de proposer une ve
 
 ### d. Scénario Nominal  
 Nous avons défini un **scénario nominal** pour illustrer le processus standard d'utilisation du système.  
-
 #### **Scénario nominal : Lancer une simulation**  
 1. Le client accède au serveur
 2. Le client s'authentifie sur le serveur 
@@ -94,13 +93,7 @@ Le scénario nominal nous a permis de concevoir un **diagramme de séquence** d�
 ---
 
 ## 2. Axe Statique
-*(Contenu à venir...)*  
-
----
-
-## 3. Axe Dynamique  
-*(Contenu à venir...)*  
-
+![Diagramme de Classe](./imageRendu/DiagClass.png)  
 ---
 
 ## Conclusion  
