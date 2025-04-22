@@ -68,12 +68,20 @@ Ce premier diagramme nous a permis d'affiner notre modèle et de proposer une ve
 Nous avons défini un **scénario nominal** pour illustrer le processus standard d'utilisation du système.  
 #### **Scénario nominal : Lancer une simulation**  
 1. Le client accède au serveur
-2. Le client s'authentifie sur le serveur 
-3. Le client configure sa simulation (choisit le temps, la météo, etc)
-4. La simulation se lance
-5. Durant la simulation le Client peut modifier les paramètres de celle-ci
-6. Le client sauvegarde la simulation
-7. Après validation de la sauvegarde par le serveur le client peut exporter les résultats de la simulation en local
+2. Le client s'authentifie sur le serveur
+3. Le serveur autorise l'authentification
+4. Le client configure sa simulation (choisit le temps, la météo, etc)
+5. Le serveur sauvegarde les paramètres
+6. Le client augmente la durabilité des roues
+7. Le serveur sauvegarde le paramètre
+8. Le client veut sauvegarde ses paramètre définis pour plus tard localement
+9. Le serveur renvoie un fichier data au client
+10. Le client lance la simulation
+11. Le client modifie la résistance d'un rover
+12. Le serveur sauvegarde la modification
+14. Le client sauvegarde la simulation
+15. Le serveur crée un nouvel emplacement pour stocker la sauvegarde
+16. Après validation de la sauvegarde par le serveur le client peut exporter les résultats de la simulation 
 
 #### **Exceptions**  
 - **E1 : Serveur indisponible ou inexistant**  
@@ -81,18 +89,25 @@ Nous avons défini un **scénario nominal** pour illustrer le processus standard
   - Un message d’erreur est affiché expliquant la raison.  
 
 - **E2 : Échec d’authentification**  
-  - Le serveur renvoie un message d’échec.  
-  - Le client doit saisir correctement ses identifiants.  
+  - Le serveur renvoie un message d’échec.
+  - Le serveur autorise un nouvel essai de connexion
+  - Le client doit resaisir ses identifiants tant qu'ils sont éronnés
 
+#### **Alternatives**
+- **Alt1 : Modification de la résistance sur plusieurs rovers**
+  - Le client modifie la résistance de plusieurs rovers
 ---
 
 ### e. Diagramme de Séquence  
 Le scénario nominal nous a permis de concevoir un **diagramme de séquence** décrivant les interactions entre les différentes entités :  
+
 ![Diagramme de Séquence](./imageRendu/DiagSeq_EN.png)  
 
 ---
 
 ## 2. Axe Statique
+L'axe fonctionnel nous a permis de mettre en place les différentes faces du projet qui nous a menés à créer ce **diagramme de classe**:
+
 ![Diagramme de Classe](./imageRendu/DiagClass.png)  
 ---
 
