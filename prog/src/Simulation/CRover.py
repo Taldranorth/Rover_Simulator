@@ -10,22 +10,22 @@ class CRover:
 		# Initialisation des Attributs
 		# liste des Composante
 		# Roue
-		wheel1 = CComponents("Roue1", 25)
-		wheel2 = CComponents("Roue2", 25)
-		wheel3 = CComponents("Roue3", 25)
-		wheel4 = CComponents("Roue4", 25)		
+		self.wheel1 = CComponents("Roue1", 25)
+		self.wheel2 = CComponents("Roue2", 25)
+		self.wheel3 = CComponents("Roue3", 25)
+		self.wheel4 = CComponents("Roue4", 25)		
 		# Bras
-		arm = CComponents("Bras", 25)
+		self.arm = CComponents("Bras", 25)
 		# Chassis
-		frame = CComponents("Chassis", 25)
+		self.frame = CComponents("Chassis", 25)
 		# Caméra
-		camera = CComponents("Camera", 25)
+		self.camera = CComponents("Camera", 25)
 		# Panneau Solaire
-		solar_pannel = CComponents("Panneaux Solaire", 25)
+		self.solar_pannel = CComponents("Panneaux Solaire", 25)
 		# Batterie
-		cell = CComponents("Batterie", 25)
+		self.cell = CComponents("Batterie", 25)
 		# Antenne
-		antenna = CComponents("Antenne", 25)
+		self.antenna = CComponents("Antenne", 25)
 
 	def apply_damage_global(self, damage):
 		# Méthode pour appliquer les dégats de manière globale à tout les Composants
