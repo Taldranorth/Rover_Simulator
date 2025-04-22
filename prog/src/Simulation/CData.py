@@ -3,7 +3,7 @@
 ########################################################################
 
 from src.Simulation.CRover import CRover
-from src.Simulation.factory.CRoverFactory import CRoverFactory
+from src.Simulation.Factory.CRoverFactory import CRoverFactory
 
 
 
