@@ -1,4 +1,5 @@
 import sys
+import PyQt6
 
 from PySide6 import QtCore, QtWidgets, QtGui, QtQml
 from PySide6.QtGui import QGuiApplication

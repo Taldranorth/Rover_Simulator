@@ -14,6 +14,6 @@ class CComponents:
 
 	def change_durability(self, change):
 		# Méthode pour changer la durabilité selon la résistance
-		durability = change*(rs/100)
+		durability = change*(self.resistance/100)
 
 
