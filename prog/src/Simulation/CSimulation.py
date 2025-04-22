@@ -24,6 +24,9 @@ class CSimulation:
 		#Fais les degats au Rover
 		self.apply_damage()
 
+		# Mets a jour la temperature.
+		self.update_temp()
+
 		#Gestion du temp
 		self.hour+=1
 		if self.hour == 24:
@@ -48,7 +51,7 @@ class CSimulation:
 
 		# Tempête Sable
 		sand_prob = randint(0,100)
-		if not self.is_sand_torm:
+		if not self.is_sandstorm:
 			if self.parameters.sandstorm_probability_spawn <= sand_prob:
 				self.is_sandstorm = True
 				self.sandstorm_intensity = randint(1,10)
@@ -63,6 +66,61 @@ class CSimulation:
 				rover.apply_damage_sandstorm(self.parameters.sandstorm_damage, self.sandstorm_intensity)
 			if self.is_solarstorm:
 				rover.apply_damage_solarstorm(self.parameters.solarstorm_damage, self.solarstorm_intensity)
-			rover.apply_global_damage(self.parameters.global_damage)
+				
+			ls_damage = [self.parameters.wheel_damage,
+						self.parameters.arm_damage,
+						self.parameters.frame_damage,
+						self.parameters.camera_damage,
+						self.parameters.solar_panel_damage,
+						self.parameters.cell_damage,
+						self.parameters.antenna_damage]
+			rover.apply_damage_global(ls_damage)
 			
+	def update_temp(self):
+		# Update la temperature
+		if self.hour <= 12: # augemente entre minuit et midi 
+			if self.temp != self.parameters.maxtemp: # si la temp n'est pas encore au max
+				self.temp += randint(0,20) # on l'augemente entre 0 et 20 
+				if self.temp > self.parameters.maxtemp: # si on a depasse le max, temp = max_temp
+					self.temp = self.parameters.maxtemp
+		else: #diminue entre minuit et midi 
+			if self.temp != self.parameters.mintemp: 
+				self.temp -= randint(0,20) 
+				if self.temp < self.parameters.mintemp: 
+					self.temp = self.parameters.mintemp
+
+	def afficher(self):
+		print("========== ÉTAT DE LA SIMULATION ==========")
+		print(f"Jour martien (sol)         : {self.days}")
+		print(f"Heure                      : {self.hour}h")
+		print(f"Température actuelle       : {self.temp}°C")
+		print(f"Tempête de sable           : {'Oui' if self.is_sandstorm else 'Non'}")
+		if self.is_sandstorm:
+			print(f"  → Intensité              : {self.sandstorm_intensity}")
+		print(f"Tempête solaire            : {'Oui' if self.is_solarstorm else 'Non'}")
+		if self.is_solarstorm:
+			print(f"  → Intensité              : {self.solarstorm_intensity}")
+		
+		print("========== ÉTAT DES ROVERS ==========")
+		if not self.factory.ls_rover:
+			print("Aucun rover dans la simulation.")
+		else:
+			for i, rover in enumerate(self.factory.ls_rover):
+				print(f"[Rover {i+1}] Nom : {rover.name if hasattr(rover, 'name') else 'Inconnu'}")
+				if hasattr(rover, 'get_status'):  # Si le rover a une méthode de status
+					print(rover.get_status())
+				else:
+					print("  → Détail indisponible (ajouter une méthode `get_status` dans le rover)")
+		print("====================================\n")
+
+
+
+if __name__ == "__main__":
+	from src.Parameters.CParameter import CParameter
+	cp = CParameter()
+	s = CSimulation(cp)
+
+	for _ in range(5):
+		s.update_hour()
+		s.afficher()
 
