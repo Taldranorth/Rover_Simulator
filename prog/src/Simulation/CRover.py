@@ -27,25 +27,25 @@ class CRover:
 		# Antenne
 		self.antenna = CComponents("Antenne", 25)
 
-	def apply_damage_global(self, damage):
+	def apply_damage_global(self, lsdamage):
 		# Méthode pour appliquer les dégats de manière globale à tout les Composants
 		# Roue
-		self.wheel1.damage_durability(damage)
-		self.wheel2.damage_durability(damage)
-		self.wheel3.damage_durability(damage)
-		self.wheel4.damage_durability(damage)
+		self.wheel1.damage_durability(lsdamage[0])
+		self.wheel2.damage_durability(lsdamage[0])
+		self.wheel3.damage_durability(lsdamage[0])
+		self.wheel4.damage_durability(lsdamage[0])
 		#Bras
-		self.arm.damage_durability(damage)
+		self.arm.damage_durability(lsdamage[1])
 		#Chassis
-		self.frame.damage_durability(damage)
+		self.frame.damage_durability(lsdamage[2])
 		#Camera
-		self.camera.damage_durability(damage)
+		self.camera.damage_durability(lsdamage[3])
 		#Panneau Solaire
-		self.solar_pannel.damage_durability(damage)
+		self.solar_pannel.damage_durability(lsdamage[4])
 		#Batterie
-		self.cell.damage_durability(damage)
+		self.cell.damage_durability(lsdamage[5])
 		#Antenne
-		self.antenna.damage_durability(damage)
+		self.antenna.damage_durability(lsdamage[6])
 
 	def apply_damage_sandstorm(self, damage, intensity):
 		# Méthode pour appliquer les dégats de la tempête de sable
