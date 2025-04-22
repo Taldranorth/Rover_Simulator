@@ -68,7 +68,7 @@ class CParameter:
 		#Panneau Solaire
 		self.solar_panel_damage = 1
 		#Batterie
-		self.cell_rs_damage = 1
+		self.cell_damage = 1
 		#Antenne
 		self.antenna_damage = 1
 

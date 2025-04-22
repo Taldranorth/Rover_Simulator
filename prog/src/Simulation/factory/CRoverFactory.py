@@ -5,10 +5,9 @@ from src.Simulation.CRover import CRover
 
 class CRoverFactory:
 	def __init__(self):
-		ls_rover = []
-		pass
+		self.ls_rover = []
 
 	def create_Rover(self):
 		rover = CRover()
-		ls_rover += [rover]
+		self.ls_rover += [rover]
 	

@@ -98,7 +98,7 @@ class CRover:
 		elif Components == self.solar_pannel:
 			self.solar_pannel.change_durability(newdr)
 		elif Components == self.cell:
-			cell.change_durability(newdr)
+			self.cell.change_durability(newdr)
 		elif Components == self.antenna:
 			self.antenna.change_durability(newdr)
 
