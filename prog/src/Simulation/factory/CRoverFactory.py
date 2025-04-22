@@ -11,3 +11,4 @@ class CRoverFactory:
 	def create_Rover(self):
 		rover = CRover()
 		ls_rover += [rover]
+	

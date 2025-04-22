@@ -27,7 +27,7 @@ class CRover:
 		# Antenne
 		antenna = CComponents("Antenne", 25)
 
-
+	
 
 
 		pass
