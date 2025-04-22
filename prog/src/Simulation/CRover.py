@@ -124,6 +124,20 @@ class CRover:
 			self.cell.change_resistance(newrs)
 		elif Components == self.antenna:
 			self.antenna.change_resistance(newrs)
-
+	
+	def show_status(self):
+		status = [
+			f"{self.wheel1.name}: Durabilité = {self.wheel1.durability}%, Résistance = {self.wheel1.resistance}",
+			f"{self.wheel2.name}: Durabilité = {self.wheel2.durability:.2f}%, Résistance = {self.wheel2.resistance}",
+			f"{self.wheel3.name}: Durabilité = {self.wheel3.durability:.2f}%, Résistance = {self.wheel3.resistance}",
+			f"{self.wheel4.name}: Durabilité = {self.wheel4.durability:.2f}%, Résistance = {self.wheel4.resistance}",
+			f"{self.arm.name}: Durabilité = {self.arm.durability:.2f}%, Résistance = {self.arm.resistance}",
+			f"{self.frame.name}: Durabilité = {self.frame.durability:.2f}%, Résistance = {self.frame.resistance}",
+			f"{self.camera.name}: Durabilité = {self.camera.durability:.2f}%, Résistance = {self.camera.resistance}",
+			f"{self.solar_pannel.name}: Durabilité = {self.solar_pannel.durability:.2f}%, Résistance = {self.solar_pannel.resistance}",
+			f"{self.cell.name}: Durabilité = {self.cell.durability:.2f}%, Résistance = {self.cell.resistance}",
+			f"{self.antenna.name}: Durabilité = {self.antenna.durability:.2f}%, Résistance = {self.antenna.resistance}",
+		]
+		return "\n".join(status)
 
 
