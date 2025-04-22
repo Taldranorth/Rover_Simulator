@@ -1,5 +1,5 @@
 # Rapport de Projet Rover  
-*by ...*  
+*by Dixon Joshua / Chaudet Fearghal / Bourdon Kilian*  
 
 ## Table des matières  
 - [Introduction](#introduction)  
