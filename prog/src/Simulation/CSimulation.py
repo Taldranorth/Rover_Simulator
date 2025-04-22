@@ -2,7 +2,7 @@
 # Fichier qui vient Contenir la Classe de la Simulation
 ########################################################################
 from random import randint
-from src.Simulation.Factory.CRoverFactory import CRoverFactory
+from src.Simulation.factory.CRoverFactory import CRoverFactory
 
 class CSimulation:
 	def __init__(self, CParam):
