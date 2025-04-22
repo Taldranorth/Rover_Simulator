@@ -1,6 +1,9 @@
 ########################################################################
 # Fichier qui vient Contenir la Classe Composants
 ########################################################################
+#ajouter gestion des dégats selon la température
+
+
 
 class CComponents:
 	def __init__(self, nm, rs):
