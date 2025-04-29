@@ -89,6 +89,16 @@ class CSimulation:
 				if self.temp < self.parameters.mintemp: 
 					self.temp = self.parameters.mintemp
 
+
+	def is_end(self):
+		# Méthode qui vérifit si la limite en jour de la simulation à était atteinte
+		print("jour: ", self.days)
+		print("max jour: ", self.parameters.maxdays)
+		if self.days >= self.parameters.maxdays:
+			return True
+		else:
+			return False
+
 	def afficher(self):
 		print("========== ÉTAT DE LA SIMULATION ==========")
 		print(f"Jour martien (sol)         : {self.days}")
@@ -107,8 +117,6 @@ class CSimulation:
 		else:
 			self.factory.show_status_rover()
 		print("====================================\n")
-
-
 
 if __name__ == "__main__":
 	from src.Parameters.CParameter import CParameter

@@ -23,7 +23,6 @@ class CRoverFactory:
 		# Méthode pour retirer un rover
 		self.ls_rover = self.ls_rover[:i] + self.ls_rover[i+1:]
 
-
 	def show_status_rover_single(self, i):
 		# Méthode pour afficher le status d'un unique Rover
 		print(f"[Rover {i}] Nom : {self.ls_rover[i].name if hasattr(rover, 'name') else 'Inconnu'}")

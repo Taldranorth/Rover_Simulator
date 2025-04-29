@@ -24,9 +24,9 @@ class CComponents:
 		#### Calcule de l'effet de la température ####
 		temp_effect = 0
 		if temperature < 0:
-			temp_effect = temperature/mintemp
+			temp_effect = temperature/self.mintemp
 		else:
-			temp_effect = temperature/maxtemp
+			temp_effect = temperature/self.maxtemp
 
 		# Si l'effet de la température est minim ont met à 0
 		if temp_effect < 0.5:
