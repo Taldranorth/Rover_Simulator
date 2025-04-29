@@ -63,9 +63,9 @@ class CSimulation:
 		# applique les dégats a chaque rover
 		for rover in self.factory.ls_rover:
 			if self.is_sandstorm:
-				rover.apply_damage_sandstorm(self.parameters.sandstorm_damage, self.sandstorm_intensity)
+				rover.apply_damage_sandstorm(self.parameters.sandstorm_damage, self.sandstorm_intensity, self.temp)
 			if self.is_solarstorm:
-				rover.apply_damage_solarstorm(self.parameters.solarstorm_damage, self.solarstorm_intensity)
+				rover.apply_damage_solarstorm(self.parameters.solarstorm_damage, self.solarstorm_intensity, self.temp)
 
 			ls_damage = [self.parameters.wheel_damage,
 						self.parameters.arm_damage,
@@ -105,12 +105,7 @@ class CSimulation:
 		if not self.factory.ls_rover:
 			print("Aucun rover dans la simulation.")
 		else:
-			for i, rover in enumerate(self.factory.ls_rover):
-				print(f"[Rover {i+1}] Nom : {rover.name if hasattr(rover, 'name') else 'Inconnu'}")
-				if hasattr(rover, 'show_status'):  # Si le rover a une méthode de status
-					print(rover.show_status())
-				else:
-					print("  → Détail indisponible (ajouter une méthode `show_status` dans le rover)")
+			self.factory.show_status_rover()
 		print("====================================\n")
 
 

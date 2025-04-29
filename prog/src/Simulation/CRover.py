@@ -47,84 +47,133 @@ class CRover:
 		#Antenne
 		self.antenna.damage_durability(lsdamage[6], temp)
 
-	def apply_damage_sandstorm(self, damage, intensity):
+	def apply_damage_sandstorm(self, damage, intensity, temp):
 		# Méthode pour appliquer les dégats de la tempête de sable
 		dmg = damage*intensity
 		#Roue
-		self.wheel1.damage_durability(dmg)
-		self.wheel2.damage_durability(dmg)
-		self.wheel3.damage_durability(dmg)
-		self.wheel4.damage_durability(dmg)
+		self.wheel1.damage_durability(dmg, temp)
+		self.wheel2.damage_durability(dmg, temp)
+		self.wheel3.damage_durability(dmg, temp)
+		self.wheel4.damage_durability(dmg, temp)
 		#Camera
-		self.camera.damage_durability(dmg)
+		self.camera.damage_durability(dmg, temp)
 		#Bras
-		self.arm.damage_durability(dmg)
+		self.arm.damage_durability(dmg, temp)
 		#Panneaux Solaire
-		self.solar_pannel.damage_durability(dmg)
+		self.solar_pannel.damage_durability(dmg, temp)
 		#Chassis
-		self.frame.damage_durability(dmg)
+		self.frame.damage_durability(dmg, temp)
 		#Antenne
-		self.antenna.damage_durability(dmg)
+		self.antenna.damage_durability(dmg, temp)
 
-	def apply_damage_solarstorm(self, damage, intensity):
+	def apply_damage_solarstorm(self, damage, intensity, temp):
 		# Méthode pour appliquer les dégats de la tempête solaire
 		dmg = damage*intensity
 		#Camera
-		self.camera.damage_durability(dmg)
+		self.camera.damage_durability(dmg, temp)
 		#Batterie
-		self.cell.damage_durability(dmg)
+		self.cell.damage_durability(dmg, temp)
 		#Panneau Solaire
-		self.solar_pannel.damage_durability(dmg)
+		self.solar_pannel.damage_durability(dmg, temp)
 		#Antenne
-		self.antenna.damage_durability(dmg)
+		self.antenna.damage_durability(dmg, temp)
 
 
-	def change_durability(self, Components, newdr):
-		# Méthode pour changer la durabilité d'un composants
+	# Setter
+
+	def set_durability(self, Components, newdr):
+		# Méthode pour set la durabilité d'un composants
 		if Components == self.wheel1:
-			self.wheel1.change_durability(newdr)
+			self.wheel1.set_durability(newdr)
 		elif Components == self.wheel2:
-			self.wheel2.change_durability(newdr)
+			self.wheel2.set_durability(newdr)
 		elif Components == self.wheel3:
-			self.wheel3.change_durability(newdr)
+			self.wheel3.set_durability(newdr)
 		elif Components == self.wheel4:
-			self.wheel4.change_durability(newdr)
+			self.wheel4.set_durability(newdr)
 		elif Components == self.arm:
-			self.arm.change_durability(newdr)
+			self.arm.set_durability(newdr)
 		elif Components == self.frame:
-			self.frame.change_durability(newdr)
+			self.frame.set_durability(newdr)
 		elif Components == self.camera:
-			self.camera.change_durability(newdr)
+			self.camera.set_durability(newdr)
 		elif Components == self.solar_pannel:
-			self.solar_pannel.change_durability(newdr)
+			self.solar_pannel.set_durability(newdr)
 		elif Components == self.cell:
-			self.cell.change_durability(newdr)
+			self.cell.set_durability(newdr)
 		elif Components == self.antenna:
-			self.antenna.change_durability(newdr)
+			self.antenna.set_durability(newdr)
 
-	def change_resistance(self, Components, newrs):
-		# Méthoder pour changer la résistance d'un composants
+	def set_resistance(self, Components, newrs):
+		# Méthode pour set la résistance d'un composants
 		if Components == self.wheel1:
-			self.wheel1.change_resistance(newrs)
+			self.wheel1.set_resistance(newrs)
 		elif Components == self.wheel2:
-			self.wheel2.change_resistance(newrs)
+			self.wheel2.set_resistance(newrs)
 		elif Components == self.wheel3:
-			self.wheel3.change_resistance(newrs)
+			self.wheel3.set_resistance(newrs)
 		elif Components == self.wheel4:
-			self.wheel4.change_resistance(newrs)
+			self.wheel4.set_resistance(newrs)
 		elif Components == self.arm:
-			self.arm.change_resistance(newrs)
+			self.arm.set_resistance(newrs)
 		elif Components == self.frame:
-			self.frame.change_resistance(newrs)
+			self.frame.set_resistance(newrs)
 		elif Components == self.camera:
-			self.camera.change_resistance(newrs)
+			self.camera.set_resistance(newrs)
 		elif Components == self.solar_pannel:
-			self.solar_pannel.change_resistance(newrs)
+			self.solar_pannel.set_resistance(newrs)
 		elif Components == self.cell:
-			self.cell.change_resistance(newrs)
+			self.cell.set_resistance(newrs)
 		elif Components == self.antenna:
-			self.antenna.change_resistance(newrs)
+			self.antenna.set_resistance(newrs)
+
+	def set_maxtemp(self, Components, newtemp):
+		# Méthode pour set la temp min d'un composants
+		if Components == self.wheel1:
+			self.wheel1.set_maxtemp(newtemp)
+		elif Components == self.wheel2:
+			self.wheel2.set_maxtemp(newtemp)
+		elif Components == self.wheel3:
+			self.wheel3.set_maxtemp(newtemp)
+		elif Components == self.wheel4:
+			self.wheel4.set_maxtemp(newtemp)
+		elif Components == self.arm:
+			self.arm.set_maxtemp(newtemp)
+		elif Components == self.frame:
+			self.frame.set_maxtemp(newtemp)
+		elif Components == self.camera:
+			self.camera.set_maxtemp(newtemp)
+		elif Components == self.solar_pannel:
+			self.solar_pannel.set_maxtemp(newtemp)
+		elif Components == self.cell:
+			self.cell.set_maxtemp(newtemp)
+		elif Components == self.antenna:
+			self.antenna.set_maxtemp(newtemp)
 	
+	def set_mintemp(self, Components, newtemp):
+		# Méthode pour set la temp min d'un composants
+		if Components == self.wheel1:
+			self.wheel1.set_mintemp(newtemp)
+		elif Components == self.wheel2:
+			self.wheel2.set_mintemp(newtemp)
+		elif Components == self.wheel3:
+			self.wheel3.set_mintemp(newtemp)
+		elif Components == self.wheel4:
+			self.wheel4.set_mintemp(newtemp)
+		elif Components == self.arm:
+			self.arm.set_mintemp(newtemp)
+		elif Components == self.frame:
+			self.frame.set_mintemp(newtemp)
+		elif Components == self.camera:
+			self.camera.set_mintemp(newtemp)
+		elif Components == self.solar_pannel:
+			self.solar_pannel.set_mintemp(newtemp)
+		elif Components == self.cell:
+			self.cell.set_mintemp(newtemp)
+		elif Components == self.antenna:
+			self.antenna.set_mintemp(newtemp)
+
+
 	def show_status(self):
 		status = [
 			f"{self.wheel1.name}: Durabilité = {self.wheel1.durability}%, Résistance = {self.wheel1.resistance}",

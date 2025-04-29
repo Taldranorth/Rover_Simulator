@@ -10,8 +10,33 @@
 	-> Mise en place de l'interface homme-machine
 	-> Mise en place des graphique
 
-
 - 3°) Séparation entre Serveur et client
 	-> séparation des processus
 	-> Mise en place des envoit de signaux
 	-> Mise en place des sémaphores pour bloquer les process important
+
+
+
+tableau:
+
+-----------------------------------------
+|	Rover			|					|
+-----------------------------------------
+|	Composant		|					|
+-----------------------------------------
+|	Température		|					|
+-----------------------------------------
+|	Météo			|					|
+-----------------------------------------
+|	Sauvegarde		|					|
+-----------------------------------------
+|	Paramètre		|					|
+-----------------------------------------
+|					|					|
+-----------------------------------------
+|					|					|
+-----------------------------------------
+|					|					|
+-----------------------------------------
+|					|					|
+-----------------------------------------
