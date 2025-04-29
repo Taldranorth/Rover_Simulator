@@ -4,7 +4,6 @@
 
 from src.Simulation.CComponents import CComponents
 
-
 class CRover:
 	def __init__(self):
 		# Initialisation des Attributs
@@ -26,6 +25,9 @@ class CRover:
 		self.cell = CComponents("Batterie", 25)
 		# Antenne
 		self.antenna = CComponents("Antenne", 25)
+
+
+	###### Dégâts Composants ###### 
 
 	def apply_damage_global(self, lsdamage, temp):
 		# Méthode pour appliquer les dégats de manière globale à tout les Composants
@@ -77,7 +79,7 @@ class CRover:
 		self.solar_pannel.damage_durability(dmg, temp)
 		#Antenne
 		self.antenna.damage_durability(dmg, temp)
-
+	################################################ 
 
 	# Setter
 

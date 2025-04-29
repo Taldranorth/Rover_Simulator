@@ -41,7 +41,6 @@ class CComponents:
 
 
 	# Setter
-
 	def set_durability(self, change):
 		# Méthode pour changer la durabilité
 		self.durability = change
@@ -49,7 +48,6 @@ class CComponents:
 	def set_resistance(self, change):
 		# Méthode pour changer la résistance du Composants
 		self.resistance = change
-
 
 	def set_maxtemp(self, change):
 		# Méthode pour changer la température max du composant

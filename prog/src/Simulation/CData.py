@@ -11,8 +11,18 @@ class CData:
 	def __init__(self):
 		pass
 
-	def load(self, filename):
+	def load_parameter(self, filename):
+		# Méthode pour charger les Paramètre depuis un fichier filename
 		pass
 
-	def save(self, filename):
+	def save_parameter(self, filename):
+		# Méthode pour sauvegarder les Paramètre dans un fichier filename
+		pass
+
+	def load_simulation(self, filename):
+		# Méthode pour charger une Simulation depuis un fichier filename
+		pass
+
+	def save_simulation(self, filename):
+		# Méthode pour sauvegarder une Simulation dans un fichier filename
 		pass
