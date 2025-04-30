@@ -3,18 +3,21 @@
 # Initialiser dans User
 ########################################################################
 
+from src.Simulation.Controler.CSimulationCTRL import CSimulationCTRL
+
 from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import QApplication, QWidget, QMainWindow, QHBoxLayout, QLabel
 
 class CSimulationGUI(QWidget):
-	def __init__(self):
+	def __init__(self, sim_factory, param_factory):
 		# On initialise la classe hérité
 		super().__init__()
 		# On setup le layout
 		self.layout = 0
 		self.init_layout()
 		# On initialise les attributs du Widget
-
+		# le Controler
+		self.CTRL = CSimulationCTRL(sim_factory, param_factory)
 
 		# test
 		self.stringtest = ""

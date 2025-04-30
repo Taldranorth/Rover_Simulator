@@ -11,14 +11,18 @@ from PyQt6.QtWidgets import QApplication, QWidget, QMainWindow, QPushButton, QLa
 from queue import Queue 
 from threading import Thread 
 
+# Import factory
+from src.Parameters.factory.CParameterFactory import CParameterFactory
+from src.Simulation.factory.CSimulationFactory import CSimulationFactory
 
-# Import Paramater
-from src.Parameters.CParameter import CParameter
-# Import Simulation
-from src.Simulation.CSimulation import CSimulation
 # Import GUI
 from src.Menu.CMenuGUI import CMenuGUI
 from src.Simulation.GUI.CSimulationGUI import CSimulationGUI
+
+
+
+
+
 
 
 
@@ -33,7 +37,6 @@ from src.Simulation.GUI.CSimulationGUI import CSimulationGUI
 # Rappel:
 # - GUI = interface graphique
 # - Controler = controler de l'interface GUI (appeler les setter)
-#   --> ! Attention ! il peut y avoir plusieurs controller par classe
 # - DAO = Data Access Object, transfert des données de la base de données en données utilisable en programme
 
 
@@ -82,15 +85,20 @@ if __name__ == "__main__":
     #window.setCentralWidget(button)
     ##### ##### ##### ##### ##### ##### #####
 
-    window.set_widget(CSimulationGUI())
+    # Initialise les factory
+    sim_factory = CSimulationFactory()
+    param_factory = CParameterFactory()
 
+    # Initialise l'interface de la Simulation
+    window.set_widget(CSimulationGUI(sim_factory, param_factory))
 
 
     ##### Initialisation de la simulation #####
     # Mise en place des variables
-    cp = CParameter()
-    cp.set_maxdays(2)
-    s = CSimulation(cp)
+    window.widget.CTRL.create_parameter()
+    window.widget.CTRL.param_factory.ls_parameter[0].set_maxdays(2)
+    window.widget.CTRL.create_simulation(window.widget.CTRL.get_parameter(0))
+    s = window.widget.CTRL.get_simulation(0)
     s.factory.create_Rover()
 
 
