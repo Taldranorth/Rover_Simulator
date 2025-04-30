@@ -24,6 +24,7 @@ class CRoverFactory:
 	def remove_Rover(self, i):
 		# Méthode pour retirer un rover
 		self.ls_rover = self.ls_rover[:i] + self.ls_rover[i+1:]
+		self.nb -= 1
 
 	def show_status_rover_single(self, i):
 		# Méthode pour afficher le status d'un unique Rover

@@ -18,6 +18,7 @@ from src.Simulation.factory.CSimulationFactory import CSimulationFactory
 # Import GUI
 from src.Menu.CMenuGUI import CMenuGUI
 from src.Simulation.GUI.CSimulationGUI import CSimulationGUI
+from src.Parameters.GUI.CParameterGUI import CParameterGUI
 
 
 
@@ -64,6 +65,52 @@ class CMainWindow(QMainWindow):
         self.setCentralWidget(self.widget)
 
 
+def test_SimulationGUI(window, sim_factory, param_factory):
+    # Fonction Test de l'interface de Simulation
+
+    # Initialise l'interface de la Simulation
+    window.set_widget(CSimulationGUI(sim_factory, param_factory))
+
+
+
+    ##### Initialisation de la simulation #####
+    # Mise en place des variables
+    window.widget.CTRL.create_parameter()
+    window.widget.CTRL.param_factory.ls_parameter[0].set_maxdays(2)
+    window.widget.CTRL.create_simulation(window.widget.CTRL.get_parameter(0))
+    window.widget.CTRL.create_Rover(window.widget.activ_sim)
+    s = window.widget.CTRL.get_simulation(0)
+
+    ##### Boucle Principales de Calcul #####
+    while(s.is_end() == False):
+        # On update
+        s.update_hour()
+        # On affiche dans le terminal
+        s.afficher()
+        # On redirige vers le Window text
+        window.widget.add_log(s.get_rover_log())
+
+
+
+def test_ParameterGUI(window, sim_factory, param_factory):
+    # Fonction Test de l'interface de Paramètrage des paramètre
+
+    # Initialise l'interface des Paramètre
+    window.set_widget(CParameterGUI(param_factory))
+
+
+
+
+def test_menuGUI(window, sim_factory, param_factory):
+    # Fonction Test de l'interface du Menu
+    pass
+
+
+def test_authentificationGUI(window, sim_factory, param_factory):
+    # Fonction test de l'interface d'authentification
+    pass
+
+
 
 
 if __name__ == "__main__":
@@ -89,27 +136,19 @@ if __name__ == "__main__":
     sim_factory = CSimulationFactory()
     param_factory = CParameterFactory()
 
-    # Initialise l'interface de la Simulation
-    window.set_widget(CSimulationGUI(sim_factory, param_factory))
+    #### Test Simulation GUI ####
+    #test_SimulationGUI(window, sim_factory, param_factory)
+
+    #### Test Parameter GUI ####
+    test_ParameterGUI(window, sim_factory, param_factory)
 
 
-    ##### Initialisation de la simulation #####
-    # Mise en place des variables
-    window.widget.CTRL.create_parameter()
-    window.widget.CTRL.param_factory.ls_parameter[0].set_maxdays(2)
-    window.widget.CTRL.create_simulation(window.widget.CTRL.get_parameter(0))
-    window.widget.CTRL.create_Rover(window.widget.activ_sim)
-    s = window.widget.CTRL.get_simulation(0)
+    #### Test Menu GUI ####
+    #test_menuGUI(window, sim_factory, param_factory)
 
-    ##### Boucle Principales de Calcul #####
-    while(s.is_end() == False):
-        # On update
-        s.update_hour()
-        # On affiche dans le terminal
-        s.afficher()
-        # On redirige vers le Window text
-        window.widget.add_log(s.get_rover_log())
 
+    #### Test Authentification GUI ####
+    #test_authentificationGUI(window, sim_factory, param_factory)
 
     # Execute l'appli
     app.exec()

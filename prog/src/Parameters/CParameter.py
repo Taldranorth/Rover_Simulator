@@ -89,7 +89,7 @@ class CParameter:
 		# Méthode pour set la probabilité de despawn d'une tempête de sable
 		self.sandstorm_probability_despawn = change
 
-	def set_sandstrom_damage(self, change):
+	def set_sandstorm_damage(self, change):
 		# méthode pour set les dégâts d'une tempête de sable
 		self.sandstorm_damage = change
 
@@ -102,7 +102,7 @@ class CParameter:
 		# Méthode pour set la probabilité de despawn d'une tempête de sable
 		self.solarstorm_probability_despawn = change
 
-	def set_solarstrom_damage(self, change):
+	def set_solarstorm_damage(self, change):
 		# méthode pour set les dégâts d'une tempête de sable
 		self.solarstorm_damage = change
 
