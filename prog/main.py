@@ -6,18 +6,21 @@ import PyQt6
 
 from PyQt6.QtWidgets import QApplication, QWidget, QMainWindow, QPushButton
 
-
+# Import Paramater
 from src.Parameters.CParameter import CParameter
+# Import Simulation
 from src.Simulation.CSimulation import CSimulation
-
-
-
+# Import Menu
+from src.Menu.CMenuGUI import CMenuGUI
 
 # Doit faire:
 # - Mettre en place test Simulation plus poussé
 # - Mettre en place la création d'une page et l'affichage des résultat dans la simulation
 
-
+# Rappel:
+# - GUI = interface graphique
+# - Controler = controler de l'interface GUI (appeler les setter)
+# - DAO = Data Access Object, transfert des données de la base de données en données utilisable en programme
 
 if __name__ == "__main__":
 
@@ -26,7 +29,7 @@ if __name__ == "__main__":
 
 
     ##### Initialisation de la fenêtre #####
-    # Initialise la routine
+    # Initialise la routine de l'appli
     app = QApplication(sys.argv) 
     # Initialise la window
     window = QMainWindow()
@@ -70,10 +73,6 @@ if __name__ == "__main__":
         # On affiche dans le terminal
         s.afficher()
         # On redirige vers le Window text
-
-
-
-
 
 
 
