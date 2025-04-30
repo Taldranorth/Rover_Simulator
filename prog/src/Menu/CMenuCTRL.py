@@ -1,5 +1,5 @@
 ########################################################################
-# Fichier qui vient Contenir la Classe du Controler Menu
+# Fichier qui vient Contenir les Classes des Controlers Menu
 # Initialiser dans Server
 ########################################################################
 

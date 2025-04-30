@@ -3,20 +3,23 @@
 # Initialiser dans User
 ########################################################################
 
-# Classe Principale de la fenêtre de l'application
 
-from PyQt6.QtWidgets import QApplication, QWidget, QMainWindow
+from PyQt6.QtWidgets import QApplication, QWidget, QMainWindow, QHBoxLayout
 
-class CMenuGUI(QMainWindow):
+class CMenuGUI(QWidget):
 	def __init__(self):
-		# Initialiser la classe hérité
+		# On initialise la classe hérité
 		super().__init__()
-		# Initialise le titre
-		window.setWindowTitle("Test Simulateur de Rover")
+		# On setup le layout
+		self.layout = self.init_layout()
+		self.setlayout(self.layout)
+		# On initialise les attributs du Widget
 
 
-	# Setter
-	def set_window_size(self, Width, Height):
-		# Méthode pour set la hauteur et la largeur de la window
-		window.setFixedSize(Width, Height)
+
+	def init_layout(self):
+		# Méthode pour initialiser le layout
+		layout = QHBoxLayout()
+		return layout
+
 

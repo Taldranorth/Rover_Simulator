@@ -16,8 +16,11 @@ from threading import Thread
 from src.Parameters.CParameter import CParameter
 # Import Simulation
 from src.Simulation.CSimulation import CSimulation
-# Import Menu
+# Import GUI
 from src.Menu.CMenuGUI import CMenuGUI
+from src.Simulation.GUI.CSimulationGUI import CSimulationGUI
+
+
 
 # Doit faire:
 # - Mettre en place test Simulation plus poussé
@@ -30,7 +33,35 @@ from src.Menu.CMenuGUI import CMenuGUI
 # Rappel:
 # - GUI = interface graphique
 # - Controler = controler de l'interface GUI (appeler les setter)
+#   --> ! Attention ! il peut y avoir plusieurs controller par classe
 # - DAO = Data Access Object, transfert des données de la base de données en données utilisable en programme
+
+
+class CMainWindow(QMainWindow):
+    def __init__(self):
+        # Initialiser la classe hérité
+        super().__init__()
+        # Initialise le titre
+        self.setWindowTitle("Test Simulateur de Rover")
+        # On garde une référence au widget actuellement actif
+        widget = 0
+        # On déplace la fenêtre en haut à gauche
+        self.move(0,0)
+        # On veut que la fenêtre soit montré
+        self.show()
+
+    # Setter
+    def set_window_size(self, Width, Height):
+        # Méthode pour set la hauteur et la largeur de la window
+        self.setFixedSize(Width, Height)
+
+    def set_widget(self, widget):
+        # Méthode pour changer le widget afficher dans la window
+        self.widget = widget
+        self.setCentralWidget(self.widget)
+
+
+
 
 if __name__ == "__main__":
 
@@ -41,13 +72,7 @@ if __name__ == "__main__":
     ##### Initialisation de la fenêtre #####
     # Initialise la routine de l'appli
     app = QApplication(sys.argv) 
-    # Initialise la window
-    window = QMainWindow()
-    # Indique que l'on veut montrer la window
-    window.show()
-
-    # Setup Nom
-    window.setWindowTitle("Test Simulateur de Rover")
+    window = CMainWindow()
 
     # Setup Taille
     window.setFixedSize(WidthWindow, HeightWindow)
@@ -57,30 +82,9 @@ if __name__ == "__main__":
     #window.setCentralWidget(button)
     ##### ##### ##### ##### ##### ##### #####
 
-    #### Setup Layout ####
-    # On initialise le layout
-    layout = QHBoxLayout()
-    # On initialise le widget qui va contenir le layout
-    widgetlayout = QWidget()
-    # On link le layout au widget
-    widgetlayout.setLayout(layout)
-    # On place le widget au centre de la window
-    window.setCentralWidget(widgetlayout)
+    window.set_widget(CSimulationGUI())
 
 
-
-    #### Setup Window Text ####
-    stringtest = ""
-    textwidget = QLabel(stringtest)
-    textwidget.setAlignment(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignTop)
-
-    #### Setup Scrollbar ####
-
-    scrollbar = QSlider()
-
-    # On ajoute au layout les widget dans l'ordre de gauche à droite
-    layout.addWidget(scrollbar)
-    layout.addWidget(textwidget)
 
     ##### Initialisation de la simulation #####
     # Mise en place des variables
@@ -97,9 +101,7 @@ if __name__ == "__main__":
         # On affiche dans le terminal
         s.afficher()
         # On redirige vers le Window text
-        temp = s.get_rover_log()
-        stringtest += temp
-        textwidget.setText(stringtest)
+        window.widget.add_log(s.get_rover_log())
 
 
     # Execute l'appli
