@@ -6,6 +6,11 @@
 from src.Simulation.CRover import CRover
 from src.Simulation.Factory.CRoverFactory import CRoverFactory
 
+# Les diférents fichiers sont sauvegardés sous:
+# - project/data/save/results -> résultats de simulation
+# - project/data/save/parameters -> fichiers sauvegardes des paramètres
+# - project/data/save/simulation -> fichiers sauvegardes des simulation
+# l'extension préféré et le .sav
 
 
 class CData:

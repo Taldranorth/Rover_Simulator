@@ -22,4 +22,15 @@ def main_server(user_thread):
 	# prend en paramètre le thread user afin de pouvoir communiquer entre les 2
 
 
+	# Initialise les BD
+
+
+	# Initialise les Classe/data
+
+
+	# Entre dans la boucle d'attente
+	while(True):
+		pass
+
+
 	pass

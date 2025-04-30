@@ -2,6 +2,7 @@
 - 1°) Mise en place de la logique de base
 	-> gestion des rovers
 	-> gestion de la simulation
+	--> gestion de la sauvegardes des résultats de la simulation
 	-> Affichage dans le terminal
 	-> gestion de la sauvegarde
 	-> gestion des paramètres
@@ -28,15 +29,19 @@ tableau:
 -----------------------------------------
 |	Météo			|					|
 -----------------------------------------
-|	Sauvegarde		|					|
------------------------------------------
 |	Paramètre		|					|
 -----------------------------------------
-|					|					|
+|	Simulation		|					|
 -----------------------------------------
-|					|					|
+|	Sauvegarde	Sim	|					|
 -----------------------------------------
-|					|					|
+|	Sauvegarde Param|					|
+-----------------------------------------
+|	Menu GUI		|					|
+-----------------------------------------
+|	BD				|					|
+-----------------------------------------
+|	Accès BD(DAO)	|					|
 -----------------------------------------
 |					|					|
 -----------------------------------------

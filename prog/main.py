@@ -7,6 +7,11 @@ import PyQt6
 from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import QApplication, QWidget, QMainWindow, QPushButton, QLabel, QSlider, QHBoxLayout, QScrollArea
 
+
+from queue import Queue 
+from threading import Thread 
+
+
 # Import Paramater
 from src.Parameters.CParameter import CParameter
 # Import Simulation
@@ -19,8 +24,8 @@ from src.Menu.CMenuGUI import CMenuGUI
 # - Mettre en place la création d'une page et l'affichage des résultat dans la simulation
 # - Mettre en place la séparation en thread du programme
 #   2 choses:
-#   --> Sépararation du process
-#   --> Communication entre les process
+#   --> Sépararation du process https://docs.python.org/3/library/threading.html ou https://docs.python.org/3/library/multiprocessing.html#module-multiprocessing
+#   --> Communication entre les process https://www.geeksforgeeks.org/python-communicating-between-threads-set-1/
 
 # Rappel:
 # - GUI = interface graphique
@@ -99,3 +104,13 @@ if __name__ == "__main__":
 
     # Execute l'appli
     app.exec()
+
+
+    ##### Code Test pour plus tard du Multithreading #####
+
+    #
+
+
+
+
+

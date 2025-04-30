@@ -14,10 +14,6 @@ class CMenuGUI(QMainWindow):
 		# Initialise le titre
 		window.setWindowTitle("Test Simulateur de Rover")
 
-		pass
-
-
-
 
 	# Setter
 	def set_window_size(self, Width, Height):
