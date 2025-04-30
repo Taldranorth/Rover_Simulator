@@ -17,6 +17,10 @@ from src.Menu.CMenuGUI import CMenuGUI
 # Doit faire:
 # - Mettre en place test Simulation plus poussé
 # - Mettre en place la création d'une page et l'affichage des résultat dans la simulation
+# - Mettre en place la séparation en thread du programme
+#   2 choses:
+#   --> Sépararation du process
+#   --> Communication entre les process
 
 # Rappel:
 # - GUI = interface graphique
@@ -68,14 +72,10 @@ if __name__ == "__main__":
     #### Setup Scrollbar ####
 
     scrollbar = QSlider()
-    scroll = QScrollArea()
-
 
     # On ajoute au layout les widget dans l'ordre de gauche à droite
     layout.addWidget(scrollbar)
     layout.addWidget(textwidget)
-
-
 
     ##### Initialisation de la simulation #####
     # Mise en place des variables

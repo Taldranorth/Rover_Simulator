@@ -1,5 +1,6 @@
 ########################################################################
 # Fichier qui vient Contenir la Classe du Rover
+# Initialiser dans Server
 ########################################################################
 
 from src.Simulation.CComponents import CComponents

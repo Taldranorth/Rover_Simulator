@@ -1,5 +1,6 @@
 ########################################################################
 # Fichier qui vient Contenir la Classe Composants
+# Initialiser dans Server
 ########################################################################
 #ajouter gestion des dégats selon la température
 

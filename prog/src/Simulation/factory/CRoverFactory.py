@@ -1,5 +1,6 @@
 ########################################################################
-# Fichier qui vient Contenir la Classe Factory du Rover
+# Fichier qui vient Contenir la Classe Factory des Rover
+# Initialiser dans Server
 ########################################################################
 from src.Simulation.CRover import CRover
 
@@ -7,8 +8,6 @@ class CRoverFactory:
 	def __init__(self):
 		self.ls_rover = []
 
-
-	# Setter
 	def get_Rover(self, i):
 		# Méthoder pour récuperer le i rover
 		return self.ls_rover[i]

@@ -1,5 +1,6 @@
 ########################################################################
 # Fichier qui vient Contenir la Classe des données
+# Initialiser dans Server
 ########################################################################
 
 from src.Simulation.CRover import CRover

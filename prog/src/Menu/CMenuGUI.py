@@ -1,5 +1,6 @@
 ########################################################################
 # Fichier qui vient Contenir la Classe de l'interface graphique du Menu
+# Initialiser dans User
 ########################################################################
 
 # Classe Principale de la fenêtre de l'application

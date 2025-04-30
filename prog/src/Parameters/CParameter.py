@@ -1,5 +1,6 @@
 ########################################################################
 # Fichier qui vient Contenir la Classe Simulation
+# Initialiser dans Server
 ########################################################################
 
 class CParameter:

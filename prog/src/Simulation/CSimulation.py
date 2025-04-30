@@ -1,14 +1,12 @@
 ########################################################################
 # Fichier qui vient Contenir la Classe de la Simulation
+# Initialiser dans Server
 ########################################################################
 import sys
 from io import StringIO
 from random import randint
 
 from src.Simulation.factory.CRoverFactory import CRoverFactory
-
-
-
 
 class CSimulation:
 	def __init__(self, CParam):
