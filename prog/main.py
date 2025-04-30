@@ -4,7 +4,8 @@
 import sys
 import PyQt6
 
-from PyQt6.QtWidgets import QApplication, QWidget, QMainWindow, QPushButton
+from PyQt6.QtCore import Qt
+from PyQt6.QtWidgets import QApplication, QWidget, QMainWindow, QPushButton, QLabel, QSlider, QHBoxLayout, QScrollArea
 
 # Import Paramater
 from src.Parameters.CParameter import CParameter
@@ -47,15 +48,33 @@ if __name__ == "__main__":
     #window.setCentralWidget(button)
     ##### ##### ##### ##### ##### ##### #####
 
+    #### Setup Layout ####
+    # On initialise le layout
+    layout = QHBoxLayout()
+    # On initialise le widget qui va contenir le layout
+    widgetlayout = QWidget()
+    # On link le layout au widget
+    widgetlayout.setLayout(layout)
+    # On place le widget au centre de la window
+    window.setCentralWidget(widgetlayout)
+
+
+
     #### Setup Window Text ####
-
-
+    stringtest = ""
+    textwidget = QLabel(stringtest)
+    textwidget.setAlignment(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignTop)
 
     #### Setup Scrollbar ####
 
+    scrollbar = QSlider()
+    scroll = QScrollArea()
 
 
-    ######
+    # On ajoute au layout les widget dans l'ordre de gauche à droite
+    layout.addWidget(scrollbar)
+    layout.addWidget(textwidget)
+
 
 
     ##### Initialisation de la simulation #####
@@ -73,7 +92,9 @@ if __name__ == "__main__":
         # On affiche dans le terminal
         s.afficher()
         # On redirige vers le Window text
-
+        temp = s.get_rover_log()
+        stringtest += temp
+        textwidget.setText(stringtest)
 
 
     # Execute l'appli

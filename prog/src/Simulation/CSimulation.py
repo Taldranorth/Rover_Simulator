@@ -1,8 +1,14 @@
 ########################################################################
 # Fichier qui vient Contenir la Classe de la Simulation
 ########################################################################
+import sys
+from io import StringIO
 from random import randint
+
 from src.Simulation.factory.CRoverFactory import CRoverFactory
+
+
+
 
 class CSimulation:
 	def __init__(self, CParam):
@@ -117,6 +123,25 @@ class CSimulation:
 		else:
 			self.factory.show_status_rover()
 		print("====================================\n")
+
+	def get_rover_log(self):
+		# Méthode qui renvoit afficher mais dans un str
+		# bourine est à remplacer plus tard
+		# On garde en mémoire la sortie terminal
+		old_stdout = sys.stdout
+		# On prépare la variable de stockage
+		result = StringIO()
+		# on change la sortie standart par la variable
+		sys.stdout = result
+		# on remplit
+		self.afficher()
+		# on remet l'ancienne sortie terminal
+		sys.stdout = old_stdout
+		# on retourne la variable
+		return result.getvalue()
+
+
+
 
 if __name__ == "__main__":
 	from src.Parameters.CParameter import CParameter
