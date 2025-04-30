@@ -73,12 +73,27 @@ class CParameterGUI(QWidget):
 		label_text = QLabel("Probabilité d'Apparition: ")
 		layout_sandstorm.addWidget(label_text)
 
+		line_edit = QLineEdit(str(parameter.sandstorm_probability_spawn))
+		line_edit.returnPressed.connect(lambda s = line_edit: self.set_sandstorm_probability_spawn(s))
+		# lambda s: self.setmaxdays(s)
+		layout_sandstorm.addWidget(line_edit)
 
 		label_text = QLabel("Probabilité de Disparition: ")
 		layout_sandstorm.addWidget(label_text)
 
+		line_edit = QLineEdit(str(parameter.sandstorm_probability_despawn))
+		line_edit.returnPressed.connect(lambda s = line_edit: self.set_sandstorm_probability_despawn(s))
+		# lambda s: self.setmaxdays(s)
+		layout_sandstorm.addWidget(line_edit)
+
 		label_text = QLabel("Dégats")
 		layout_sandstorm.addWidget(label_text)
+
+		line_edit = QLineEdit(str(parameter.sandstorm_damage))
+		line_edit.returnPressed.connect(lambda s = line_edit: self.set_sandstorm_damage(s))
+		# lambda s: self.setmaxdays(s)
+		layout_sandstorm.addWidget(line_edit)
+
 
 		self.layoutParameter.addLayout(layout_sandstorm)
 
@@ -91,16 +106,220 @@ class CParameterGUI(QWidget):
 		label_text = QLabel("Probabilité d'Apparition: ")
 		layout_solarstorm.addWidget(label_text)
 
+		line_edit = QLineEdit(str(parameter.solarstorm_probability_spawn))
+		line_edit.returnPressed.connect(lambda s = line_edit: self.set_solarstorm_probability_spawn(s))
+		# lambda s: self.setmaxdays(s)
+		layout_solarstorm.addWidget(line_edit)
+
 
 		label_text = QLabel("Probabilité de Disparition: ")
 		layout_solarstorm.addWidget(label_text)
 
+		line_edit = QLineEdit(str(parameter.solarstorm_probability_despawn))
+		line_edit.returnPressed.connect(lambda s = line_edit: self.set_solarstorm_probability_despawn(s))
+		# lambda s: self.setmaxdays(s)
+		layout_solarstorm.addWidget(line_edit)
+
 		label_text = QLabel("Dégats")
 		layout_solarstorm.addWidget(label_text)
+
+		line_edit = QLineEdit(str(parameter.solarstorm_damage))
+		line_edit.returnPressed.connect(lambda s = line_edit: self.set_solarstorm_damage(s))
+		# lambda s: self.setmaxdays(s)
+		layout_solarstorm.addWidget(line_edit)
+
 
 		self.layoutParameter.addLayout(layout_solarstorm)
 
 		# Composants
+
+		label_text = QLabel("Composants Rover:")
+		self.layoutParameter.addWidget(label_text)
+
+		#### Roue ####
+		label_text = QLabel("Roue:")
+		self.layoutParameter.addWidget(label_text)
+
+
+		layout_components = QHBoxLayout()
+		label_text = QLabel("Durabilité: ")
+		layout_components.addWidget(label_text)
+
+		line_edit = QLineEdit(str(parameter.wheel_durability))
+		line_edit.returnPressed.connect(lambda s = line_edit: self.set_components_durability("Wheel", s))
+		layout_components.addWidget(line_edit)
+
+
+		label_text = QLabel("Résistance: ")
+		layout_components.addWidget(label_text)
+		line_edit = QLineEdit(str(parameter.wheel_rs))
+		line_edit.returnPressed.connect(lambda s = line_edit: self.set_components_resistance("Wheel", s))
+		layout_components.addWidget(line_edit)
+
+
+		label_text = QLabel("Dégats: ")
+		layout_components.addWidget(label_text)
+		line_edit = QLineEdit(str(parameter.wheel_damage))
+		line_edit.returnPressed.connect(lambda s = line_edit: self.set_components_damage("Wheel", s))
+		layout_components.addWidget(line_edit)
+
+
+		self.layoutParameter.addLayout(layout_components)
+
+		#### Bras ####
+		label_text = QLabel("Bras:")
+		self.layoutParameter.addWidget(label_text)
+
+		layout_components = QHBoxLayout()
+		label_text = QLabel("Durabilité: ")
+		layout_components.addWidget(label_text)
+		line_edit = QLineEdit(str(parameter.arm_durability))
+		line_edit.returnPressed.connect(lambda s = line_edit: self.set_components_durability("arm", s))
+		layout_components.addWidget(line_edit)
+
+		label_text = QLabel("Résistance: ")
+		layout_components.addWidget(label_text)
+		line_edit = QLineEdit(str(parameter.arm_rs))
+		line_edit.returnPressed.connect(lambda s = line_edit: self.set_components_resistance("arm", s))
+		layout_components.addWidget(line_edit)
+
+
+		label_text = QLabel("Dégats: ")
+		layout_components.addWidget(label_text)
+		line_edit = QLineEdit(str(parameter.arm_damage))
+		line_edit.returnPressed.connect(lambda s = line_edit: self.set_components_damage("arm", s))
+		layout_components.addWidget(line_edit)
+
+		self.layoutParameter.addLayout(layout_components)
+
+		#### Chassis ####
+		label_text = QLabel("Chassis:")
+		self.layoutParameter.addWidget(label_text)
+
+		layout_components = QHBoxLayout()
+		label_text = QLabel("Durabilité: ")
+		layout_components.addWidget(label_text)
+		line_edit = QLineEdit(str(parameter.frame_durability))
+		line_edit.returnPressed.connect(lambda s = line_edit: self.set_components_durability("frame", s))
+		layout_components.addWidget(line_edit)
+
+		label_text = QLabel("Résistance: ")
+		layout_components.addWidget(label_text)
+		line_edit = QLineEdit(str(parameter.frame_rs))
+		line_edit.returnPressed.connect(lambda s = line_edit: self.set_components_resistance("frame", s))
+		layout_components.addWidget(line_edit)
+
+		label_text = QLabel("Dégats: ")
+		layout_components.addWidget(label_text)
+		line_edit = QLineEdit(str(parameter.frame_damage))
+		line_edit.returnPressed.connect(lambda s = line_edit: self.set_components_damage("frame", s))
+		layout_components.addWidget(line_edit)
+
+		self.layoutParameter.addLayout(layout_components)
+
+		##### Caméra ####
+		label_text = QLabel("Caméra:")
+		self.layoutParameter.addWidget(label_text)
+
+		layout_components = QHBoxLayout()
+		label_text = QLabel("Durabilité: ")
+		layout_components.addWidget(label_text)
+		line_edit = QLineEdit(str(parameter.camera_durability))
+		line_edit.returnPressed.connect(lambda s = line_edit: self.set_components_durability("camera", s))
+		layout_components.addWidget(line_edit)
+
+		label_text = QLabel("Résistance: ")
+		layout_components.addWidget(label_text)
+		line_edit = QLineEdit(str(parameter.camera_rs))
+		line_edit.returnPressed.connect(lambda s = line_edit: self.set_components_resistance("camera", s))
+		layout_components.addWidget(line_edit)
+
+		label_text = QLabel("Dégats: ")
+		layout_components.addWidget(label_text)
+		line_edit = QLineEdit(str(parameter.camera_damage))
+		line_edit.returnPressed.connect(lambda s = line_edit: self.set_components_damage("camera", s))
+		layout_components.addWidget(line_edit)
+
+		self.layoutParameter.addLayout(layout_components)
+
+		#### Panneaux Solaire ####
+		label_text = QLabel("Panneaux Solaire:")
+		self.layoutParameter.addWidget(label_text)
+
+		layout_components = QHBoxLayout()
+		label_text = QLabel("Durabilité: ")
+		layout_components.addWidget(label_text)
+		line_edit = QLineEdit(str(parameter.solar_panel_durability))
+		line_edit.returnPressed.connect(lambda s = line_edit: self.set_components_durability("solar_panel", s))
+		layout_components.addWidget(line_edit)
+
+		label_text = QLabel("Résistance: ")
+		layout_components.addWidget(label_text)
+		line_edit = QLineEdit(str(parameter.solar_panel_rs))
+		line_edit.returnPressed.connect(lambda s = line_edit: self.set_components_resistance("solar_panel", s))
+		layout_components.addWidget(line_edit)
+
+
+		label_text = QLabel("Dégats: ")
+		layout_components.addWidget(label_text)
+		line_edit = QLineEdit(str(parameter.solar_panel_damage))
+		line_edit.returnPressed.connect(lambda s = line_edit: self.set_components_damage("solar_panel", s))
+		layout_components.addWidget(line_edit)
+
+		self.layoutParameter.addLayout(layout_components)
+
+		#### Batterie ####
+		label_text = QLabel("Batterie:")
+		self.layoutParameter.addWidget(label_text)
+
+		layout_components = QHBoxLayout()
+		label_text = QLabel("Durabilité: ")
+		layout_components.addWidget(label_text)
+		line_edit = QLineEdit(str(parameter.cell_durability))
+		line_edit.returnPressed.connect(lambda s = line_edit: self.set_components_durability("cell", s))
+		layout_components.addWidget(line_edit)
+
+		label_text = QLabel("Résistance: ")
+		layout_components.addWidget(label_text)
+		line_edit = QLineEdit(str(parameter.cell_rs))
+		line_edit.returnPressed.connect(lambda s = line_edit: self.set_components_resistance("cell", s))
+		layout_components.addWidget(line_edit)
+
+
+		label_text = QLabel("Dégats: ")
+		layout_components.addWidget(label_text)
+		line_edit = QLineEdit(str(parameter.cell_damage))
+		line_edit.returnPressed.connect(lambda s = line_edit: self.set_components_damage("cell", s))
+		layout_components.addWidget(line_edit)
+
+		self.layoutParameter.addLayout(layout_components)
+
+		##### Antenne ####
+		label_text = QLabel("Antenne:")
+		self.layoutParameter.addWidget(label_text)
+
+		layout_components = QHBoxLayout()
+		label_text = QLabel("Durabilité: ")
+		layout_components.addWidget(label_text)
+		line_edit = QLineEdit(str(parameter.antenna_durability))
+		line_edit.returnPressed.connect(lambda s = line_edit: self.set_components_durability("antenna", s))
+		layout_components.addWidget(line_edit)
+
+		label_text = QLabel("Résistance: ")
+		layout_components.addWidget(label_text)
+		line_edit = QLineEdit(str(parameter.antenna_rs))
+		line_edit.returnPressed.connect(lambda s = line_edit: self.set_components_resistance("antenna", s))
+		layout_components.addWidget(line_edit)
+
+		label_text = QLabel("Dégats: ")
+		layout_components.addWidget(label_text)
+
+		line_edit = QLineEdit(str(parameter.maxdays))
+		line_edit = QLineEdit(str(parameter.antenna_damage))
+		line_edit.returnPressed.connect(lambda s = line_edit: self.set_components_damage("antenna", s))
+		layout_components.addWidget(line_edit)
+
+		self.layoutParameter.addLayout(layout_components)
 
 
 	#### Initialisation label text ####
