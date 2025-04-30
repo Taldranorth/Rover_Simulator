@@ -8,7 +8,7 @@ from src.Parameters.factory.CParameterFactory import CParameterFactory
 
 
 class CMenuCTRL:
-	def __init__(self, menuGUI):
+	def __init__(self, sim_factory, param_factory):
 
-		self.simulation_factory = CSimulationFactory()
-		self.parameter_factory = CParameterFactory()
+		self.simulation_factory = sim_factory
+		self.parameter_factory = param_factory

@@ -85,7 +85,7 @@ if __name__ == "__main__":
     #window.setCentralWidget(button)
     ##### ##### ##### ##### ##### ##### #####
 
-    # Initialise les factory
+    #### Initialise les factory
     sim_factory = CSimulationFactory()
     param_factory = CParameterFactory()
 
@@ -98,9 +98,8 @@ if __name__ == "__main__":
     window.widget.CTRL.create_parameter()
     window.widget.CTRL.param_factory.ls_parameter[0].set_maxdays(2)
     window.widget.CTRL.create_simulation(window.widget.CTRL.get_parameter(0))
+    window.widget.CTRL.create_Rover(window.widget.activ_sim)
     s = window.widget.CTRL.get_simulation(0)
-    s.factory.create_Rover()
-
 
     ##### Boucle Principales de Calcul #####
     while(s.is_end() == False):

@@ -7,6 +7,7 @@ from src.Simulation.CRover import CRover
 class CRoverFactory:
 	def __init__(self):
 		self.ls_rover = []
+		self.nb = 0
 
 	def get_Rover(self, i):
 		# Méthoder pour récuperer le i rover
@@ -15,8 +16,10 @@ class CRoverFactory:
 
 	def create_Rover(self):
 		# Méthode pour ajouter un rover
+		print("On créer le Rover N°",self.nb+1)
 		rover = CRover()
 		self.ls_rover += [rover]
+		self.nb += 1
 
 	def remove_Rover(self, i):
 		# Méthode pour retirer un rover

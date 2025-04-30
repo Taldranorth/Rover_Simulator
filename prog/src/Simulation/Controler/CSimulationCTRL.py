@@ -26,6 +26,10 @@ class CSimulationCTRL:
 		# Méthode pour récupérer l'objet SImulation à la I place
 		return self.sim_factory.get_simulation(i)
 
+	def create_Rover(self, i):
+		# Méthode pour appeler la création d'un rover dans I ième simulation de la liste
+		self.sim_factory.create_Rover(i)
+
 
 	# Parameter
 

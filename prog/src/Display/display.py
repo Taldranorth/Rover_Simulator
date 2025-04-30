@@ -5,6 +5,12 @@ from PyQt5.QtWidgets import *
 #from matplotlib.figure import Figure
 import pyqtgraph as pgraph
 
+# https://www.pythonguis.com/tutorials/pyqt6-plotting-pyqtgraph/
+
+#from PyQt6 import QtWidgets
+#import pyqtgraph as pgraph
+
+
 
 class RoverGraph(QWidget):
 	def __init__(self):

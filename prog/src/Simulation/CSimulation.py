@@ -139,6 +139,10 @@ class CSimulation:
 		return result.getvalue()
 
 
+	def create_Rover(self):
+		# Méthode pour appeler la création d'un rover
+		self.factory.create_Rover()
+
 
 
 if __name__ == "__main__":

@@ -23,3 +23,9 @@ class CSimulationFactory:
 	def remove_simulation(self, i):
 		# Méthode pour retirer une simulation
 		self.ls_simulation = self.ls_simulation[:i] + self.ls_simulation[i+1:]
+
+
+	def create_Rover(self, i):
+		# Méthode pour la création d'un Rover
+		print("Créer Rover dans la Simulation N°",i)
+		self.ls_simulation[i].create_Rover()
