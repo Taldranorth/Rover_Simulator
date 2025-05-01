@@ -9,13 +9,13 @@ from PyQt6.QtWidgets import QApplication, QWidget, QMainWindow, QHBoxLayout, QVB
 
 
 class CParameterGUI(QWidget):
-	def __init__(self, param_factory):
+	def __init__(self, main_window, param_factory):
 		# On initialise la classe hérité
 		super().__init__()
 
 		self.activ_param = 0
 		# On link le CTRL
-		self.CTRL = CParameterCTRL(param_factory)
+		self.CTRL = CParameterCTRL(main_window, param_factory)
 
 		# On initialise un Paramètre
 		self.CTRL.create_parameter()
@@ -30,13 +30,49 @@ class CParameterGUI(QWidget):
 		# Méthode pour initialiser le layout
 
 		self.layout = QVBoxLayout()
-
+		# Initialise le layout Paramètre
 		self.init_parameter()
 
 		self.layoutbutton = QHBoxLayout()
+		# Initialise le layout Button
+		self.init_button()
 		self.layout.addLayout(self.layoutbutton)
 
 		self.setLayout(self.layout)
+
+
+	#### Initialise les Bouttons ####
+	def init_button(self):
+		# Méthode pour initiliser l'affichage des bouttons
+
+
+		subleft_layoutbutton = QVBoxLayout()
+		subcenter_layoutbutton = QVBoxLayout()
+
+		# Centre
+		# Boutton lancement de Simulation
+		button = QPushButton("Launch Simulation")
+		button.clicked.connect(self.launch_sim_clicked)
+		subcenter_layoutbutton.addWidget(button)
+		# Boutton back
+		button = QPushButton("Back")
+		button.clicked.connect(self.back_clicked)
+		subcenter_layoutbutton.addWidget(button)
+
+		# gauche
+
+		# Boutton Save Preset
+		button = QPushButton("Save Preset")
+		button.clicked.connect(self.save_preset_clicked)
+		subleft_layoutbutton.addWidget(button)
+
+		# Boutton Load Preset
+		button = QPushButton("Load Preset")
+		button.clicked.connect(self.load_preset_clicked)
+		subleft_layoutbutton.addWidget(button)
+
+		self.layoutbutton.addLayout(subleft_layoutbutton)
+		self.layoutbutton.addLayout(subcenter_layoutbutton)
 
 
 	#### Initialise l'affichage des paramètre ####
@@ -429,5 +465,23 @@ class CParameterGUI(QWidget):
 			self.CTRL.set_components_damage(self.activ_param, components, int(s))
 
 
+	#### Button ####
+	def launch_sim_clicked(self):
+		# Méthode pour gérer l'event clicked sur le bouton launch SIm
+		pass
+
+	def back_clicked(self):
+		# Méthode pour gérer l'event clicked sur le bouton back
+		pass
+
+
+
+	def save_preset_clicked(self):
+		# Méthode pour gérer l'event clicked sur le bouton save preset
+		pass
+
+	def load_preset_clicked(self):
+		# Méthode pour gérer l'event clicked sur le bouton load preset
+		pass
 
 

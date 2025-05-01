@@ -1,6 +1,6 @@
 ########################################################################
 # Fichier qui vient Contenir la Controler des Users
-# Initialiser dans Server
+# Initialiser dans User
 ########################################################################
 
 

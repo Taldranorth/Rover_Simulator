@@ -1,13 +1,15 @@
 ########################################################################
 # Fichier qui vient Contenir la Classe Controller de la Simulation
-# Initialiser dans Server
+# Initialiser dans Users
 ########################################################################
 
 #from src.CSimulation.GUI.CSimulationGUI import CSimulationGUI
 
 
 class CSimulationCTRL:
-	def __init__(self, sim_factory, param_factory):
+	def __init__(self, main_window, sim_factory, param_factory):
+		# link vers la window
+		self.main_window = main_window
 		# On set les factory
 		self.sim_factory = sim_factory
 		self.param_factory = param_factory

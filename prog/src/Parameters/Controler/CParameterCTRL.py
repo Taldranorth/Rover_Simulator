@@ -1,13 +1,14 @@
 ########################################################################
 # Fichier qui vient Contenir la Classe Controller des Paramètres
-# Initialiser dans Server
+# Initialiser dans Users
 ########################################################################
 
 
-
-
 class CParameterCTRL:
-	def __init__(self, param_factory):
+	def __init__(self, main_window, param_factory):
+		# link vers la window
+		self.main_window = main_window
+		# link vers la factory
 		self.param_factory = param_factory
 
 	def create_parameter(self):
@@ -21,9 +22,6 @@ class CParameterCTRL:
 	def get_parameter(self, i):
 		# Méthode pour récupérer l'objet SImulation à la I place
 		return self.param_factory.get_parameter(i)
-
-
-
 
 	#### Setter ####
 

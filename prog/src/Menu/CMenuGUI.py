@@ -7,18 +7,22 @@ from src.Menu.CMenuCTRL import CMenuCTRL
 from PyQt6.QtWidgets import QApplication, QWidget, QMainWindow, QHBoxLayout
 
 class CMenuGUI(QWidget):
-	def __init__(self):
+	def __init__(self, main_window, sim_factory, param_factory):
 		# On initialise la classe hérité
 		super().__init__()
 		# On setup le layout
 		self.layout = 0
 		self.init_layout()
 		# On initialise les attributs du Widget
-
-
+		self.CTRL = CMenuCTRL(main_window, sim_factory, param_factory)
 
 	def init_layout(self):
 		# Méthode pour initialiser le layout
 		self.layout = QHBoxLayout()
 		self.setLayout(self.layout)
+
+
+
+
+
 

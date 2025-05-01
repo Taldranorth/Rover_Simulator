@@ -9,14 +9,14 @@ from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import QApplication, QWidget, QMainWindow, QHBoxLayout, QVBoxLayout, QLabel, QPushButton, QTabWidget, QScrollArea
 
 class CSimulationGUI(QWidget):
-	def __init__(self, sim_factory, param_factory):
+	def __init__(self, main_window, sim_factory, param_factory):
 		# On initialise la classe hérité
 		super().__init__()
 		# On setup le layout
 		self.init_layout()
 		# On initialise les attributs du Widget
 		# le Controler
-		self.CTRL = CSimulationCTRL(sim_factory, param_factory)
+		self.CTRL = CSimulationCTRL(main_window, sim_factory, param_factory)
 		# Simulation actuelle
 		self.activ_sim = 0
 
