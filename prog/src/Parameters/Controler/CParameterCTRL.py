@@ -80,3 +80,23 @@ class CParameterCTRL:
 		self.param_factory.set_components_damage(i, components, change)
 
 
+	#### Button ####
+	def launch_sim(self):
+		# Méthode pour gérer l'appel du Boutton launch Simulation
+		self.main_window.change_GUI("CSimulationGUI")
+
+	def back(self):
+		# Méthode pour gérer l'appel du Button Back
+		self.main_window.change_GUI("CMenuGUI")
+
+	def save_preset(self, i):
+		# Méthode pour gérer l'appel du Button Save Preset
+		pass
+
+	def load_preset(self, i):
+		# Méthode pour gérer l'appel du Button Load Preset
+		pass
+
+
+
+

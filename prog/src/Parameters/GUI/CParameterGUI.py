@@ -468,20 +468,23 @@ class CParameterGUI(QWidget):
 	#### Button ####
 	def launch_sim_clicked(self):
 		# Méthode pour gérer l'event clicked sur le bouton launch SIm
-		pass
+		self.CTRL.launch_sim()
 
 	def back_clicked(self):
 		# Méthode pour gérer l'event clicked sur le bouton back
-		pass
-
+		self.CTRL.back()
 
 
 	def save_preset_clicked(self):
 		# Méthode pour gérer l'event clicked sur le bouton save preset
+		i = self.activ_param
+		self.CTRL.save_preset(i)
 		pass
 
 	def load_preset_clicked(self):
 		# Méthode pour gérer l'event clicked sur le bouton load preset
+		i = self.activ_param
+		self.CTRL.load_preset(i)
 		pass
 
 

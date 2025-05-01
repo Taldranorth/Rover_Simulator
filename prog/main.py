@@ -39,6 +39,7 @@ from src.Parameters.GUI.CParameterGUI import CParameterGUI
 # - linkage entre les Menu Principale,Simu et paramètre
 # - Séparation en 2 threads et communication entre les threads
 
+
 # Objectif 2 mars:
 # - Mettre en place la sauvegarde des fichiers
 #   --> Sauvegarde/Chargement des Paramètres
@@ -49,7 +50,8 @@ from src.Parameters.GUI.CParameterGUI import CParameterGUI
 #   --> Pause/Reprise de la Simulation
 #   --> Menu pour accéder au différent Graphe
 #   --> Refactoriser pour simplifier l'implémentation des Graphes
-
+#   --> Boutton pour Sauvegarder/Charger la Simulation
+#   --> Boutton pour retourner au Menu Principale
 
 # Notes:
 #   - Je ne suis pas sur de mon coup pour le link entre les différents GUI,
@@ -194,11 +196,16 @@ if __name__ == "__main__":
     sim_factory = CSimulationFactory()
     param_factory = CParameterFactory()
 
+    #### ON link les factory à la Main Window ####
+    window.set_sim_factory(sim_factory)
+    window.set_param_factory(param_factory)
+
+
     #### Test Simulation GUI ####
-    #test_SimulationGUI(window, sim_factory, param_factory)
+    test_SimulationGUI(window, sim_factory, param_factory)
 
     #### Test Parameter GUI ####
-    test_ParameterGUI(window, sim_factory, param_factory)
+    #test_ParameterGUI(window, sim_factory, param_factory)
 
     #### Test Menu GUI ####
     #test_menuGUI(window, sim_factory, param_factory)
