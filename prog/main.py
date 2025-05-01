@@ -46,14 +46,11 @@ from src.Parameters.GUI.CParameterGUI import CParameterGUI
 # - Ajouter Header Info Simple √
 # - Metre en place tab pour regarder les données d'un rover en particulier √
 # - Boutton pour retourner au Menu Principale √
-
-# - Refaire Interface Simulation:
-#   --> Délai lors de l'éxécutions de la boucle
-#   --> Pause/Reprise de la Simulation
-#   --> Menu pour accéder au différent Graphe
-#   --> Refactoriser pour simplifier l'implémentation des Graphes
-#   --> Boutton pour Sauvegarder/Charger la Simulation
-
+# - Délai lors de l'éxécutions de la boucle √
+# - Pause/Reprise de la Simulation √
+# - Optimiser Calcul de la Simulation √
+#   --> Ne pas prendre en compte un Composant si Mort √
+#   --> Si Rover totalement décédé ne plus prendre en compte dans les Composants √
 
 
 # Objectif 2 mars:
@@ -63,6 +60,11 @@ from src.Parameters.GUI.CParameterGUI import CParameterGUI
 #   --> Sauvegarde/Chargment des Simulations
 #       --> Interface de Sélection
 #   --> Sauvegarde des Résultats
+# - Changer l'affichage des données pour qu'elle que chose d'optimiser
+# - Refaire Interface Simulation:
+#   --> Menu pour accéder au différent Graphe
+#   --> Refactoriser pour simplifier l'implémentation des Graphes
+
 
 
 # Objectif 3 mars:
@@ -75,6 +77,7 @@ from src.Parameters.GUI.CParameterGUI import CParameterGUI
 
 # Objectif 4 mars:
 # - Terminer ce qui reste à faire
+#   --> Nettoyer/Ranger le programme
 
 
 
@@ -218,19 +221,17 @@ if __name__ == "__main__":
     window.set_param_factory(param_factory)
 
 
-    #### Test Simulation GUI ####
-    test_SimulationGUI(window, sim_factory, param_factory)
+    #### Test Authentification GUI ####
+    #test_authentificationGUI(window, sim_factory, param_factory)
+
+    #### Test Menu GUI ####
+    test_menuGUI(window, sim_factory, param_factory)
 
     #### Test Parameter GUI ####
     #test_ParameterGUI(window, sim_factory, param_factory)
 
-    #### Test Menu GUI ####
-    #test_menuGUI(window, sim_factory, param_factory)
-
-
-    #### Test Authentification GUI ####
-    #test_authentificationGUI(window, sim_factory, param_factory)
-
+    #### Test Simulation GUI ####
+    #test_SimulationGUI(window, sim_factory, param_factory)
 
     ##### Code Test pour plus tard du Multithreading #####
 

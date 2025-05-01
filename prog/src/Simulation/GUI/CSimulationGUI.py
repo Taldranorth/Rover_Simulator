@@ -117,6 +117,8 @@ class CSimulationGUI(QWidget):
 		self.button_reset_Sim()
 		# button launch sim
 		self.button_launch_Sim()
+		# button stop
+		self.button_stop()
 
 	#### Initialisation Menu ####
 	def init_menu(self):
@@ -243,7 +245,7 @@ class CSimulationGUI(QWidget):
 	def button_launch_Sim_clicked(self):
 		# Méthode retour utilisateur quand le boutton est cliqué
 		print("On lance la Simulation")
-		self.CTRL.update_loop(self, self.activ_sim)
+		self.CTRL.launch_simulation(self, self.activ_sim)
 
 	#############################################
 
@@ -267,3 +269,12 @@ class CSimulationGUI(QWidget):
 		# Méthode pour gérer l'action du boutton save menu
 		self.CTRL.back_menu()
 
+	def button_stop(self):
+		# Méthode pour créer un button pour mettre en pause l'éxécution de la Simulation
+		button = QPushButton("Stop")
+		button.clicked.connect(self.button_stop_clicked)
+		self.layoutbutton.addWidget(button)
+
+	def button_stop_clicked(self):
+		# Méthode pour arrêter l'éxécutions de la simulation
+		self.CTRL.stop_simulation()

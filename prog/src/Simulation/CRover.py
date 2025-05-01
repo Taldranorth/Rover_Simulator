@@ -27,28 +27,40 @@ class CRover:
 		# Antenne
 		self.antenna = CComponents("Antenne", 25)
 
+		self.dead = False
+
 
 	###### Dégâts Composants ###### 
 
 	def apply_damage_global(self, lsdamage, temp):
 		# Méthode pour appliquer les dégats de manière globale à tout les Composants
 		# Roue
-		self.wheel1.damage_durability(lsdamage[0], temp)
-		self.wheel2.damage_durability(lsdamage[0], temp)
-		self.wheel3.damage_durability(lsdamage[0], temp)
-		self.wheel4.damage_durability(lsdamage[0], temp)
+		if self.wheel1.durability > 0:
+			self.wheel1.damage_durability(lsdamage[0], temp)
+		if self.wheel2.durability > 0:
+			self.wheel2.damage_durability(lsdamage[0], temp)
+		if self.wheel3.durability > 0:
+			self.wheel3.damage_durability(lsdamage[0], temp)
+		if self.wheel4.durability > 0:
+			self.wheel4.damage_durability(lsdamage[0], temp)
 		#Bras
-		self.arm.damage_durability(lsdamage[1], temp)
+		if self.arm.durability > 0:
+			self.arm.damage_durability(lsdamage[1], temp)
 		#Chassis
-		self.frame.damage_durability(lsdamage[2], temp)
+		if self.frame.durability > 0:
+			self.frame.damage_durability(lsdamage[2], temp)
 		#Camera
-		self.camera.damage_durability(lsdamage[3], temp)
+		if self.camera.durability > 0:
+			self.camera.damage_durability(lsdamage[3], temp)
 		#Panneau Solaire
-		self.solar_pannel.damage_durability(lsdamage[4], temp)
+		if self.solar_pannel.durability > 0:
+			self.solar_pannel.damage_durability(lsdamage[4], temp)
 		#Batterie
-		self.cell.damage_durability(lsdamage[5], temp)
+		if self.cell.durability > 0:
+			self.cell.damage_durability(lsdamage[5], temp)
 		#Antenne
-		self.antenna.damage_durability(lsdamage[6], temp)
+		if self.antenna.durability > 0:
+			self.antenna.damage_durability(lsdamage[6], temp)
 
 	def apply_damage_sandstorm(self, damage, intensity, temp):
 		# Méthode pour appliquer les dégats de la tempête de sable
@@ -175,6 +187,32 @@ class CRover:
 			self.cell.set_mintemp(newtemp)
 		elif Components == self.antenna:
 			self.antenna.set_mintemp(newtemp)
+
+	def is_dead(self):
+		# Méthode pour vérifier si le Rover Tourne encore
+		if self.wheel1.durability > 0:
+			return False
+		if self.wheel2.durability > 0:
+			return False
+		if self.wheel3.durability > 0:
+			return False
+		if self.wheel4.durability > 0:
+			return False
+		if self.arm.durability > 0:
+			return False
+		if self.frame.durability > 0:
+			return False
+		if self.camera.durability > 0:
+			return False
+		if self.solar_pannel.durability > 0:
+			return False
+		if self.cell.durability > 0:
+			return False
+		if self.antenna.durability > 0:
+			return False
+
+		self.dead = True
+		return True
 
 
 	def show_status(self):

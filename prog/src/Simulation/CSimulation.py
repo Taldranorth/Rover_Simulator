@@ -21,6 +21,8 @@ class CSimulation:
 		self.solarstorm_intensity = 1
 		self.temp = -63
 
+		self.delays = 1
+
 	def update_hour(self):
 		# Mets a jour la simulation pour chaque heure
 		self.is_storm()
@@ -66,19 +68,21 @@ class CSimulation:
 	def apply_damage(self):
 		# applique les dégats a chaque rover
 		for rover in self.factory.ls_rover:
-			if self.is_sandstorm:
-				rover.apply_damage_sandstorm(self.parameters.sandstorm_damage, self.sandstorm_intensity, self.temp)
-			if self.is_solarstorm:
-				rover.apply_damage_solarstorm(self.parameters.solarstorm_damage, self.solarstorm_intensity, self.temp)
+			if rover.dead == False:
+				if self.is_sandstorm:
+					rover.apply_damage_sandstorm(self.parameters.sandstorm_damage, self.sandstorm_intensity, self.temp)
+				if self.is_solarstorm:
+					rover.apply_damage_solarstorm(self.parameters.solarstorm_damage, self.solarstorm_intensity, self.temp)
 
-			ls_damage = [self.parameters.wheel_damage,
-						self.parameters.arm_damage,
-						self.parameters.frame_damage,
-						self.parameters.camera_damage,
-						self.parameters.solar_panel_damage,
-						self.parameters.cell_damage,
-						self.parameters.antenna_damage]
-			rover.apply_damage_global(ls_damage, self.temp)
+				ls_damage = [self.parameters.wheel_damage,
+							self.parameters.arm_damage,
+							self.parameters.frame_damage,
+							self.parameters.camera_damage,
+							self.parameters.solar_panel_damage,
+							self.parameters.cell_damage,
+							self.parameters.antenna_damage]
+				rover.apply_damage_global(ls_damage, self.temp)
+				rover.is_dead()
 			
 	def update_temp(self):
 		# Update la temperature

@@ -3,7 +3,8 @@
 # Initialiser dans Users
 ########################################################################
 
-#from src.CSimulation.GUI.CSimulationGUI import CSimulationGUI
+from threading import Thread
+from time import sleep
 
 
 class CSimulationCTRL:
@@ -13,6 +14,9 @@ class CSimulationCTRL:
 		# On set les factory
 		self.sim_factory = sim_factory
 		self.param_factory = param_factory
+
+		# Pour les Thread
+		self.stop = False
 
 	# Setter
 	# Simulation
@@ -49,7 +53,6 @@ class CSimulationCTRL:
 
 	##### Button #####
 
-
 	def reset_simulation(self, i):
 		# Méthode pour reset la Simulation
 
@@ -61,10 +64,15 @@ class CSimulationCTRL:
 		self.create_Rover(i)
 
 
+	#### Gestion Loop ####
+
 	def update_loop(self, GUI, i):
 		# Méthode pour update la loop est renvoyé les données au GUI
 		s = self.get_simulation(i)
-		while(s.is_end() == False):
+		time = s.delays
+		while((s.is_end() == False) and (self.stop == False)):
+			# On sleep
+			#sleep(i)
 			# On update
 			s.update_hour()
 			# On affiche dans le terminal
@@ -75,6 +83,23 @@ class CSimulationCTRL:
 				GUI.add_log_rover(s.get_single_rover_log(x),x)
 			# On update l'header
 			GUI.update_head()
+			sleep(i)
+			# On programme la prochaine executions du programme
+			#next_thread = Thread(target = self.update_loop(GUI, i))
+			#next_thread.start()
+			#Thread.exit()
+
+
+	def stop_simulation(self):
+		# Méthode pour mettre en pause l'éxécutions de la simulation
+		self.stop = True
+
+	def launch_simulation(self, GUI, i):
+		# Méthode pour lancer l'éxécutions de la simulation
+		self.stop = False
+		self.update_loop(GUI, i)
+
+	#############################################
 
 
 	def save_simulation(self, filename, i):
