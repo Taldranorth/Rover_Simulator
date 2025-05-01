@@ -30,3 +30,19 @@ class CSimulationFactory:
 		# Méthode pour la création d'un Rover
 		print("Créer Rover dans la Simulation N°",i)
 		self.ls_simulation[i].create_Rover()
+
+	#### Getter ####
+
+	def get_meteo(self, i):
+		# Méthode pour récup la météo de la Iieme Simulation
+		return self.ls_simulation[i].get_meteo()
+
+	def get_day(self, i):
+		# Méthode pour récup le jour de la Iième Simulation
+		return self.ls_simulation[i].get_day()
+
+	def get_hour(self, i):
+		return self.ls_simulation[i].get_hour()
+
+	def get_nbrover(self, i):
+		return self.ls_simulation[i].get_nbrover()

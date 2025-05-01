@@ -5,12 +5,33 @@
 
 
 class CParameterCTRL:
-	def __init__(self, main_window, param_factory):
+	def __init__(self, main_window, sim_factory, param_factory):
 		# link vers la window
 		self.main_window = main_window
 		# link vers la factory
+		self.sim_factory = sim_factory
 		self.param_factory = param_factory
 
+
+
+	# Simulation
+	def create_simulation(self, CParam):
+		# Méthode pour ajouter une simulation par la méthode de la factory
+		self.sim_factory.create_simulation(CParam)
+
+	def remove_simulation(self, i):
+		# Méthode pour retirer une simulation
+		self.sim_factory.remove_simulation(i)
+
+	def get_simulation(self, i):
+		# Méthode pour récupérer l'objet SImulation à la I place
+		return self.sim_factory.get_simulation(i)
+
+	def create_Rover(self, i):
+		# Méthode pour appeler la création d'un rover dans I ième simulation de la liste
+		self.sim_factory.create_Rover(i)
+
+	# Parameter
 	def create_parameter(self):
 		# Méthode pour ajouter une simulation par la méthode de la factory
 		self.param_factory.create_parameter()
@@ -83,10 +104,10 @@ class CParameterCTRL:
 	#### Button ####
 	def launch_sim(self, i):
 		# Méthode pour gérer l'appel du Boutton launch Simulation
+		# On créer l'instance de la simulation
+		self.main_window.widget.CTRL.create_simulation(self.get_parameter(i))
 		# On change la fenêtre
 		self.main_window.change_GUI("CSimulationGUI")
-		# On indique aux GUI de créer une nouvelle instance
-		self.main_window.widget.CTRL.create_simulation(self.get_parameter(i))
 
 	def back(self):
 		# Méthode pour gérer l'appel du Button Back

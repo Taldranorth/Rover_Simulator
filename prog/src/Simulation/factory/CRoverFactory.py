@@ -13,6 +13,9 @@ class CRoverFactory:
 		# Méthoder pour récuperer le i rover
 		return self.ls_rover[i]
 
+	def get_nbrover(self):
+		return self.nb
+
 
 	def create_Rover(self):
 		# Méthode pour ajouter un rover
@@ -28,13 +31,12 @@ class CRoverFactory:
 
 	def show_status_rover_single(self, i):
 		# Méthode pour afficher le status d'un unique Rover
-		print(f"[Rover {i}] Nom : {self.ls_rover[i].name if hasattr(rover, 'name') else 'Inconnu'}")
+		print(f"[Rover {i}] Nom : {self.ls_rover[i].name if hasattr(self.ls_rover[i], 'name') else 'Inconnu'}")
 		if hasattr(self.ls_rover[i], 'show_status'):  # Si le rover a une méthode de status
 			print(self.ls_rover[i].show_status())		
 
 	def show_status_rover(self):
 		# Méthode pour afficher le status de tout les Rovers
-
 		for i, rover in enumerate(self.ls_rover):
 			print(f"[Rover {i+1}] Nom : {rover.name if hasattr(rover, 'name') else 'Inconnu'}")
 			if hasattr(rover, 'show_status'):  # Si le rover a une méthode de status

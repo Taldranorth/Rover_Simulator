@@ -26,6 +26,10 @@ from src.Parameters.GUI.CParameterGUI import CParameterGUI
 #   2 choses:
 #   --> Sépararation du process https://docs.python.org/3/library/threading.html ou https://docs.python.org/3/library/multiprocessing.html#module-multiprocessing
 #   --> Communication entre les process https://www.geeksforgeeks.org/python-communicating-between-threads-set-1/
+# - Fix Paramètre vers Simulation
+#   --> Doit définir quand l'instance de SImulation est créer éxactement
+
+
 
 # Rappel:
 # - GUI = interface graphique
@@ -34,13 +38,23 @@ from src.Parameters.GUI.CParameterGUI import CParameterGUI
 
 
 # Objectif 1 mars:
-# - Séparation en 2 threads et communication entre les threads
-#       --> Remplacer modifier tout les CTRL pour qu'ils vérifient si server == 0 
-#           --> Si server != 0 alors il y a un threads avec lequel communiqué
-
 # - version Basique Menu Principale √
 # - Mettre en place les boutons du ParameterGUI √
 # - Mettre en place le linkage entre le Menu Principale, Simulation et Paramètre √
+# - refait le button launch sim pour transferer la boucle dans le controller/factory √
+# - Repousser à Samedi la séparation du Thread le temps de me laisser y réfléchir un peu plus
+# - Ajouter Header Info Simple √
+# - Metre en place tab pour regarder les données d'un rover en particulier √
+# - Boutton pour retourner au Menu Principale √
+
+# - Refaire Interface Simulation:
+#   --> Délai lors de l'éxécutions de la boucle
+#   --> Pause/Reprise de la Simulation
+#   --> Menu pour accéder au différent Graphe
+#   --> Refactoriser pour simplifier l'implémentation des Graphes
+#   --> Boutton pour Sauvegarder/Charger la Simulation
+
+
 
 # Objectif 2 mars:
 # - Mettre en place la sauvegarde des fichiers
@@ -49,18 +63,27 @@ from src.Parameters.GUI.CParameterGUI import CParameterGUI
 #   --> Sauvegarde/Chargment des Simulations
 #       --> Interface de Sélection
 #   --> Sauvegarde des Résultats
-# - Refaire Interface Simulation:
-#   --> Délai lors de l'éxécutions de la boucle
-#   --> Pause/Reprise de la Simulation
-#   --> Menu pour accéder au différent Graphe
-#   --> Refactoriser pour simplifier l'implémentation des Graphes
-#   --> Boutton pour Sauvegarder/Charger la Simulation
-#   --> Boutton pour retourner au Menu Principale
-#   -> refaire le button launch sim pour transferer la boucle dans le controller/factory
+
+
+# Objectif 3 mars:
+# - Séparation en 2 threads et communication entre les threads
+#       --> Remplacer modifier tout les CTRL pour qu'ils vérifient si server == 0 
+#           --> Si server == 0 alors on appels directement les factory link
+#           --> Sinon server == thread du process
+#               --> On demande au server set ou de nous renvoyer les données
+
+
+# Objectif 4 mars:
+# - Terminer ce qui reste à faire
+
+
+
+
+
 
 # Notes:
 #   - Je ne suis pas sur de mon coup pour le link entre les différents GUI,
-#   mais j'ai finit par mettre la main window en attribut des CTRL afin qu'il puisse y accèder est appelé les changement de
+#   mais j'ai finit par mettre la main-window en attribut des CTRL afin qu'il puisse y accèder est appelé les changement de
 #   GUI de la main window
 #       --> Par contre cela veut dire que la MainWindow garde aussi en mémoire les Singletons factory
 #          --> Voir à terme par remplacer la Class CMainWindow par une Classe Applications carrément
@@ -114,7 +137,7 @@ class CMainWindow(QMainWindow):
         elif GUI == "CSimulationGUI":
             self.set_widget(CSimulationGUI(self ,self.sim_factory, self.param_factory))
         elif GUI == "CParameterGUI":
-            self.set_widget(CParameterGUI(self ,self.param_factory))
+            self.set_widget(CParameterGUI(self ,self.sim_factory, self.param_factory))
         else:
             print("Erreur Mauvais Paramètre GUI")
             print("GUI:",GUI)
@@ -132,33 +155,23 @@ class CMainWindow(QMainWindow):
 def test_SimulationGUI(window, sim_factory, param_factory):
     # Fonction Test de l'interface de Simulation
 
+    ##### Initialisation de la simulation #####
+    # Mise en place des variables
+    window.param_factory.create_parameter()
+    window.param_factory.ls_parameter[0].set_maxdays(2)
+    window.sim_factory.create_simulation(window.param_factory.get_parameter(0))
+
     # Initialise l'interface de la Simulation
     window.set_widget(CSimulationGUI(window, sim_factory, param_factory))
 
-    ##### Initialisation de la simulation #####
-    # Mise en place des variables
-    window.widget.CTRL.create_parameter()
-    window.widget.CTRL.param_factory.ls_parameter[0].set_maxdays(2)
-    window.widget.CTRL.create_simulation(window.widget.CTRL.get_parameter(0))
-    window.widget.CTRL.create_Rover(window.widget.activ_sim)
-    s = window.widget.CTRL.get_simulation(0)
-
-    ##### Boucle Principales de Calcul #####
-    while(s.is_end() == False):
-        # On update
-        s.update_hour()
-        # On affiche dans le terminal
-        s.afficher()
-        # On redirige vers le Window text
-        window.widget.add_log(s.get_rover_log())
-
+    window.sim_factory.create_Rover(window.widget.activ_sim)
 
 
 def test_ParameterGUI(window, sim_factory, param_factory):
     # Fonction Test de l'interface de Paramètrage des paramètre
 
     # Initialise l'interface des Paramètre
-    window.set_widget(CParameterGUI(window, param_factory))
+    window.set_widget(CParameterGUI(window, sim_factory, param_factory))
 
 
 
@@ -206,20 +219,17 @@ if __name__ == "__main__":
 
 
     #### Test Simulation GUI ####
-    #test_SimulationGUI(window, sim_factory, param_factory)
+    test_SimulationGUI(window, sim_factory, param_factory)
 
     #### Test Parameter GUI ####
     #test_ParameterGUI(window, sim_factory, param_factory)
 
     #### Test Menu GUI ####
-    test_menuGUI(window, sim_factory, param_factory)
+    #test_menuGUI(window, sim_factory, param_factory)
 
 
     #### Test Authentification GUI ####
     #test_authentificationGUI(window, sim_factory, param_factory)
-
-    # Execute l'appli
-    app.exec()
 
 
     ##### Code Test pour plus tard du Multithreading #####
@@ -228,5 +238,6 @@ if __name__ == "__main__":
 
 
 
-
+    # Execute l'appli
+    app.exec()
 

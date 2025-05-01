@@ -138,10 +138,42 @@ class CSimulation:
 		# on retourne la variable
 		return result.getvalue()
 
+	def get_single_rover_log(self, i):
+		# Méthode qui renvoit les données d'un unique rover
+		old_stdout = sys.stdout
+		result = StringIO()
+		sys.stdout = result
+		self.factory.show_status_rover_single(i)
+		sys.stdout = old_stdout
+		return result.getvalue()
+
 
 	def create_Rover(self):
 		# Méthode pour appeler la création d'un rover
 		self.factory.create_Rover()
+
+
+	def get_meteo(self):
+		# Méthode retourne la météo
+		if self.is_sandstorm == True:
+			return "SandStorm"
+		elif self.is_solarstorm == True:
+			return "SolarStorm"
+		else:
+			return "Clear"
+
+	def get_day(self):
+		# Méthode retourne le jour
+		return self.days
+
+	def get_hour(self):
+		# Méthode retourne l'heure
+		return self.hour
+
+	def get_nbrover(self):
+		# Méthode retourne le nombre de Rover
+		return self.factory.get_nbrover()
+
 
 
 

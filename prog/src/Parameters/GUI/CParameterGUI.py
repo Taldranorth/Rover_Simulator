@@ -3,19 +3,20 @@
 # Initialiser dans Users
 ########################################################################
 
-from src.Parameters.Controler.CParameterCTRL import CParameterCTRL
 
+from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import QApplication, QWidget, QMainWindow, QHBoxLayout, QVBoxLayout, QLabel, QPushButton, QTabWidget, QScrollArea, QLineEdit
 
+from src.Parameters.Controler.CParameterCTRL import CParameterCTRL
 
 class CParameterGUI(QWidget):
-	def __init__(self, main_window, param_factory):
+	def __init__(self, main_window, sim_factory, param_factory):
 		# On initialise la classe hérité
 		super().__init__()
 
 		self.activ_param = 0
 		# On link le CTRL
-		self.CTRL = CParameterCTRL(main_window, param_factory)
+		self.CTRL = CParameterCTRL(main_window, sim_factory, param_factory)
 
 		# On initialise un Paramètre
 		self.CTRL.create_parameter()
@@ -64,12 +65,12 @@ class CParameterGUI(QWidget):
 		# Boutton Save Preset
 		button = QPushButton("Save Preset")
 		button.clicked.connect(self.save_preset_clicked)
-		subleft_layoutbutton.addWidget(button)
+		subleft_layoutbutton.addWidget(button, alignment = Qt.AlignmentFlag.AlignLeft)
 
 		# Boutton Load Preset
 		button = QPushButton("Load Preset")
 		button.clicked.connect(self.load_preset_clicked)
-		subleft_layoutbutton.addWidget(button)
+		subleft_layoutbutton.addWidget(button, alignment = Qt.AlignmentFlag.AlignLeft)
 
 		self.layoutbutton.addLayout(subleft_layoutbutton)
 		self.layoutbutton.addLayout(subcenter_layoutbutton)

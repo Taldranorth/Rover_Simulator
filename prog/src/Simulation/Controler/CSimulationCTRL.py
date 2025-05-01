@@ -46,3 +46,68 @@ class CSimulationCTRL:
 	def get_parameter(self, i):
 		# Méthode pour récupérer l'objet SImulation à la I place
 		return self.param_factory.get_parameter(i)
+
+	##### Button #####
+
+
+	def reset_simulation(self, i):
+		# Méthode pour reset la Simulation
+
+		# On supprime
+		self.remove_simulation(i)
+		# On recréer
+		self.create_simulation(self.get_parameter(i))
+		# On recréer un Rover
+		self.create_Rover(i)
+
+
+	def update_loop(self, GUI, i):
+		# Méthode pour update la loop est renvoyé les données au GUI
+		s = self.get_simulation(i)
+		while(s.is_end() == False):
+			# On update
+			s.update_hour()
+			# On affiche dans le terminal
+			s.afficher()
+			# On redirige vers le Window text
+			GUI.add_log(s.get_rover_log())
+			for x in range(self.get_nbrover(i)):
+				GUI.add_log_rover(s.get_single_rover_log(x),x)
+			# On update l'header
+			GUI.update_head()
+
+
+	def save_simulation(self, filename, i):
+		# Méthode pour gérer la sauvegarde de la Simulation
+		pass
+
+	def load_simulation(self, filename, i):
+		# Méthode pour gérer le chargement de la Simulation
+		pass
+
+	def back_menu(self):
+		# Méthode pour gérer le retour au Menu Principale
+		self.main_window.change_GUI("CMenuGUI")
+
+
+	def get_meteo(self, i):
+		# Méthode pour récup la météo
+		return self.sim_factory.get_meteo(i)
+
+	def get_day(self, i):
+		# Méthode pour récup le jour
+		return self.sim_factory.get_day(i)
+
+	def get_hour(self, i):
+		# Méthode pour récup l'heure
+		return self.sim_factory.get_hour(i)
+
+	def get_nbrover(self, i):
+		# Méthode pour récupérer le nombre de rover
+		return self.sim_factory.get_nbrover(i)
+
+
+
+
+
+
