@@ -63,8 +63,9 @@ from src.Parameters.GUI.CParameterGUI import CParameterGUI
 # - Changer l'affichage des données pour qu'elle que chose d'optimiser
 # - Refaire Interface Simulation:
 #   --> Menu pour accéder au différent Graphe
+#       --> Mise en place de sous-Tab pour Chaque Rover
+#   --> lors du Reset Bien nettoyer les tab
 #   --> Refactoriser pour simplifier l'implémentation des Graphes
-
 
 
 # Objectif 3 mars:

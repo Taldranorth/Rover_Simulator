@@ -30,7 +30,9 @@ class CSimulationGUI(QWidget):
 		self.stringallrover = ""
 		self.tabstringrover = [""]
 		self.lslabelrover = []
+		self.lstabrover = []
 		self.init_label_log_rover()
+		self.add_tab_rover()
 		self.add_label_rover()
 
 		# button
@@ -102,6 +104,35 @@ class CSimulationGUI(QWidget):
 		self.tab = QTabWidget()
 		self.layoutscroll.addWidget(self.tab)
 
+	def add_label_rover(self):
+		# Méthode pour ajouter un label rover est le link aux tab
+		# On l'ajoute
+		self.lslabelrover += [QLabel(self.tabstringrover[-1])]
+		# On paramètre le dernier
+		self.lslabelrover[-1].setAlignment(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignTop)
+		# On créer la Scroll Area
+
+		scroll = QScrollArea()
+		scroll.setVerticalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOn)
+		scroll.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
+		scroll.setWidgetResizable(True)
+		
+		scroll.setWidget(self.lslabelrover[-1])
+		# On l'ajoute au tab du rover
+		self.lstabrover[-1].addTab(scroll, "Info Global")
+		#self.tab.addTab(scroll, "Info Global")
+
+	def add_tab_rover(self):
+		# Méthode pour ajouter un tab de Rover
+		# On créer le nouveaux tab
+		self.lstabrover += [QTabWidget()]
+		# On ajoute le nouveau tab au tab globale
+		self.tab.addTab(self.lstabrover[-1],f"Rover{len(self.lslabelrover)}")
+
+
+	def add_graphe_rover(self, type):
+		# Méthode pour ajouter un Graphe aux Rover
+		pass
 
 	#### Initialisation Layout Button ####
 	def init_layout_button(self):
@@ -188,27 +219,12 @@ class CSimulationGUI(QWidget):
 		self.CTRL.create_Rover(self.activ_sim)
 		# On ajoute un nouveau string à remplir
 		self.tabstringrover += [""]
+		# On appel l'ajout d'un nouveau tab rover
+		self.add_tab_rover()
 		# On appel l'ajout de label rover
 		self.add_label_rover()
 		# On update l'header
 		self.update_head()
-
-	def add_label_rover(self):
-		# Méthode pour ajouter un label rover est le link aux tab
-		# On l'ajoute
-		self.lslabelrover += [QLabel(self.tabstringrover[-1])]
-		# On paramètre le dernier
-		self.lslabelrover[-1].setAlignment(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignTop)
-		# On créer la Scroll Area
-
-		scroll = QScrollArea()
-		scroll.setVerticalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOn)
-		scroll.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
-		scroll.setWidgetResizable(True)
-		
-		scroll.setWidget(self.lslabelrover[-1])
-		# On l'ajoute au tab
-		self.tab.addTab(scroll, f"Rover{len(self.lslabelrover)}")
 
 	#############################################
 
