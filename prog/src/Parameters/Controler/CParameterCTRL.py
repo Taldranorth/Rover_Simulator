@@ -81,19 +81,22 @@ class CParameterCTRL:
 
 
 	#### Button ####
-	def launch_sim(self):
+	def launch_sim(self, i):
 		# Méthode pour gérer l'appel du Boutton launch Simulation
+		# On change la fenêtre
 		self.main_window.change_GUI("CSimulationGUI")
+		# On indique aux GUI de créer une nouvelle instance
+		self.main_window.widget.CTRL.create_simulation(self.get_parameter(i))
 
 	def back(self):
 		# Méthode pour gérer l'appel du Button Back
 		self.main_window.change_GUI("CMenuGUI")
 
-	def save_preset(self, i):
+	def save_preset(self, i, filename):
 		# Méthode pour gérer l'appel du Button Save Preset
 		pass
 
-	def load_preset(self, i):
+	def load_preset(self, i, filename):
 		# Méthode pour gérer l'appel du Button Load Preset
 		pass
 

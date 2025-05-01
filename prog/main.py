@@ -35,15 +35,16 @@ from src.Parameters.GUI.CParameterGUI import CParameterGUI
 
 # Objectif 1 mars:
 # - version Basique Menu Principale
-# - Mettre en place les boutons du ParameterGUI
-# - linkage entre les Menu Principale,Simu et paramètre
 # - Séparation en 2 threads et communication entre les threads
-
+# - Mettre en place les boutons du ParameterGUI √
+# - Mettre en place le linkage entre le Menu Principale, Simulation et Paramètre √
 
 # Objectif 2 mars:
 # - Mettre en place la sauvegarde des fichiers
 #   --> Sauvegarde/Chargement des Paramètres
+#       --> Interface de Sélection
 #   --> Sauvegarde/Chargment des Simulations
+#       --> Interface de Sélection
 #   --> Sauvegarde des Résultats
 # - Refaire Interface Simulation:
 #   --> Délai lors de l'éxécutions de la boucle
@@ -129,8 +130,6 @@ def test_SimulationGUI(window, sim_factory, param_factory):
     # Initialise l'interface de la Simulation
     window.set_widget(CSimulationGUI(window, sim_factory, param_factory))
 
-
-
     ##### Initialisation de la simulation #####
     # Mise en place des variables
     window.widget.CTRL.create_parameter()
@@ -202,13 +201,13 @@ if __name__ == "__main__":
 
 
     #### Test Simulation GUI ####
-    test_SimulationGUI(window, sim_factory, param_factory)
+    #test_SimulationGUI(window, sim_factory, param_factory)
 
     #### Test Parameter GUI ####
     #test_ParameterGUI(window, sim_factory, param_factory)
 
     #### Test Menu GUI ####
-    #test_menuGUI(window, sim_factory, param_factory)
+    test_menuGUI(window, sim_factory, param_factory)
 
 
     #### Test Authentification GUI ####

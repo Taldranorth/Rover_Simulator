@@ -468,7 +468,7 @@ class CParameterGUI(QWidget):
 	#### Button ####
 	def launch_sim_clicked(self):
 		# Méthode pour gérer l'event clicked sur le bouton launch SIm
-		self.CTRL.launch_sim()
+		self.CTRL.launch_sim(self.activ_param)
 
 	def back_clicked(self):
 		# Méthode pour gérer l'event clicked sur le bouton back
@@ -477,14 +477,18 @@ class CParameterGUI(QWidget):
 
 	def save_preset_clicked(self):
 		# Méthode pour gérer l'event clicked sur le bouton save preset
+		# On affiche Un Line edit Ou on demande d'entrée le nom du fichier
+
+
 		i = self.activ_param
-		self.CTRL.save_preset(i)
-		pass
+		#self.CTRL.save_preset(i, filename)
 
 	def load_preset_clicked(self):
 		# Méthode pour gérer l'event clicked sur le bouton load preset
+		# On affiche une interface afin de sélectioner l'un des fichiers trouvées
+
+
 		i = self.activ_param
-		self.CTRL.load_preset(i)
-		pass
+		#self.CTRL.load_preset(i, filename)
 
 

@@ -6,7 +6,7 @@
 class CParameter:
 	def __init__(self):
 		# Durée de la Simulation
-		self.maxdays = 0
+		self.maxdays = 1
 
 		# Météo
 		# Tempête de Sable
