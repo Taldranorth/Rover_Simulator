@@ -25,10 +25,14 @@ class CMenuCTRL:
 		self.main_window.change_GUI("CParameterGUI")
 
 	def load_simulation(self, filename):
-		# Méthode pour gérer le chargement d'une simulation
+		# Méthode pour gérer le chargement d'une simulation avec le filename donné
+		# Charge le GUI simulation
 
+		#self.main_window.change_GUI("CSimulationGUI")
+		# Charge la save
 
 		pass
+
 
 	def manage_result(self):
 		# Méthode pour gérer les résultat enregistrés

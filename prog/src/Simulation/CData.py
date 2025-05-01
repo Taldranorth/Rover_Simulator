@@ -3,8 +3,11 @@
 # Initialiser dans Server
 ########################################################################
 
+import sys
+import os
+
 from src.Simulation.CRover import CRover
-from src.Simulation.Factory.CRoverFactory import CRoverFactory
+from src.Simulation.factory.CRoverFactory import CRoverFactory
 
 # Les diférents fichiers sont sauvegardés sous:
 # - project/data/save/results -> résultats de simulation
@@ -12,6 +15,43 @@ from src.Simulation.Factory.CRoverFactory import CRoverFactory
 # - project/data/save/simulation -> fichiers sauvegardes des simulation
 # l'extension préféré et le .sav
 
+
+def scan_directory(directory):
+	# Fonctions pour lister les fichiers stockés dans le répertoire
+	print(directory)
+	result = os.listdir(directory)
+
+	return result
+
+def scan_parameter_file():
+	# Fonction pour liste les fichiers stockés dans le répertoire des paramètres
+	# Normalement on est dans prog
+	current_directory = os.getcwd()
+	# On se place dans data/save/parameters
+	current_directory += "/data/save/parameters"
+	result = scan_directory(current_directory)
+
+	return result
+
+def scan_result_file():
+	# Fonction pour liste les fichiers stockés dans le répertoire des résultats
+	# Normalement on est dans prog
+	current_directory = os.getcwd()
+	# On se place dans data/save/results
+	current_directory += "/data/save/results"
+	result = scan_directory(current_directory)
+
+	return result
+
+def scan_simulation_file():
+	# Fonction pour liste les fichiers stockés dans le répertoire des simulations
+	# Normalement on est dans prog
+	current_directory = os.getcwd()
+	# On se place dans data/save/simulation
+	current_directory += "/data/save/simulation"
+	result = scan_directory(current_directory)
+
+	return result
 
 class CData:
 	def __init__(self):

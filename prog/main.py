@@ -34,8 +34,11 @@ from src.Parameters.GUI.CParameterGUI import CParameterGUI
 
 
 # Objectif 1 mars:
-# - version Basique Menu Principale
 # - Séparation en 2 threads et communication entre les threads
+#       --> Remplacer modifier tout les CTRL pour qu'ils vérifient si server == 0 
+#           --> Si server != 0 alors il y a un threads avec lequel communiqué
+
+# - version Basique Menu Principale √
 # - Mettre en place les boutons du ParameterGUI √
 # - Mettre en place le linkage entre le Menu Principale, Simulation et Paramètre √
 
@@ -53,6 +56,7 @@ from src.Parameters.GUI.CParameterGUI import CParameterGUI
 #   --> Refactoriser pour simplifier l'implémentation des Graphes
 #   --> Boutton pour Sauvegarder/Charger la Simulation
 #   --> Boutton pour retourner au Menu Principale
+#   -> refaire le button launch sim pour transferer la boucle dans le controller/factory
 
 # Notes:
 #   - Je ne suis pas sur de mon coup pour le link entre les différents GUI,
@@ -61,6 +65,7 @@ from src.Parameters.GUI.CParameterGUI import CParameterGUI
 #       --> Par contre cela veut dire que la MainWindow garde aussi en mémoire les Singletons factory
 #          --> Voir à terme par remplacer la Class CMainWindow par une Classe Applications carrément
 
+# Ils va peut être falloir à terme mettre en place un CDataGUI et CDataController car les données sont sensé être stocker coté server
 
 
 class CMainWindow(QMainWindow):
@@ -78,6 +83,9 @@ class CMainWindow(QMainWindow):
         self.sim_factory = 0
         self.param_factory = 0
         self.user_factory = 0
+
+        # Pour indiquer si il y a un serveur Connecté
+        self.server = 0
 
         # On veut que la fenêtre soit montré
         self.show()
@@ -99,7 +107,6 @@ class CMainWindow(QMainWindow):
         # Méthode pour set le User Factory
         self.user_factory = user_factory
 
-
     def change_GUI(self, GUI):
         # Méthode pour changer le GUI actuellement Charger
         if GUI == "CMenuGUI":
@@ -111,8 +118,6 @@ class CMainWindow(QMainWindow):
         else:
             print("Erreur Mauvais Paramètre GUI")
             print("GUI:",GUI)
-
-
 
     def set_widget(self, widget):
         # Méthode pour changer le widget afficher dans la window
