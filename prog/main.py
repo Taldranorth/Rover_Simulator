@@ -7,7 +7,6 @@ import PyQt6
 from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import QApplication, QWidget, QMainWindow, QPushButton, QLabel, QSlider, QHBoxLayout, QScrollArea
 
-
 from queue import Queue 
 from threading import Thread 
 
@@ -23,20 +22,9 @@ from src.Parameters.GUI.CParameterGUI import CParameterGUI
 # Import DB
 from data.db.db_utils import init_db
 
-# Doit faire:
-# - Mettre en place test Simulation plus poussé
-# - Mettre en place la séparation en thread du programme
-#   2 choses:
-#   --> Sépararation du process https://docs.python.org/3/library/threading.html ou https://docs.python.org/3/library/multiprocessing.html#module-multiprocessing
-#   --> Communication entre les process https://www.geeksforgeeks.org/python-communicating-between-threads-set-1/
-# - Fix Paramètre vers Simulation
-#   --> Doit définir quand l'instance de SImulation est créer éxactement
-
-
-
 # Rappel:
 # - GUI = interface graphique
-# - Controler = controler de l'interface GUI (appeler les setter)
+# - Controler = controler de l'interface GUI (appeler les setter) NE MODIFIE PAS DIRECTEMENT LES DONNÉES
 # - DAO = Data Access Object, transfert des données de la base de données en données utilisable en programme
 
 
@@ -58,22 +46,6 @@ from data.db.db_utils import init_db
 
 # Objectif 2 mars:
 
-# - Mettre en place la sauvegarde de la Simulation
-# - Changer l'affichage des données pour qu'elle que chose d'optimiser
-#   --> Faire le point sur les données stocker à chaque tour
-# - Refaire Interface Simulation:
-#       --> renvoyer au paramètre de base
-
-
-
-# - Corriger les méthodes de sauvegarder ainsi que les appels dans ParameterCTRL
-#   --> dans load_preset c'était un appel à save_parameters
-#   --> Dans CData.getpath() les chemins était mal configurés et ne prennais pas en compte le chemin jusqu'au dossiers du projet
-#   --> le chemin data/save était donnés dans load_preset/save_preset mais aussi lors de l'appel de CData résultat on se retrouvais avec
-#       un chemin qui apparaisait 2fois borkant tout les calculs
-# Résultats: Fonction non testé et vérifier qui m'a fait perdre 40 min
-
-
 # - gérer update de l'interface Paramètre après chargement preset √
 # - Changer l'affichage des données pour qu'elle que chose d'optimiser, au lieu de tout afficher on n'affiche que les dernières données √
 # - Mise en place d'une Structure pour les graphes √
@@ -89,15 +61,11 @@ from data.db.db_utils import init_db
 #           --> Sinon server == thread du process
 #               --> On demande au server set ou de nous renvoyer les données
 
-
 # Objectif 4 mars:
 # - Terminer ce qui reste à faire
 #   --> Nettoyer/Ranger le programme
-
-
-
-
-
+#   --> Séparation en threads
+#   --> Link la Sauvegarde de la Simulation
 
 # Notes:
 #   - Je ne suis pas sur de mon coup pour le link entre les différents GUI,

@@ -23,8 +23,7 @@ from matplotlib.figure import Figure
 
 
 
-class MplCanvas(FigureCanvas):
-
+class CGraph(FigureCanvas):
 	def __init__(self, type, parent=None, width=5, height=4, dpi=100):
 		# Ont définit la taille
 		fig = Figure(figsize=(width, height), dpi=dpi)
@@ -74,14 +73,3 @@ class MplCanvas(FigureCanvas):
 		self.axes.cla()
 		# On draw
 		self.axes.plot(self.xdata, self.ydata)
-
-def graph_components_stat(type):
-	# Fonction pour créer un graph matplotlib sur l'évolution des composants
-	# Créer le matplotlib figure
-	# which defines a single set of axes as self.axes.
-	graph = MplCanvas(type)
-	#if type == "components":
-	#	graph.axes.plot([0,1,2,3,4], [10,1,20,3,40])
-
-
-	return graph

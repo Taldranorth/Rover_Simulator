@@ -5,7 +5,7 @@
 
 from src.Simulation.Controler.CSimulationCTRL import CSimulationCTRL
 from src.Simulation.CData import scan_simulation_file
-from src.Display.plot import graph_components_stat
+from src.Display.plot import CGraph
 
 from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QAction
@@ -104,7 +104,7 @@ class CSimulationGUI(QWidget):
 
 		# On initialise les tab Météo, température et rover
 		for txt in ["meteo","temperature","rover"]:
-			graph = graph_components_stat(txt)
+			graph = CGraph(txt)
 			tab.addTab(graph, txt)
 
 		# On finit par ajouter le tab global
@@ -146,7 +146,7 @@ class CSimulationGUI(QWidget):
 	def add_graphe_rover(self, irover, type):
 		# Méthode pour ajouter un Graphe aux iRover
 		# On créer le graphe
-		graph = graph_components_stat(type)
+		graph = CGraph(type)
 		# On l'ajoute au tableau du irover avec le bon titre
 		if type == "meteo":
 			self.lstabrover[irover].addTab(graph, "Graph meteo")
