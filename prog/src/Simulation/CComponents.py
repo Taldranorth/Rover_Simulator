@@ -57,3 +57,21 @@ class CComponents:
 	def set_mintemp(self, change):
 		# Méthode pour changer la température min du composant
 		self.mintemp = change
+		
+	def to_dict(self):
+		data= {
+			"name": self.name,
+			"durability": self.durability,
+			"resistance": self.resistance,
+			"mintemp": self.mintemp,
+			"maxtemp": self.maxtemp
+		}
+		return data
+
+	def from_dict(self, data):
+		self.name = data["name"]
+		self.durability = data["durability"]
+		self.resistance = data["resistance"]
+		self.mintemp = data["mintemp"]
+		self.maxtemp = data["maxtemp"]
+

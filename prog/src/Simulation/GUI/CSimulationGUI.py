@@ -347,7 +347,7 @@ class CSimulationGUI(QWidget):
 		# On remet le tab global
 		self.init_tab_global()
 		# On remet les tableaux des rover
-		for x in range(len(self.CTRL.get_nbrover(self.activ_sim))):
+		for x in range(self.CTRL.get_nbrover(self.activ_sim)):
 			# On ajoute un nouveau string à remplir
 			self.tabstringrover += [""]
 			# On appel l'ajout d'un nouveau tab rover
@@ -484,7 +484,7 @@ class CSimulationGUI(QWidget):
 		# On appel la méthode du CTRL
 		self.CTRL.save_simulation(self.activ_sim,txt)
 		# On update la liste des Save
-		Qlist.addItems(txt)
+		Qlist.addItems([txt])
 		# On ferme la fenêtre
 		dlg.close()
 

@@ -260,3 +260,41 @@ class CRover:
 		return "\n".join(status)
 
 
+		#### Save/Load ####
+	def to_dict(self):
+		# Méthode pour Sauvegarder dans un dico
+		data = {
+			"dead": self.dead,
+			"components": {
+				"wheel1": self.wheel1.to_dict(),
+				"wheel2": self.wheel2.to_dict(),
+				"wheel3": self.wheel3.to_dict(),
+				"wheel4": self.wheel4.to_dict(),
+				"arm": self.arm.to_dict(),
+				"frame": self.frame.to_dict(),
+				"camera": self.camera.to_dict(),
+				"solar_pannel": self.solar_pannel.to_dict(),
+				"cell": self.cell.to_dict(),
+				"antenna": self.antenna.to_dict()			
+			}
+		}
+		return data
+
+
+	def from_dict(self, data):
+		# Méthode pour Charger depuis un dico
+		self.dead = data["dead"]
+		
+		self.wheel1.from_dict(data["components"]["wheel1"])
+		self.wheel2.from_dict(data["components"]["wheel2"])
+		self.wheel3.from_dict(data["components"]["wheel3"])
+		self.wheel4.from_dict(data["components"]["wheel4"])
+		
+		self.arm.from_dict(data["components"]["arm"])
+		self.frame.from_dict(data["components"]["frame"])
+		self.camera.from_dict(data["components"]["camera"])
+		self.solar_pannel.from_dict(data["components"]["solar_pannel"])
+		self.cell.from_dict(data["components"]["cell"])
+		self.antenna.from_dict(data["components"]["antenna"])
+		
+		

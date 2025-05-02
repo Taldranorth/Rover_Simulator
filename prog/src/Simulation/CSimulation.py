@@ -7,6 +7,7 @@ from io import StringIO
 from random import randint
 
 from src.Simulation.factory.CRoverFactory import CRoverFactory
+from src.Simulation.CRover import  CRover
 
 class CSimulation:
 	def __init__(self, CParam):
@@ -189,15 +190,47 @@ class CSimulation:
 
 
 	#### Save/Load ####
-
 	def to_dict(self):
 		# Méthode pour Sauvegarder dans un dico
-		pass
+		data = {
+			"days": self.days,
+			"hour": self.hour,
+			"sandstorm":{
+				"is_sandstorm": self.is_sandstorm,
+				"intensity": self.sandstorm_intensity
+			},
+			"solarstorm":{
+				"is_solarstorm": self.is_solarstorm,
+				"intensity": self.solarstorm_intensity
+			},
+			"temp": self.temp,
+			#save les rovers et leur états
+			"rovers": [rover.to_dict() for rover in self.factory.ls_rover]
+			
+		}
+		return data
 
 
 
-	def from_dict(self):
+	def from_dict(self, data):
 		# Méthode pour Charger depuis un dico
-		pass
+		self.days = data["days"]
+		self.hour = data["hour"]
+		
+		self.is_sandstorm = data["sandstorm"]["is_sandstorm"]
+		self.sandstorm_intensity = data["sandstorm"]["intensity"]
+		
+		self.is_solarstorm = data["solarstorm"]["is_solarstorm"]
+		self.solarstorm_intensity = data["solarstorm"]["intensity"]
+		
+		self.temp = data["temp"]
+		
+		#charger les rover et leur etat
+		self.factory.ls_rover = []
+		for rover_data in data.get("rovers", []):
+			#for rover_data in data["rovers"]:
+			rover = CRover()
+			rover.from_dict(rover_data)
+			self.factory.ls_rover += [rover]
 
 
