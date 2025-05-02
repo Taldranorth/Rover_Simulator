@@ -482,7 +482,7 @@ class CParameterGUI(QWidget):
 
 
 		i = self.activ_param
-		#self.CTRL.save_preset(i, filename)
+		self.CTRL.save_preset(i, filename)
 
 	def load_preset_clicked(self):
 		# Méthode pour gérer l'event clicked sur le bouton load preset
@@ -490,6 +490,6 @@ class CParameterGUI(QWidget):
 
 
 		i = self.activ_param
-		#self.CTRL.load_preset(i, filename)
+		self.CTRL.load_preset(i, filename)
 
 

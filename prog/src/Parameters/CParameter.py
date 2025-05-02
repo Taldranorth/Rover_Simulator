@@ -19,11 +19,21 @@ class CParameter:
 		self.solarstorm_probability_despawn = 25
 		self.solarstorm_damage = 5
 
-
 		# Température
 		self.mintemp = -143
 		self.maxtemp = 20
 
+		# Paramètre de Base des Rovers
+		self.components = {
+			"wheel": {"durability": 100, "resistance": 1, "damage": 1},
+			"arm": {"durability": 100, "resistance": 1, "damage": 1},
+			"frame": {"durability": 100, "resistance": 1, "damage": 1},
+			"camera": {"durability": 100, "resistance": 1, "damage": 1},
+			"solar_panel": {"durability": 100, "resistance": 1, "damage": 1},
+			"cell": {"durability": 100, "resistance": 1, "damage": 1},
+			"antenna": {"durability": 100, "resistance": 1, "damage": 1},
+		}
+		
 		# Paramètre de Base des Rovers
 		#Durabilité
 		#Roue
@@ -72,7 +82,8 @@ class CParameter:
 		self.cell_damage = 1
 		#Antenne
 		self.antenna_damage = 1
-
+		
+		
 	######### Setter #########
 
 	def set_maxdays(self, change):
@@ -167,4 +178,47 @@ class CParameter:
 			self.cell_damage = change
 		elif components == "antenna":
 			self.antenna_damage = change
+	
+	### Save / Load ###
+		
+	def	to_dict(self):
+		#Sauvegarde les données dans un dico data
+		data = {
+			"max_days": self.maxdays,
+			"sandstorm": {
+				"proba_spawn": self.sandstorm_probability_spawn,
+				"proba_despawn": self.sandstorm_probability_despawn,
+				"damage": self.sandstorm_damage
+			},
+			"solarstorm": {
+				"proba_spawn": self.solarstorm_probability_spawn,
+				"proba_despawn": self.solarstorm_probability_despawn,
+				"damage": self.solarstorm_damage
+			},
+			"temperature": {
+				"min": self.mintemp,
+				"max": self.maxtemp,
+			},
+			"components": self.components  
+		}
+		return data
+
+
+	def from_dict(self, data):
+		#Charge les données depuis le dico data
+		self.maxdays = data["maxdays"]
+		
+		self.sandstorm_probability_spawn = data["sandstorm"]["proba_spawn"]
+		self.sandstorm_probability_despawn = data["sandstorm"]["proba_despawn"]
+		self.sandstorm_damage = data["sandstorm"]["damage"]
+		
+		self.solarstorm_probability_spawn = data["solarstorm"]["proba_spawn"]
+		self.solarstorm_probability_despawn = data["solarstorm"]["proba_despawn"]
+		self.solarstorm_damage = data["solarstorm"]["damage"]
+		
+		self.mintemp = data["temperature"]["min"]
+		self.maxtemp = data["temperature"]["max"]
+		
+		self.components = data["components"]
+
 

@@ -20,7 +20,7 @@ from src.Simulation.factory.CRoverFactory import CRoverFactory
 
 def scan_directory(directory):
 	# Fonctions qui retourne la liste des fichiers stockés dans le répertoire
-	if not os.path.exists(directory)
+	if not os.path.exists(directory):
 		print("Aucun fichier dans ce répertoire")
 		return []
 	print(directory)
@@ -59,6 +59,12 @@ def scan_simulation_file():
 
 
 """
+data = {
+	...
+	...
+}
+CData().save_simulation(data, filename) filename non obligaotire car par crée si inexistant
+
 Choses a sauvegarde durant la simu:
 	- le jour
 	- l'heure
@@ -73,7 +79,7 @@ Pour les preset save:
 	- la durée de la simulation
 	- la proba d'apparition des tempetes (sable et solaire)
 	- la proba de dispawn des ces tempetes et les degats créés
-	- durabilité, résistance, dégats des rovers
+	- durabilité, résistance, dégats de chaque composant des rovers
 
 """
 
@@ -99,7 +105,7 @@ class CData:
 		#Si le nom n'as pas l'extesion on la rajoute
 		if not filename.endswitch(".sav"):
 			filename += ".sav"
-		return os.path.join(self.paths[category], filename
+		return os.path.join(self.paths[category], filename)
 
 	def save(self,category, data, filename=None):
 		#Méthode qui sauvergarde les données en paramètre dans la catégorie spécifiée avec son nom de fichier custom (ou prédefini)
