@@ -16,6 +16,13 @@ class CRoverFactory:
 	def get_nbrover(self):
 		return self.nb
 
+	def get_alive_rover(self):
+		i = 0
+		for x in range(self.nb):
+			if self.ls_rover[x].dead == False:
+				i += 1
+		return i
+
 
 	def create_Rover(self):
 		# Méthode pour ajouter un rover
@@ -41,3 +48,5 @@ class CRoverFactory:
 			print(f"[Rover {i+1}] Nom : {rover.name if hasattr(rover, 'name') else 'Inconnu'}")
 			if hasattr(rover, 'show_status'):  # Si le rover a une méthode de status
 				print(rover.show_status())
+
+

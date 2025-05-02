@@ -106,6 +106,7 @@ class CParameterCTRL:
 		# Méthode pour gérer l'appel du Boutton launch Simulation
 		# On créer l'instance de la simulation
 		self.main_window.widget.CTRL.create_simulation(self.get_parameter(i))
+		
 		# On change la fenêtre
 		self.main_window.change_GUI("CSimulationGUI")
 

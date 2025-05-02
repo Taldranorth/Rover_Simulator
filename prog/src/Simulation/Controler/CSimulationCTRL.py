@@ -56,12 +56,10 @@ class CSimulationCTRL:
 	def reset_simulation(self, i):
 		# Méthode pour reset la Simulation
 
-		# On supprime
+		# On supprime la simulation
 		self.remove_simulation(i)
-		# On recréer
+		# On recréer la simulation
 		self.create_simulation(self.get_parameter(i))
-		# On recréer un Rover
-		self.create_Rover(i)
 
 
 	#### Gestion Loop ####
@@ -81,6 +79,8 @@ class CSimulationCTRL:
 			GUI.add_log(s.get_rover_log())
 			for x in range(self.get_nbrover(i)):
 				GUI.add_log_rover(s.get_single_rover_log(x),x)
+			# On update les graphes
+			GUI.update_graph()
 			# On update l'header
 			GUI.update_head()
 			sleep(i)
@@ -102,11 +102,11 @@ class CSimulationCTRL:
 	#############################################
 
 
-	def save_simulation(self, filename, i):
+	def save_simulation(self, i, filename):
 		# Méthode pour gérer la sauvegarde de la Simulation
 		pass
 
-	def load_simulation(self, filename, i):
+	def load_simulation(self, i, filename):
 		# Méthode pour gérer le chargement de la Simulation
 		pass
 
@@ -130,6 +130,21 @@ class CSimulationCTRL:
 	def get_nbrover(self, i):
 		# Méthode pour récupérer le nombre de rover
 		return self.sim_factory.get_nbrover(i)
+
+	def get_alive_rover(self, i):
+		# Méthode pour récupérer le nb de rover en état de marche
+		return self.sim_factory.get_alive_rover(i)
+
+	def get_temp(self, i):
+		# Méthode pour récupérer la temp de la simulation
+		return self.sim_factory.get_temp(i)
+
+	def get_time(self, i):
+		# Méthode qui retourne le temp (jour + heure)
+		day = self.sim_factory.get_day(i)
+		hour = self.sim_factory.get_hour(i)
+
+		return (day+(hour/100))
 
 
 

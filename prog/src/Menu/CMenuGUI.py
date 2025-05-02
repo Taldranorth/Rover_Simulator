@@ -88,6 +88,8 @@ class CMenuGUI(QWidget):
 
 
 
+
+	##### Load Simulation ####
 	def dialog_load_simulation(self, main_window):
 		# Méthode pour créer et afficher la window de chargement de simulation
 		dlg = QDialog(main_window)

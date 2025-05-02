@@ -4,10 +4,14 @@
 ########################################################################
 
 from src.Simulation.Controler.CSimulationCTRL import CSimulationCTRL
+from src.Simulation.CData import scan_simulation_file
+from src.Display.plot import graph_components_stat
 
 from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QAction
-from PyQt6.QtWidgets import QApplication, QWidget, QMainWindow, QHBoxLayout, QVBoxLayout, QLabel, QPushButton, QTabWidget, QScrollArea
+from PyQt6.QtWidgets import QApplication, QWidget, QMainWindow, QHBoxLayout, QVBoxLayout, QLabel, QPushButton, QTabWidget, QScrollArea, QDialog, QListWidget, QLineEdit
+
+
 
 class CSimulationGUI(QWidget):
 	def __init__(self, main_window, sim_factory, param_factory):
@@ -31,12 +35,10 @@ class CSimulationGUI(QWidget):
 		self.tabstringrover = [""]
 		self.lslabelrover = []
 		self.lstabrover = []
-		self.init_label_log_rover()
-		self.add_tab_rover()
-		self.add_label_rover()
+		self.init_tab_global()
 
 		# button
-		self.init_layout_button()
+		self.init_layout_button(main_window)
 
 	##### Initialisation Layout #####
 
@@ -78,8 +80,10 @@ class CSimulationGUI(QWidget):
 		self.layouthead_info.addWidget(self.labelnbrover)
 
 	#### Initialisation Label Rover ####
-	def init_label_log_rover(self):
-		# Méthode pour initialiser le label log_rover
+	def init_tab_global(self):
+		# Méthode pour initialiser le tab rover all
+
+		tab = QTabWidget()
 
 		# On initialise la zone Scrollable
 		self.scroll = QScrollArea()
@@ -96,7 +100,15 @@ class CSimulationGUI(QWidget):
 		self.scroll.setWidget(self.labeltext)
 
 		# On l'ajoute au tab
-		self.tab.addTab(self.scroll, "All")
+		tab.addTab(self.scroll,"Global")
+
+		# On initialise les tab Météo, température et rover
+		for txt in ["meteo","temperature","rover"]:
+			graph = graph_components_stat(txt)
+			tab.addTab(graph, txt)
+
+		# On finit par ajouter le tab global
+		self.tab.addTab(tab, "All Rover")
 
 	#### Initialisation Tab Rover ####
 	def init_tab_rover(self):
@@ -106,6 +118,7 @@ class CSimulationGUI(QWidget):
 
 	def add_label_rover(self):
 		# Méthode pour ajouter un label rover est le link aux tab
+
 		# On l'ajoute
 		self.lslabelrover += [QLabel(self.tabstringrover[-1])]
 		# On paramètre le dernier
@@ -119,8 +132,8 @@ class CSimulationGUI(QWidget):
 		
 		scroll.setWidget(self.lslabelrover[-1])
 		# On l'ajoute au tab du rover
-		self.lstabrover[-1].addTab(scroll, "Info Global")
-		#self.tab.addTab(scroll, "Info Global")
+		self.lstabrover[-1].addTab(scroll, "Global")
+		
 
 	def add_tab_rover(self):
 		# Méthode pour ajouter un tab de Rover
@@ -130,17 +143,31 @@ class CSimulationGUI(QWidget):
 		self.tab.addTab(self.lstabrover[-1],f"Rover{len(self.lslabelrover)}")
 
 
-	def add_graphe_rover(self, type):
-		# Méthode pour ajouter un Graphe aux Rover
-		pass
+	def add_graphe_rover(self, irover, type):
+		# Méthode pour ajouter un Graphe aux iRover
+		# On créer le graphe
+		graph = graph_components_stat(type)
+		# On l'ajoute au tableau du irover avec le bon titre
+		if type == "meteo":
+			self.lstabrover[irover].addTab(graph, "Graph meteo")
+		elif type == "temperature":
+			self.lstabrover[irover].addTab(graph, "Graph temperature")
+		elif type == "components":
+			self.lstabrover[irover].addTab(graph, "Graph components")
+		elif type == "rover":
+			self.lstabrover[irover].addTab(graph, "Graph rover")
+		else:
+			self.lstabrover[irover].addTab(graph, "Graph test")
+
+
 
 	#### Initialisation Layout Button ####
-	def init_layout_button(self):
+	def init_layout_button(self, main_window):
 		# Méthode pour initialiser le layout des Button
 
 		# Menu
 		# A Remplacer par un autre Layout
-		self.init_menu()
+		self.init_menu(main_window)
 
 		# button_rover
 		self.button_create_Rover()
@@ -152,14 +179,14 @@ class CSimulationGUI(QWidget):
 		self.button_stop()
 
 	#### Initialisation Menu ####
-	def init_menu(self):
+	def init_menu(self, main_window):
 		# Méthode pour initialiser le Menu
 
 		menu = self.CTRL.main_window.menuBar()
 
 		# Save
 		save_button = QAction("Save", self)
-		save_button.triggered.connect(self.save_button)
+		save_button.triggered.connect(lambda:  self.dialog_simulation(main_window, 1))
 
 		save_menu = menu.addMenu("Save")
 		save_menu.addAction(save_button)
@@ -167,7 +194,7 @@ class CSimulationGUI(QWidget):
 
 		# Load
 		load_button = QAction("Load", self)
-		load_button.triggered.connect(self.load_button)
+		load_button.triggered.connect(lambda:  self.dialog_simulation(main_window))
 
 		load_menu = menu.addMenu("Load")
 		load_menu.addAction(load_button)
@@ -189,18 +216,29 @@ class CSimulationGUI(QWidget):
 
 	def add_log(self, string):
 		# Méthode pour ajouter un log au label
-		self.stringallrover += string
+		self.stringallrover = string
 		self.labeltext.setText(self.stringallrover)
 
 	def add_log_rover(self, string, i):
 		# Méthode pour ajouter un log dans le label du i rover
-		self.tabstringrover[i] += string
+		self.tabstringrover[i] = string
 		self.lslabelrover[i].setText(self.tabstringrover[i])
 
 	def reset_log(self):
-		# Méthode pour resert le log label
+		# Méthode pour reset le log label
 		self.stringallrover = ""
 		self.labeltext.setText(self.stringallrover)
+	
+		for x in range(len(self.lslabelrover)):
+			self.lslabelrover[x].setText("")
+		self.tabstringrover = [""]
+		self.lslabelrover = []
+
+	def reset_tabrover(self):
+		# Méthode pour reset le tab rover
+		print("nettoyage tableau")
+		self.tab.clear()
+		self.lstabrover = []
 
 	#############################################
 
@@ -223,6 +261,8 @@ class CSimulationGUI(QWidget):
 		self.add_tab_rover()
 		# On appel l'ajout de label rover
 		self.add_label_rover()
+		# On appel l'ajout de graph des rovers
+		self.add_graphe_rover(len(self.lslabelrover)-1, "components")
 		# On update l'header
 		self.update_head()
 
@@ -240,8 +280,12 @@ class CSimulationGUI(QWidget):
 	def button_reset_Sim_clicked(self):
 		# Méthode retour utilisateur quand le boutton est cliqué
 		print("Reset la Simulation N°",self.activ_sim)
-		# On reset le log
+		# On reset les log
 		self.reset_log()
+		# On reset le tableau des rover
+		self.reset_tabrover()
+		# On remet le tab global
+		self.init_tab_global()
 		# On call la Method du CTRL
 		self.CTRL.reset_simulation(self.activ_sim)
 		# On update l'header
@@ -272,15 +316,30 @@ class CSimulationGUI(QWidget):
 		self.labelhour.setText(f"hour: {self.CTRL.get_hour(self.activ_sim)}")
 		self.labelnbrover.setText(f"nb Rover: {self.CTRL.get_nbrover(self.activ_sim)}")
 
+
+	def update_graph(self):
+		# Méthode pour update les graphes
+		print("On update les graph")
+		time = self.CTRL.get_time(self.activ_sim)
+		# On se balade dans la liste des tab des rovers
+		for x in range(len(self.lstabrover)):
+			print("les graphes des rovers")
+			# On vérifie que le nb tableau soit >1
+			if self.lstabrover[x].count() > 1:
+				pass
+			pass
+		# On update pour le global
+		# On recup le widget
+		global_tab = self.tab.widget(0)
+		# Meteo
+		global_tab.widget(1).update_meteo(time, self.CTRL.get_meteo(self.activ_sim))
+		# Température
+		global_tab.widget(2).update_temp(time, self.CTRL.get_temp(self.activ_sim))
+		# NbRover fonctionnel
+		global_tab.widget(3).update_rover(time, self.CTRL.get_alive_rover(self.activ_sim))
+
+
 	##### Menu Button ####
-	def save_button(self):
-		# Méthode pour gérer l'action du boutton save menu
-		pass
-
-	def load_button(self):
-		# Méthode pour gérer l'action du boutton save menu
-		pass
-
 	def back_button(self):
 		# Méthode pour gérer l'action du boutton save menu
 		self.CTRL.back_menu()
@@ -294,3 +353,117 @@ class CSimulationGUI(QWidget):
 	def button_stop_clicked(self):
 		# Méthode pour arrêter l'éxécutions de la simulation
 		self.CTRL.stop_simulation()
+
+
+
+	##### Dialogue Simulation ####
+	def dialog_simulation(self, main_window, save = 0):
+		# Méthode pour créer et afficher la window de chargement de simulation
+		# Même Interface entre Save et load outre le titre et l'action
+		dlg = QDialog(main_window)
+		if save == 0:
+			dlg.setWindowTitle("Load simulation")
+		else:
+			dlg.setWindowTitle("Save simulation")
+
+		#### Set Layout ####
+		global_layout = QVBoxLayout()
+		button_layout = QHBoxLayout()
+
+		Qlist = QListWidget()
+		self.dialog_init_list(Qlist)
+		global_layout.addWidget(Qlist)
+		global_layout.addLayout(button_layout)
+
+		#### Set Button ####
+		# Open
+		if(save == 0):
+			button = QPushButton("Open")
+			button.clicked.connect(lambda: self.dialog_load(dlg, Qlist))
+		else:
+			# Boutton pour créer un nouveaux
+			button_create = QPushButton("New")
+			button_create.clicked.connect(lambda: self.dialog_new(dlg,Qlist))
+			button_layout.addWidget(button_create)
+			# Boutton pour sauvegarder
+			button = QPushButton("Save")
+			button.clicked.connect(lambda: self.dialog_save(dlg, Qlist))
+		button_layout.addWidget(button)
+		# Cancel
+		button = QPushButton("Cancel")
+		button.clicked.connect(lambda: self.dialog_exit(dlg))
+		button_layout.addWidget(button)
+
+
+		dlg.setLayout(global_layout)
+		dlg.exec()
+
+	def dialog_init_list(self, Qlist):
+		# Méthode liées au dialogue load simulation
+		# On recup la liste des fichiers dans le dossiers des simulation
+		ls_file = scan_simulation_file()
+		# On créer la liste
+		Qlist.addItems(ls_file)
+
+
+	def dialog_load(self, dlg, Qlist):
+		# Méthode liées au button load du dialog load simulation
+		print("objet actuelle:", Qlist.currentItem().text())
+		# On recup le nom
+		filename = Qlist.currentItem().text()
+		# On le balance au Controler
+		self.CTRL.load_simulation(self.activ_param,filename)
+		# On ferme la fenêtre
+		dlg.close()
+
+	def dialog_save(self, dlg, Qlist):
+		# Méthode liées au button load du dialog load simulation
+		print("objet actuelle:", Qlist.currentItem().text())
+		# On recup le nom
+		filename = Qlist.currentItem().text()
+		# On le balance au Controler
+		self.CTRL.save_simulation(self.activ_param,filename)
+		# On ferme la fenêtre
+		dlg.close()
+
+	def dialog_new(self, dlg, Qlist):
+		# Méthode liées à la création d'une nouvelle sauvegade
+		# On créer un nouveaux Dialogue
+		dlg2 = QDialog(dlg)
+		dlg2.setWindowTitle("New Save Name")
+		# On met en place le layout
+		layout_global = QVBoxLayout()
+		layout_button = QHBoxLayout()
+		# On met le line edit pour entréer la nouvelle sauvegarde
+		line_edit = QLineEdit()
+		layout_global.addWidget(line_edit)
+		# On met en place le boutton Back
+		button = QPushButton("Back")
+		button.clicked.connect(lambda: self.dialog_exit(dlg2))
+		layout_button.addWidget(button)
+		# On met en place le boutton OK
+		button = QPushButton("Save")
+		button.clicked.connect(lambda: self.dialog_new_save(dlg2,Qlist, line_edit))
+		layout_button.addWidget(button)
+
+		# On set au layout
+		layout_global.addLayout(layout_button)
+		dlg2.setLayout(layout_global)
+		dlg2.exec()
+
+
+	def dialog_new_save(self, dlg, Qlist, line_edit):
+		# Méthode pour vérifier le nom est lancer la sauvegarde
+		# On récup le txt
+		txt = line_edit.text()
+		# On appel la méthode du CTRL
+		self.CTRL.save_simulation(self.activ_param,txt)
+		# On update la liste des Save
+		Qlist.addItems(txt)
+		# On ferme la fenêtre
+		dlg.close()
+
+
+	def dialog_exit(self, dlg):
+		# Méthode liées au button exit du dialog load simulation
+		dlg.close()

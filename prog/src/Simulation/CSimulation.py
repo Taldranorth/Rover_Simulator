@@ -22,6 +22,8 @@ class CSimulation:
 		self.temp = -63
 
 		self.delays = 1
+		# Attributs pour stocker les données
+		self.data = []
 
 	def update_hour(self):
 		# Mets a jour la simulation pour chaque heure
@@ -177,6 +179,14 @@ class CSimulation:
 	def get_nbrover(self):
 		# Méthode retourne le nombre de Rover
 		return self.factory.get_nbrover()
+
+	def get_alive_rover(self):
+		# Méthode qui retourne le nb de rover en vie
+		return self.factory.get_alive_rover()
+
+	def get_temp(self):
+		# Méthode qui retourne la temp de la simulation
+		return self.temp
 
 
 

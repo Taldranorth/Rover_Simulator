@@ -46,3 +46,9 @@ class CSimulationFactory:
 
 	def get_nbrover(self, i):
 		return self.ls_simulation[i].get_nbrover()
+
+	def get_temp(self,i):
+		return self.ls_simulation[i].get_temp()
+
+	def get_alive_rover(self, i):
+		return self.ls_simulation[i].get_alive_rover()

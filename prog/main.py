@@ -54,19 +54,20 @@ from src.Parameters.GUI.CParameterGUI import CParameterGUI
 
 
 # Objectif 2 mars:
-# - Mettre en place la sauvegarde des fichiers
-#   --> Sauvegarde/Chargement des Paramètres
-#       --> Interface de Sélection
-#   --> Sauvegarde/Chargment des Simulations
-#       --> Interface de Sélection
-#   --> Sauvegarde des Résultats
-# - Changer l'affichage des données pour qu'elle que chose d'optimiser
-# - Refaire Interface Simulation:
-#   --> Menu pour accéder au différent Graphe
-#       --> Mise en place de sous-Tab pour Chaque Rover
-#   --> lors du Reset Bien nettoyer les tab
-#   --> Refactoriser pour simplifier l'implémentation des Graphes
 
+# - Mettre en place la sauvegarde des fichiers
+# - Changer l'affichage des données pour qu'elle que chose d'optimiser
+#   --> Faire le point sur les données stocker à chaque tour
+# - Refaire Interface Simulation:
+#       --> renvoyer au paramètre de base
+
+
+# - Changer l'affichage des données pour qu'elle que chose d'optimiser, au lieu de tout afficher on n'affiche que les dernières données √
+# - Mise en place d'une Structure pour les graphes √
+# - Mise en place de plusieurs type de graphe voir fichier plot.py √
+# - Mise en place interface de Sauvegarde/Chargement des Paramètre/Simulations √
+# - Mise en place de sous-Tab pour Chaque Rover √
+# - lors du Reset nettoyer bien les tableau √
 
 # Objectif 3 mars:
 # - Séparation en 2 threads et communication entre les threads
