@@ -20,6 +20,9 @@ from src.Menu.CMenuGUI import CMenuGUI
 from src.Simulation.GUI.CSimulationGUI import CSimulationGUI
 from src.Parameters.GUI.CParameterGUI import CParameterGUI
 
+# Import DB
+from data.db.db_utils import init_db
+
 # Doit faire:
 # - Mettre en place test Simulation plus poussé
 # - Mettre en place la séparation en thread du programme
@@ -215,6 +218,9 @@ if __name__ == "__main__":
     # Initialise la routine de l'appli
     app = QApplication(sys.argv) 
     window = CMainWindow()
+
+    #initialise la db au démarage de l'appli
+    #init_db()	
 
     # Setup Taille
     window.resize(WidthWindow, HeightWindow)
