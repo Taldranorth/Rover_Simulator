@@ -1,0 +1,54 @@
+{
+    "max_days": 40,
+    "sandstorm": {
+        "proba_spawn": 25,
+        "proba_despawn": 25,
+        "damage": 5
+    },
+    "solarstorm": {
+        "proba_spawn": 25,
+        "proba_despawn": 25,
+        "damage": 5
+    },
+    "temperature": {
+        "min": -143,
+        "max": 20
+    },
+    "components": {
+        "wheel": {
+            "durability": 100,
+            "resistance": 1,
+            "damage": 1
+        },
+        "arm": {
+            "durability": 100,
+            "resistance": 1,
+            "damage": 1
+        },
+        "frame": {
+            "durability": 100,
+            "resistance": 1,
+            "damage": 1
+        },
+        "camera": {
+            "durability": 100,
+            "resistance": 1,
+            "damage": 1
+        },
+        "solar_panel": {
+            "durability": 100,
+            "resistance": 1,
+            "damage": 1
+        },
+        "cell": {
+            "durability": 100,
+            "resistance": 1,
+            "damage": 1
+        },
+        "antenna": {
+            "durability": 100,
+            "resistance": 1,
+            "damage": 1
+        }
+    }
+}

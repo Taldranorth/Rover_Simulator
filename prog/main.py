@@ -55,13 +55,23 @@ from src.Parameters.GUI.CParameterGUI import CParameterGUI
 
 # Objectif 2 mars:
 
-# - Mettre en place la sauvegarde des fichiers
+# - Mettre en place la sauvegarde de la Simulation
 # - Changer l'affichage des données pour qu'elle que chose d'optimiser
 #   --> Faire le point sur les données stocker à chaque tour
 # - Refaire Interface Simulation:
 #       --> renvoyer au paramètre de base
 
 
+
+# - Corriger les méthodes de sauvegarder ainsi que les appels dans ParameterCTRL
+#   --> dans load_preset c'était un appel à save_parameters
+#   --> Dans CData.getpath() les chemins était mal configurés et ne prennais pas en compte le chemin jusqu'au dossiers du projet
+#   --> le chemin data/save était donnés dans load_preset/save_preset mais aussi lors de l'appel de CData résultat on se retrouvais avec
+#       un chemin qui apparaisait 2fois borkant tout les calculs
+# Résultats: Fonction non testé et vérifier qui m'a fait perdre 40 min
+
+
+# - gérer update de l'interface Paramètre après chargement preset √
 # - Changer l'affichage des données pour qu'elle que chose d'optimiser, au lieu de tout afficher on n'affiche que les dernières données √
 # - Mise en place d'une Structure pour les graphes √
 # - Mise en place de plusieurs type de graphe voir fichier plot.py √

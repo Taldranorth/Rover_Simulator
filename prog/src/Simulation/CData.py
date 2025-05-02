@@ -10,13 +10,13 @@ import json
 from src.Simulation.CRover import CRover
 from src.Simulation.factory.CRoverFactory import CRoverFactory
 
-"""
+
 # Les diférents fichiers sont sauvegardés sous:
 # - project/data/save/results -> résultats de simulation
 # - project/data/save/parameters -> fichiers sauvegardes des paramètres
 # - project/data/save/simulation -> fichiers sauvegardes des simulation
 # l'extension préféré et le .sav
-"""
+
 
 def scan_directory(directory):
 	# Fonctions qui retourne la liste des fichiers stockés dans le répertoire
@@ -86,13 +86,12 @@ Pour les preset save:
 
 class CData:
 	def __init__(self, base_dir="data/save/"):
-		self.base_dir = base_dir
+		self.base_dir = os.getcwd()+"/"+base_dir
 		self.paths = {
-			"parameters": os.path.join(base_dir, "parameters"),
-			"simulation": os.path.join(base_dir, "simulation"),
-			"results": os.path.join(base_dir, "results")
+			"parameters": os.path.join(self.base_dir, "parameters"),
+			"simulation": os.path.join(self.base_dir, "simulation"),
+			"results": os.path.join(self.base_dir, "results")
 			}
-		
 		#Création des répertoire s'ils n'existent pas
 		for path in self.paths.values():
 			os.makedirs(path, exist_ok = True)
@@ -103,8 +102,10 @@ class CData:
 		if category not in self.paths:
 			raise ValueError(f"Catégorie de sauvegarde inconnue: {category}")
 		#Si le nom n'as pas l'extesion on la rajoute
-		if not filename.endswitch(".sav"):
+		if not filename.endswith(".sav"):
 			filename += ".sav"
+		print(self.paths[category])
+		print(filename)
 		return os.path.join(self.paths[category], filename)
 
 	def save(self,category, data, filename=None):
@@ -113,7 +114,7 @@ class CData:
 		if filename is None:
 			filename = f"{category}_Année_Mois_Jour"  #Voir pour inégrer le format classique d'un nom de save
 		path = self.get_path(category, filename)
-		with open(path, 'w') as f:
+		with open(path, 'w+') as f:
 			json.dump(data, f, indent=4)
 		print("Sauvegarde effectué")
 		
@@ -129,20 +130,20 @@ class CData:
 		print("Chargement des données réussi")	
 	
 	def save_parameters(self,data, filename="default"):
-			self.save("parameters", data, filename)
+		self.save("parameters", data, filename)
 		
 	def load_parameters(self, filename="default"):
-			return self.load("parameters", filename)
+		return self.load("parameters", filename)
 
 	def save_simulation(self,data, filename=None):
-			self.save("simulation", data, filename)
+		self.save("simulation", data, filename)
 		
 	def load_simulation(self, filename):
-			return self.load("simulation", filename)
+		return self.load("simulation", filename)
 			
 	def save_results(self,data, filename=None):
-			self.save("results", data, filename)
+		self.save("results", data, filename)
 		
 	def load_results(self, filename):
-			return self.load("results", filename)
+		return self.load("results", filename)
 

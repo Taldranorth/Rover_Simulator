@@ -206,7 +206,7 @@ class CParameter:
 
 	def from_dict(self, data):
 		#Charge les données depuis le dico data
-		self.maxdays = data["maxdays"]
+		self.maxdays = data["max_days"]
 		
 		self.sandstorm_probability_spawn = data["sandstorm"]["proba_spawn"]
 		self.sandstorm_probability_despawn = data["sandstorm"]["proba_despawn"]
