@@ -18,7 +18,7 @@ from src.Simulation.factory.CSimulationFactory import CSimulationFactory
 from src.Menu.CMenuGUI import CMenuGUI
 from src.Simulation.GUI.CSimulationGUI import CSimulationGUI
 from src.Parameters.GUI.CParameterGUI import CParameterGUI
-
+from src.Authentification.GUI.CLoginGui import CLoginGUI
 # Import DB
 from data.db.db_utils import init_db
 
@@ -179,7 +179,6 @@ def test_authentificationGUI(window, sim_factory, param_factory):
 
 
 if __name__ == "__main__":
-
     HeightWindow = 700
     WidthWindow = 1200
 
@@ -187,10 +186,24 @@ if __name__ == "__main__":
     ##### Initialisation de la fenêtre #####
     # Initialise la routine de l'appli
     app = QApplication(sys.argv) 
-    window = CMainWindow()
-
     #initialise la db au démarage de l'appli
     init_db()	
+    
+    ########Test fenetre de login ########
+    #Etape 1: Fenêtre de login 
+    login = CLoginGUI()
+    login.show()
+    app.exec()
+	#Si on rentre aucune info alors on ferme la fenêtre de connexion
+    if login.user is None:
+        print("Connexion annulée. Fermeture de l'application.")
+        sys.exit()
+    user = login.user  
+    print(f"Utilisateur connecté : {user.username}")
+	#########################
+	
+	# Etape 2: lance l'appli 
+    window = CMainWindow()
 
     # Setup Taille
     window.resize(WidthWindow, HeightWindow)

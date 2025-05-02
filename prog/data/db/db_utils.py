@@ -42,7 +42,7 @@ def init_db():
 		with conn.cursor() as cur:
 			cur.execute("""	
 				CREATE TABLE IF NOT EXISTS users(
-					id INT PRIMARY KEY,
+					id SERIAL PRIMARY KEY,
 					username VARCHAR(20) UNIQUE NOT NULL,
 					password VARCHAR(250) NOT NULL)
 			""")

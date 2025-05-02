@@ -6,5 +6,5 @@
 
 
 class CUser:
-	def __init__(sef):
-		pass
+	def __init__(self, username):
+		self.username = username
