@@ -220,7 +220,7 @@ if __name__ == "__main__":
     window = CMainWindow()
 
     #initialise la db au démarage de l'appli
-    #init_db()	
+    init_db()	
 
     # Setup Taille
     window.resize(WidthWindow, HeightWindow)

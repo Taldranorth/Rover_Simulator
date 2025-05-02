@@ -37,11 +37,9 @@ def get_connection():
 
 def init_db():
 	#Crée la table si elle n'existe pas avec les données id, username et mot de passe
-	print("essaie de connection")
+	print("Tentative de connexion à la base")
 	with get_connection() as conn:
-		print("con reussie")
 		with conn.cursor() as cur:
-			print("curseur créé")
 			cur.execute("""	
 				CREATE TABLE IF NOT EXISTS users(
 					id INT PRIMARY KEY,
@@ -49,7 +47,7 @@ def init_db():
 					password VARCHAR(250) NOT NULL)
 			""")
 			conn.commit()
-			cur.close()
+	print("Connexion à la Base réussie")
 			
 
 def add_user(username, password):
