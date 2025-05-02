@@ -76,13 +76,9 @@ class CSimulation:
 				if self.is_solarstorm:
 					rover.apply_damage_solarstorm(self.parameters.solarstorm_damage, self.solarstorm_intensity, self.temp)
 
-				ls_damage = [self.parameters.wheel_damage,
-							self.parameters.arm_damage,
-							self.parameters.frame_damage,
-							self.parameters.camera_damage,
-							self.parameters.solar_panel_damage,
-							self.parameters.cell_damage,
-							self.parameters.antenna_damage]
+				ls_damage = []
+				for string in ["wheel","arm","frame","camera","solar_panel","cell","antenna"]:
+					ls_damage += [self.parameters.get_components_damage(string)]
 				rover.apply_damage_global(ls_damage, self.temp)
 				rover.is_dead()
 			
@@ -187,6 +183,10 @@ class CSimulation:
 	def get_temp(self):
 		# Méthode qui retourne la temp de la simulation
 		return self.temp
+
+	def get_components_durability_all(self, irover):
+		return self.factory.get_components_durability_all(irover)
+
 
 	#### Save/Load ####
 

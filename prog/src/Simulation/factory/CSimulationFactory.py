@@ -55,6 +55,9 @@ class CSimulationFactory:
 		return self.ls_simulation[i].get_alive_rover()
 
 
+	def get_components_durability_all(self, isim, irover):
+		return self.ls_simulation[isim].get_components_durability_all(irover)
+
 	#### Save/Load ####
 	def save_simulation(self, i, filename):
 		# Méthode pour gérer la sauvegarde d'une simulation

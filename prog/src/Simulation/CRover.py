@@ -98,25 +98,25 @@ class CRover:
 
 	def set_durability(self, Components, newdr):
 		# Méthode pour set la durabilité d'un composants
-		if Components == self.wheel1:
+		if Components == "wheel1":
 			self.wheel1.set_durability(newdr)
-		elif Components == self.wheel2:
+		elif Components == "wheel2":
 			self.wheel2.set_durability(newdr)
-		elif Components == self.wheel3:
+		elif Components == "wheel3":
 			self.wheel3.set_durability(newdr)
-		elif Components == self.wheel4:
+		elif Components == "wheel4":
 			self.wheel4.set_durability(newdr)
-		elif Components == self.arm:
+		elif Components == "arm":
 			self.arm.set_durability(newdr)
-		elif Components == self.frame:
+		elif Components == "frame":
 			self.frame.set_durability(newdr)
-		elif Components == self.camera:
+		elif Components == "camera":
 			self.camera.set_durability(newdr)
-		elif Components == self.solar_pannel:
+		elif Components == "solar_pannel":
 			self.solar_pannel.set_durability(newdr)
-		elif Components == self.cell:
+		elif Components == "cell":
 			self.cell.set_durability(newdr)
-		elif Components == self.antenna:
+		elif Components == "antenna":
 			self.antenna.set_durability(newdr)
 
 	def set_resistance(self, Components, newrs):
@@ -213,6 +213,35 @@ class CRover:
 
 		self.dead = True
 		return True
+
+
+	def get_components_durability(self, Components):
+		if Components == "wheel1":
+			return self.wheel1.durability
+		elif Components == "wheel2":
+			return self.wheel2.durability
+		elif Components == "wheel3":
+			return self.wheel3.durability
+		elif Components == "wheel4":
+			return self.wheel4.durability
+		elif Components == "arm":
+			return self.arm.durability
+		elif Components == "frame":
+			return self.frame.durability
+		elif Components == "camera":
+			return self.camera.durability
+		elif Components == "solar_pannel":
+			return self.solar_pannel.durability
+		elif Components == "cell":
+			return self.cell.durability
+		elif Components == "antenna":
+			return self.antenna.durability
+
+	def get_components_durability_all(self):
+		ls = []
+		for string in ["wheel1","arm","frame","camera","solar_pannel","cell","antenna"]:
+			ls += [self.get_components_durability(string)]
+		return ls
 
 
 	def show_status(self):

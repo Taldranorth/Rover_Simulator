@@ -324,10 +324,7 @@ class CSimulationGUI(QWidget):
 		# On se balade dans la liste des tab des rovers
 		for x in range(len(self.lstabrover)):
 			print("les graphes des rovers")
-			# On vérifie que le nb tableau soit >1
-			if self.lstabrover[x].count() > 1:
-				pass
-			pass
+			self.lstabrover[x].widget(1).update_components(self.CTRL.get_components_durability_all(self.activ_sim,x), time)
 		# On update pour le global
 		# On recup le widget
 		global_tab = self.tab.widget(0)

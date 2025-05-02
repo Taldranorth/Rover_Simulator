@@ -23,6 +23,10 @@ class CRoverFactory:
 				i += 1
 		return i
 
+	def get_components_durability_all(self,i):
+		return self.ls_rover[i].get_components_durability_all()
+
+
 
 	def create_Rover(self):
 		# Méthode pour ajouter un rover

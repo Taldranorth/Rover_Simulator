@@ -148,6 +148,10 @@ class CSimulationCTRL:
 
 		return (day+(hour/100))
 
+	def get_components_durability_all(self,isim,irover):
+		# Méthode qui retourne la durabilités du tout les composants du rover
+		return self.sim_factory.get_components_durability_all(isim,irover)
+
 
 
 

@@ -33,13 +33,28 @@ class CGraph(FigureCanvas):
 		# On met en places les axes
 		self.axes = fig.add_subplot(111)
 
-		self.xdata = []
-		self.ydata = []
+		if type == "components":
+			self.xdata = [[],[],[],[],[],[],[]]
+			self.ydata = []
+		else:
+			self.xdata = []
+			self.ydata = []
 
 
-	#def update(self, x, y):
+	def update_components(self, lx, y):
 		# Méthode pour Update le graph
-	#	self.axes.plot(x,y)
+		# On récup les données
+		for i in range(len(lx)):
+			self.xdata[i] += [lx[i]]
+		self.ydata += [y]
+		# On clear
+		self.axes.cla()
+		# On affiche
+		i = 0
+		for string in ["wheel","arm","frame","camera","solar_panel","cell","antenna"]:
+			self.axes.plot(self.xdata[i],self.ydata, label = string)
+			i += 1
+		self.axes.legend()
 
 	def update_meteo(self, time, meteo):
 		# Méthode pour Update le graph meteo
