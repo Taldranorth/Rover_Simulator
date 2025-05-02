@@ -44,6 +44,43 @@ class CParameterCTRL:
 		# Méthode pour récupérer l'objet SImulation à la I place
 		return self.param_factory.get_parameter(i)
 
+	#### Getter ####
+	def get_maxdays(self, i):
+		return self.param_factory.get_maxdays(i)
+
+	def get_sandstorm_probability_spawn(self, i):
+		return self.param_factory.get_sandstorm_probability_spawn(i)
+
+	def get_sandstorm_probability_despawn(self, i):
+		return self.param_factory.get_sandstorm_probability_despawn(i)
+
+	def get_sandstorm_damage(self, i):
+		return self.param_factory.get_sandstorm_damage(i)
+
+	def get_solarstorm_probability_spawn(self, i):
+		return self.param_factory.get_solarstorm_probability_spawn(i)
+
+	def get_solarstorm_probability_despawn(self, i):
+		return self.param_factory.get_solarstorm_probability_despawn(i)
+
+	def get_solarstorm_damage(self, i):
+		return self.param_factory.get_solarstorm_damage(i)
+
+	def get_mintemp(self, i):
+		return self.param_factory.get_mintemp(i)
+
+	def get_maxtemp(self, i):
+		return self.param_factory.get_maxtemp(i)
+
+	def get_components_durability(self, i, components):
+		return self.param_factory.get_components_durability(i, components)
+
+	def get_components_resistance(self, i, components):
+		return self.param_factory.get_components_resistance(i, components)
+
+	def get_components_damage(self, i, components):
+		return self.param_factory.get_components_damage(i, components)
+
 	#### Setter ####
 
 	def set_maxdays(self, i, change):

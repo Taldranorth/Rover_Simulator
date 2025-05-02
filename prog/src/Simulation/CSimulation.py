@@ -201,12 +201,3 @@ class CSimulation:
 		pass
 
 
-if __name__ == "__main__":
-	from src.Parameters.CParameter import CParameter
-	cp = CParameter()
-	s = CSimulation(cp)
-
-	for _ in range(5):
-		s.update_hour()
-		s.afficher()
-

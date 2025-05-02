@@ -121,71 +121,71 @@ class CRover:
 
 	def set_resistance(self, Components, newrs):
 		# Méthode pour set la résistance d'un composants
-		if Components == self.wheel1:
+		if Components == "wheel1":
 			self.wheel1.set_resistance(newrs)
-		elif Components == self.wheel2:
+		elif Components == "wheel2":
 			self.wheel2.set_resistance(newrs)
-		elif Components == self.wheel3:
+		elif Components == "wheel3":
 			self.wheel3.set_resistance(newrs)
-		elif Components == self.wheel4:
+		elif Components == "wheel4":
 			self.wheel4.set_resistance(newrs)
-		elif Components == self.arm:
+		elif Components == "arm":
 			self.arm.set_resistance(newrs)
-		elif Components == self.frame:
+		elif Components == "frame":
 			self.frame.set_resistance(newrs)
-		elif Components == self.camera:
+		elif Components == "camera":
 			self.camera.set_resistance(newrs)
-		elif Components == self.solar_pannel:
+		elif Components == "solar_pannel":
 			self.solar_pannel.set_resistance(newrs)
-		elif Components == self.cell:
+		elif Components == "cell":
 			self.cell.set_resistance(newrs)
-		elif Components == self.antenna:
+		elif Components == "antenna":
 			self.antenna.set_resistance(newrs)
 
 	def set_maxtemp(self, Components, newtemp):
 		# Méthode pour set la temp min d'un composants
-		if Components == self.wheel1:
+		if Components == "wheel1":
 			self.wheel1.set_maxtemp(newtemp)
-		elif Components == self.wheel2:
+		elif Components == "wheel2":
 			self.wheel2.set_maxtemp(newtemp)
-		elif Components == self.wheel3:
+		elif Components == "wheel3":
 			self.wheel3.set_maxtemp(newtemp)
-		elif Components == self.wheel4:
+		elif Components == "wheel4":
 			self.wheel4.set_maxtemp(newtemp)
-		elif Components == self.arm:
+		elif Components == "arm":
 			self.arm.set_maxtemp(newtemp)
-		elif Components == self.frame:
+		elif Components == "frame":
 			self.frame.set_maxtemp(newtemp)
-		elif Components == self.camera:
+		elif Components == "camera":
 			self.camera.set_maxtemp(newtemp)
-		elif Components == self.solar_pannel:
+		elif Components == "solar_pannel":
 			self.solar_pannel.set_maxtemp(newtemp)
-		elif Components == self.cell:
+		elif Components == "cell":
 			self.cell.set_maxtemp(newtemp)
-		elif Components == self.antenna:
+		elif Components == "antenna":
 			self.antenna.set_maxtemp(newtemp)
 	
 	def set_mintemp(self, Components, newtemp):
 		# Méthode pour set la temp min d'un composants
-		if Components == self.wheel1:
+		if Components == "wheel1":
 			self.wheel1.set_mintemp(newtemp)
-		elif Components == self.wheel2:
+		elif Components == "wheel2":
 			self.wheel2.set_mintemp(newtemp)
-		elif Components == self.wheel3:
+		elif Components == "wheel3":
 			self.wheel3.set_mintemp(newtemp)
-		elif Components == self.wheel4:
+		elif Components == "wheel4":
 			self.wheel4.set_mintemp(newtemp)
-		elif Components == self.arm:
+		elif Components == "arm":
 			self.arm.set_mintemp(newtemp)
-		elif Components == self.frame:
+		elif Components == "frame":
 			self.frame.set_mintemp(newtemp)
-		elif Components == self.camera:
+		elif Components == "camera":
 			self.camera.set_mintemp(newtemp)
-		elif Components == self.solar_pannel:
+		elif Components == "solar_pannel":
 			self.solar_pannel.set_mintemp(newtemp)
-		elif Components == self.cell:
+		elif Components == "cell":
 			self.cell.set_mintemp(newtemp)
-		elif Components == self.antenna:
+		elif Components == "antenna":
 			self.antenna.set_mintemp(newtemp)
 
 	def is_dead(self):

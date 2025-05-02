@@ -32,57 +32,7 @@ class CParameter:
 			"solar_panel": {"durability": 100, "resistance": 1, "damage": 1},
 			"cell": {"durability": 100, "resistance": 1, "damage": 1},
 			"antenna": {"durability": 100, "resistance": 1, "damage": 1},
-		}
-		
-		# Paramètre de Base des Rovers
-		#Durabilité
-		#Roue
-		self.wheel_durability = 100
-		#Bras
-		self.arm_durability = 100
-		#Chassis
-		self.frame_durability = 100
-		#Camera
-		self.camera_durability = 100
-		#Panneau Solaire
-		self.solar_panel_durability = 100
-		#Batterie
-		self.cell_durability = 100
-		#Antenne
-		self.antenna_durability = 100
-
-		#Résistance
-		#Roue
-		self.wheel_rs = 1
-		#Bras
-		self.arm_rs = 1
-		#Chassis
-		self.frame_rs = 1
-		#Camera
-		self.camera_rs = 1
-		#Panneau Solaire
-		self.solar_panel_rs = 1
-		#Batterie
-		self.cell_rs = 1
-		#Antenne
-		self.antenna_rs = 1
-
-		#Dégats par Tour
-		#Roue
-		self.wheel_damage = 1
-		#Bras
-		self.arm_damage = 1
-		#Chassis
-		self.frame_damage = 1
-		#Camera
-		self.camera_damage = 1
-		#Panneau Solaire
-		self.solar_panel_damage = 1
-		#Batterie
-		self.cell_damage = 1
-		#Antenne
-		self.antenna_damage = 1
-		
+		}		
 		
 	######### Setter #########
 
@@ -130,55 +80,55 @@ class CParameter:
 
 	def set_components_durability(self, components, change):
 		# Méthode pour set la durabilité d'un composants
-		if components == "wheel":
-			self.wheel_durability = change
-		elif components == "arm":
-			self.arm_durability = change
-		elif components == "frame":
-			self.frame_durability = change
-		elif components == "camera":
-			self.camera_durability = change
-		elif components == "solar_panel":
-			self.solar_panel_durability = change
-		elif components == "cell":
-			self.cell_durability = change
-		elif components == "antenna":
-			self.antenna_durability = change
+		self.components[components]["durability"] = change
 
 	def set_components_resistance(self, components, change):
 		# Méthode pour set la résistance d'un composants
-		if components == "wheel":
-			self.wheel_rs = change
-		elif components == "arm":
-			self.arm_rs = change
-		elif components == "frame":
-			self.frame_rs = change
-		elif components == "camera":
-			self.camera_rs = change
-		elif components == "solar_panel":
-			self.solar_panel_rs = change
-		elif components == "cell":
-			self.cell_rs = change
-		elif components == "antenna":
-			self.antenna_rs = change
+		self.components[components]["resistance"] = change
 
 	def set_components_damage(self, components, change):
 		# Méthode pour set les dégâts du composants pris par tour
-		if components == "wheel":
-			self.wheel_damage = change
-		elif components == "arm":
-			self.arm_damage = change
-		elif components == "frame":
-			self.frame_damage = change
-		elif components == "camera":
-			self.camera_damage = change
-		elif components == "solar_panel":
-			self.solar_panel_damage = change
-		elif components == "cell":
-			self.cell_damage = change
-		elif components == "antenna":
-			self.antenna_damage = change
+		self.components[components]["damage"] = change
 	
+
+	#### Getter ####
+	def get_maxdays(self):
+		return self.maxdays
+
+	def get_sandstorm_probability_spawn(self):
+		return self.sandstorm_probability_spawn
+
+	def get_sandstorm_probability_despawn(self):
+		return self.sandstorm_probability_despawn
+
+	def get_sandstorm_damage(self):
+		return self.sandstorm_damage
+
+	def get_solarstorm_probability_spawn(self):
+		return self.solarstorm_probability_spawn
+
+	def get_solarstorm_probability_despawn(self):
+		return self.solarstorm_probability_despawn
+
+	def get_solarstorm_damage(self):
+		return self.solarstorm_damage
+
+	def get_mintemp(self):
+		return self.mintemp
+
+	def get_maxtemp(self):
+		return self.maxtemp
+
+	def get_components_durability(self, components):
+		return self.components[components]["durability"]
+
+	def get_components_resistance(self, components):
+		return self.components[components]["resistance"]
+
+	def get_components_damage(self, components):
+		return self.components[components]["damage"]
+
+
 	### Save / Load ###
 		
 	def	to_dict(self):

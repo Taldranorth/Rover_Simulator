@@ -41,6 +41,43 @@ class CParameterFactory:
 		if data:
 			self.ls_parameter[i].from_dict(data)
 
+	#### getter ####
+	def get_maxdays(self, i):
+		return self.ls_parameter[i].get_maxdays()
+
+	def get_sandstorm_probability_spawn(self, i):
+		return self.ls_parameter[i].get_sandstorm_probability_spawn()
+
+	def get_sandstorm_probability_despawn(self, i):
+		return self.ls_parameter[i].get_sandstorm_probability_despawn()
+
+	def get_sandstorm_damage(self, i):
+		return self.ls_parameter[i].get_sandstorm_damage()
+
+	def get_solarstorm_probability_spawn(self, i):
+		return self.ls_parameter[i].get_solarstorm_probability_spawn()
+
+	def get_solarstorm_probability_despawn(self, i):
+		return self.ls_parameter[i].get_solarstorm_probability_despawn()
+
+	def get_solarstorm_damage(self, i):
+		return self.ls_parameter[i].get_solarstorm_damage()
+
+	def get_mintemp(self, i):
+		return self.ls_parameter[i].get_mintemp()
+
+	def get_maxtemp(self, i):
+		return self.ls_parameter[i].get_maxtemp()
+
+	def get_components_durability(self, i, components):
+		return self.ls_parameter[i].get_components_durability(components)
+
+	def get_components_resistance(self, i, components):
+		return self.ls_parameter[i].get_components_resistance(components)
+
+	def get_components_damage(self, i, components):
+		return self.ls_parameter[i].get_components_damage(components)
+
 
 	#### Setter ####
 

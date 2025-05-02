@@ -66,6 +66,8 @@ from data.db.db_utils import init_db
 #   --> Nettoyer/Ranger le programme
 #   --> Séparation en threads
 #   --> Link la Sauvegarde de la Simulation
+#   --> L'update de tout les graphes
+#   --> Le chargement des Graphes
 
 # Notes:
 #   - Je ne suis pas sur de mon coup pour le link entre les différents GUI,
