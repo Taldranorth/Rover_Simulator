@@ -116,22 +116,8 @@ class CParameterCTRL:
 
 	def save_preset(self, i, filename):
 		# Méthode pour gérer l'appel du Button Save Preset
-		param_obj = self.get_parameter(i)
-		data = param_obj.to_dict()
-
-		#Sauvegarde à l'emplacement ci-dessous
-		cdata = CData()
-		cdata.save_parameters(data, filename)
+		self.param_factory.save_parameters(i,filename)
 
 	def load_preset(self, i, filename):
 		# Méthode pour gérer l'appel du Button Load Preset
-
-		#Charge les données stockées à l'emplacement suivant
-		cdata = CData()
-		data = cdata.load_parameters(filename)
-		
-		if data:
-			param_obj = self.get_parameter(i)
-			param_obj.from_dict(data)
-
-
+		self.param_factory.load_parameters(i,filename)

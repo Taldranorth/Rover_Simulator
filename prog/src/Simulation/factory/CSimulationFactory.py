@@ -4,6 +4,7 @@
 ########################################################################
 
 from src.Simulation.CSimulation import CSimulation
+from src.Simulation.CData import CData
 
 class CSimulationFactory:
 	def __init__(self):
@@ -52,3 +53,24 @@ class CSimulationFactory:
 
 	def get_alive_rover(self, i):
 		return self.ls_simulation[i].get_alive_rover()
+
+
+	#### Save/Load ####
+	def save_simulation(self, i, filename):
+		# Méthode pour gérer la sauvegarde d'une simulation
+		# On récup les data
+		data = self.ls_simulation[i].to_dict()
+		# On sauvegarde
+		cdata = CData()
+		cdata.save_simulation(data, filename)
+
+
+	def load_simulation(self, i, filename):
+		# Méthode pour gérer le chargement d'une simulation
+		# On récup les données
+		cdata = CData()
+		data = cdata.load_simulation(filename)
+		if data:
+			# On les charges
+			self.ls_simulation[i].from_dict(data)
+

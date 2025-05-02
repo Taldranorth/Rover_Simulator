@@ -338,6 +338,32 @@ class CSimulationGUI(QWidget):
 		# NbRover fonctionnel
 		global_tab.widget(3).update_rover(time, self.CTRL.get_alive_rover(self.activ_sim))
 
+	def update_load(self):
+		# Méthode pour Recharger l'interface après le load d'une save
+		# On update l'entête
+		self.update_head()
+		# On update les tableaux
+		# On reset les log
+		self.reset_log()
+		# On reset le tableau des rover
+		self.reset_tabrover()
+		# On remet le tab global
+		self.init_tab_global()
+		# On remet les tableaux des rover
+		for x in range(len(self.CTRL.get_nbrover(self.activ_sim))):
+			# On ajoute un nouveau string à remplir
+			self.tabstringrover += [""]
+			# On appel l'ajout d'un nouveau tab rover
+			self.add_tab_rover()
+			# On appel l'ajout de label rover
+			self.add_label_rover()
+			# On appel l'ajout de graph des rovers
+			self.add_graphe_rover(len(self.lslabelrover)-1, "components")
+			# On load les données des tableaux du Rover
+			# TO DO
+
+		# On load les données des tableaux Globaux
+		# TO DO
 
 	##### Menu Button ####
 	def back_button(self):
@@ -412,7 +438,9 @@ class CSimulationGUI(QWidget):
 		# On recup le nom
 		filename = Qlist.currentItem().text()
 		# On le balance au Controler
-		self.CTRL.load_simulation(self.activ_param,filename)
+		self.CTRL.load_simulation(self.activ_sim,filename)
+		# On update l'interface/Reload
+		self.update_load()
 		# On ferme la fenêtre
 		dlg.close()
 
@@ -422,7 +450,7 @@ class CSimulationGUI(QWidget):
 		# On recup le nom
 		filename = Qlist.currentItem().text()
 		# On le balance au Controler
-		self.CTRL.save_simulation(self.activ_param,filename)
+		self.CTRL.save_simulation(self.activ_sim,filename)
 		# On ferme la fenêtre
 		dlg.close()
 
@@ -457,7 +485,7 @@ class CSimulationGUI(QWidget):
 		# On récup le txt
 		txt = line_edit.text()
 		# On appel la méthode du CTRL
-		self.CTRL.save_simulation(self.activ_param,txt)
+		self.CTRL.save_simulation(self.activ_sim,txt)
 		# On update la liste des Save
 		Qlist.addItems(txt)
 		# On ferme la fenêtre

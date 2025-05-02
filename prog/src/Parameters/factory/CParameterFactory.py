@@ -4,7 +4,7 @@
 ########################################################################
 
 from src.Parameters.CParameter import CParameter
-
+from src.Simulation.CData import CData
 
 class CParameterFactory:
 	def __init__(self):
@@ -26,6 +26,20 @@ class CParameterFactory:
 		self.ls_parameter = self.ls_parameter[:i] + self.ls_parameter[i+1:]
 		self.nb -=1
 
+
+	def save_parameters(self, i, filename):
+		#
+		data = self.ls_parameter[i].to_dict()
+		#
+		cdata = CData()
+		cdata.save_parameters(data, filename)
+
+	def load_parameters(self, i, filename):
+		#
+		cdata = CData()
+		data = cdata.load_parameters(filename)
+		if data:
+			self.ls_parameter[i].from_dict(data)
 
 
 	#### Setter ####

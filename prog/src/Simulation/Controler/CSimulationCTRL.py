@@ -104,11 +104,13 @@ class CSimulationCTRL:
 
 	def save_simulation(self, i, filename):
 		# Méthode pour gérer la sauvegarde de la Simulation
-		pass
+		self.sim_factory.save_simulation(i, filename)
+
 
 	def load_simulation(self, i, filename):
 		# Méthode pour gérer le chargement de la Simulation
-		pass
+		self.sim_factory.load_simulation(i, filename)
+
 
 	def back_menu(self):
 		# Méthode pour gérer le retour au Menu Principale

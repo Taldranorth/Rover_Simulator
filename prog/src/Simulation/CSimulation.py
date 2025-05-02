@@ -188,7 +188,17 @@ class CSimulation:
 		# Méthode qui retourne la temp de la simulation
 		return self.temp
 
+	#### Save/Load ####
 
+	def to_dict(self):
+		# Méthode pour Sauvegarder dans un dico
+		pass
+
+
+
+	def from_dict(self):
+		# Méthode pour Charger depuis un dico
+		pass
 
 
 if __name__ == "__main__":
