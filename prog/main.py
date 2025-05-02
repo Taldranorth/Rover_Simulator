@@ -207,7 +207,7 @@ if __name__ == "__main__":
     window = CMainWindow()
 
     # Setup Taille
-    window.setFixedSize(WidthWindow, HeightWindow)
+    window.resize(WidthWindow, HeightWindow)
 
     ##### test button in Window ######
     #button = QPushButton("Press Me")

@@ -2,7 +2,7 @@
 # Fichier qui vient Contenir la Classe Controller des Paramètres
 # Initialiser dans Users
 ########################################################################
-
+from src.Simulation.CData import CData
 
 class CParameterCTRL:
 	def __init__(self, main_window, sim_factory, param_factory):
@@ -116,11 +116,26 @@ class CParameterCTRL:
 
 	def save_preset(self, i, filename):
 		# Méthode pour gérer l'appel du Button Save Preset
-		pass
+		param_obj = self.get_parameter(i)
+		data = param_obj.to_dict()
+
+		#Sauverarde à l'emplacement ci-dessous
+		cdata = CData(filepath=f"data/save/parameters/{filename}")
+		cdata.save_parameter(data)
 
 	def load_preset(self, i, filename):
 		# Méthode pour gérer l'appel du Button Load Preset
-		pass
+		#Charge les données stockées à l'emplacement suivant
+		cdata = CData(filepath=f"data/save/parameters/{filename}")
+		cdata.save_parameter(data)
+		
+		if data:
+			param_obj = self.get_parameter(i)
+			param_obj.from_dict()
+
+			
+			
+
 
 
 

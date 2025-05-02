@@ -601,4 +601,3 @@ class CParameterGUI(QWidget):
 		dlg.close()
 
 
-
