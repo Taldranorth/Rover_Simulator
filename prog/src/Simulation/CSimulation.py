@@ -25,6 +25,7 @@ class CSimulation:
 		self.delays = 1
 		# Attributs pour stocker les données
 		self.data = []
+		self.rovers_factory = CRoverFactory()
 
 	def update_hour(self):
 		# Mets a jour la simulation pour chaque heure
@@ -139,6 +140,16 @@ class CSimulation:
 		# on remet l'ancienne sortie terminal
 		sys.stdout = old_stdout
 		# on retourne la variable
+		return result.getvalue()
+	
+	def get_rover_log_by_index(self, index):
+		# Capture uniquement les logs du rover d'indice 'index'
+		old_stdout = sys.stdout
+		result = StringIO()
+		sys.stdout = result
+		
+		self.rovers_factory.ls_rover[index].afficher() 
+		sys.stdout = old_stdout
 		return result.getvalue()
 
 	def get_single_rover_log(self, i):
