@@ -34,6 +34,13 @@ class CSimulationFactory:
 
 	#### Getter ####
 
+	def get_rover_log(self, isim):
+		return self.ls_simulation[isim].get_rover_log()
+
+	def get_single_rover_log(self, isim, irover):
+		# Méthode pour récup le log du rover
+		return self.ls_simulation[isim].get_single_rover_log(irover)
+
 	def get_meteo(self, i):
 		# Méthode pour récup la météo de la Iieme Simulation
 		return self.ls_simulation[i].get_meteo()
@@ -54,9 +61,15 @@ class CSimulationFactory:
 	def get_alive_rover(self, i):
 		return self.ls_simulation[i].get_alive_rover()
 
-
 	def get_components_durability_all(self, isim, irover):
 		return self.ls_simulation[isim].get_components_durability_all(irover)
+
+	def get_history_rover(self, isim, irover):
+		return self.ls_simulation[isim].get_history_rover(irover)
+
+	def get_history_simulation(self, isim):
+		return self.ls_simulation[isim].get_history_simulation()
+
 
 	#### Save/Load ####
 	def save_simulation(self, i, filename):

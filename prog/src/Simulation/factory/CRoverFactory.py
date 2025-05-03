@@ -17,6 +17,7 @@ class CRoverFactory:
 		return self.nb
 
 	def get_alive_rover(self):
+		# Méthode qui retourne le nombre de rover alive
 		i = 0
 		for x in range(self.nb):
 			if self.ls_rover[x].dead == False:
@@ -26,6 +27,8 @@ class CRoverFactory:
 	def get_components_durability_all(self,i):
 		return self.ls_rover[i].get_components_durability_all()
 
+	def get_history_rover(self, irover):
+		return self.ls_rover[irover].get_history()
 
 
 	def create_Rover(self):

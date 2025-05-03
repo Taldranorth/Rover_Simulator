@@ -266,6 +266,9 @@ class CRover:
 			ls += [self.get_components_durability(string)]
 		return ls
 
+	def get_history(self):
+		return self.history
+
 
 	def show_status(self):
 		status = [

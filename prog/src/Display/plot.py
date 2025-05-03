@@ -43,6 +43,30 @@ class CGraph(FigureCanvas):
 			self.xdata = []
 			self.ydata = []
 
+	def load_graph(self, xdata, ydata):
+		# Méthode pour load les données d'un graph
+		# On charge les données
+		self.xdata = xdata
+		self.ydata = ydata
+		# On change le graph
+		# On clear
+		self.axes.cla()
+		if type== "components":
+			i = 0
+			for string in ["wheel","arm","frame","camera","solar_panel","cell","antenna"]:
+				self.axes.plot(self.xdata,self.ydata[i], label = string)
+				i += 1
+			self.axes.legend()
+		elif type == "meteo":
+
+			self.axes.plot(self.xdata, self.ydata[0], label = "SandStorm")
+			self.axes.plot(self.xdata, self.ydata[1], label = "SolarStorm")
+			self.axes.plot(self.xdata, self.ydata[2], label = "Clear")
+			self.axes.legend()
+		elif type == "temperature":
+			self.axes.plot(self.xdata, self.ydata)
+		elif type == "rover":
+			self.axes.plot(self.xdata, self.ydata)
 
 	def update_components(self, lx, time):
 		# Méthode pour Update le graph

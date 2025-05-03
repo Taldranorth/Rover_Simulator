@@ -346,6 +346,9 @@ class CSimulationGUI(QWidget):
 		self.reset_tabrover()
 		# On remet le tab global
 		self.init_tab_global()
+		# On prépare les données
+		xdata = self.CTRL.get_time_data(self.activ_sim)
+
 		# On remet les tableaux des rover
 		for x in range(self.CTRL.get_nbrover(self.activ_sim)):
 			# On ajoute un nouveau string à remplir
@@ -359,23 +362,29 @@ class CSimulationGUI(QWidget):
 			# On load les données des tableaux du Rover
 			# TO DO
 			# Charger les logs de chaque rover
-			rover_log = self.CTRL.get_simulation(self.activ_sim).get_rover_log()
-			self.tabstringrover[x] = rover_log
-			self.lslabelrover[x].setText(rover_log)
-			
-			# Charger les graphes pour ce rover
-			components_data = self.CTRL.get_components_durability_all(self.activ_sim, x)
-			self.lstabrover[x].widget(1).update_components(components_data, self.CTRL.get_time(self.activ_sim))
+			self.tabstringrover[x] = self.CTRL.get_single_rover_log(self.activ_sim, x)
+			self.lslabelrover[x].setText(self.tabstringrover[x])
+			# On recup les données
+			ydata = self.CTRL.get_components_data(self.activ_sim, x)
+			#On balance au graphe
+			self.lstabrover[x].widget(1).load_graph(xdata, ydata)
 
 		# On charge les données des tableaux Globaux
-		time = self.CTRL.get_time(self.activ_sim)
 		# On load les données des tableaux Globaux
-		# TO DO
-		# Update global graphs
-		global_tab = self.tab.widget(0)
-		global_tab.widget(1).update_meteo(time, self.CTRL.get_meteo(self.activ_sim))
-		global_tab.widget(2).update_temp(time, self.CTRL.get_temp(self.activ_sim))
-		global_tab.widget(3).update_rover(time, self.CTRL.get_alive_rover(self.activ_sim))
+		self.stringallrover = self.CTRL.get_rover_log(self.activ_sim)
+		self.labeltext.setText(self.stringallrover)
+		# On recup les données
+		# Méteo
+		ydata_meteo = self.CTRL.get_meteo_data(self.activ_sim)
+		# Température
+		ydata_temp = self.CTRL.get_temperature_data(self.activ_sim)
+		# Rover
+		ydata_rover = self.CTRL.get_rover_data(self.activ_sim)
+
+		# On balance au graphe
+		self.tab.widget(0).widget(1).load_graph(xdata, ydata_meteo)
+		self.tab.widget(0).widget(2).load_graph(xdata, ydata_temp)
+		self.tab.widget(0).widget(3).load_graph(xdata, ydata_rover)
 
 	##### Menu Button ####
 	def back_button(self):

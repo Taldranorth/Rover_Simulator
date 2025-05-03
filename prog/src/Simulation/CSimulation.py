@@ -24,7 +24,7 @@ class CSimulation:
 
 		self.delays = 1
 		# Attributs pour stocker les données
-		self.data = []
+		self.history = {"meteo":[],"temperature":[],"roveralive":[]}
 
 	def update_hour(self):
 		# Mets a jour la simulation pour chaque heure
@@ -35,7 +35,8 @@ class CSimulation:
 
 		# Mets a jour la temperature.
 		self.update_temp()
-
+		# Mets à jour l'historique
+		self.update_history()
 		#Gestion du temp
 		self.hour+=1
 		if self.hour == 24:
@@ -96,6 +97,22 @@ class CSimulation:
 				if self.temp < self.parameters.mintemp: 
 					self.temp = self.parameters.mintemp
 
+	def update_history(self):
+		# Update l'historique
+		# Meteo
+		if self.is_sandstorm == True:
+			self.history["meteo"] += ["SandStorm"]
+		elif self.is_solarstorm == True:
+			self.history["meteo"] += ["SolarStorm"]
+		else:
+			self.history["meteo"] += ["Clear"]
+
+		# Température
+		self.history["temperature"] += [self.temp]
+		# nb Rover alive
+		self.history["roveralive"] += [self.factory.get_alive_rover()]
+
+
 
 	def is_end(self):
 		# Méthode qui vérifit si la limite en jour de la simulation à était atteinte
@@ -150,6 +167,10 @@ class CSimulation:
 		sys.stdout = old_stdout
 		return result.getvalue()
 
+	def get_history_rover(self, irover):
+		#
+		return self.factory.get_history_rover(irover)
+
 
 	def create_Rover(self):
 		# Méthode pour appeler la création d'un rover
@@ -188,6 +209,11 @@ class CSimulation:
 	def get_components_durability_all(self, irover):
 		return self.factory.get_components_durability_all(irover)
 
+	def get_history_rover(self, irover):
+		return self.factory.get_history_rover(irover)
+
+	def get_history_simulation(self):
+		return self.history
 
 	#### Save/Load ####
 	def to_dict(self):
@@ -204,6 +230,7 @@ class CSimulation:
 				"intensity": self.solarstorm_intensity
 			},
 			"temp": self.temp,
+			"history":self.history,
 			#save les rovers et leur états
 			"rovers": [rover.to_dict() for rover in self.factory.ls_rover]
 			
@@ -224,6 +251,7 @@ class CSimulation:
 		self.solarstorm_intensity = data["solarstorm"]["intensity"]
 		
 		self.temp = data["temp"]
+		self.history = data["history"]
 		
 		#charger les rover et leur etat
 		self.factory.load_rovers_from_dict(data.get("rovers", []))

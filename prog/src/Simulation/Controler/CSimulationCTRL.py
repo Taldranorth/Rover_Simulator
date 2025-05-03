@@ -14,9 +14,6 @@ class CSimulationCTRL:
 		# On set les factory
 		self.sim_factory = sim_factory
 		self.param_factory = param_factory
-		# Liste d'objets CSimulation
-		self.simulations = []
-		self.current_sim_id = 0
 
 		# Pour les Thread
 		self.stop = False
@@ -79,9 +76,9 @@ class CSimulationCTRL:
 			# On affiche dans le terminal
 			s.afficher()
 			# On redirige vers le Window text
-			GUI.add_log(s.get_rover_log())
+			GUI.add_log(self.get_rover_log(i))
 			for x in range(self.get_nbrover(i)):
-				GUI.add_log_rover(s.get_single_rover_log(x),x)
+				GUI.add_log_rover(self.get_single_rover_log(i,x),x)
 			# On update les graphes
 			GUI.update_graph()
 			# On update l'header
@@ -120,6 +117,13 @@ class CSimulationCTRL:
 		self.main_window.change_GUI("CMenuGUI")
 
 
+	def get_rover_log(self, isim):
+		return self.sim_factory.get_rover_log(isim)
+
+	def get_single_rover_log(self, isim, irover):
+		# Méthode pour récupérer le log du rover
+		return self.sim_factory.get_single_rover_log(isim, irover)
+
 	def get_meteo(self, i):
 		# Méthode pour récup la météo
 		return self.sim_factory.get_meteo(i)
@@ -155,6 +159,71 @@ class CSimulationCTRL:
 		# Méthode qui retourne la durabilités du tout les composants du rover
 		return self.sim_factory.get_components_durability_all(isim,irover)
 
+
+	def get_time_data(self, isim):
+		# Méthode qui retourne la liste xdata nécessaire pour l'abcisse des graphes aux chargement
+		ls = []
+		day = 0
+		daymax = self.sim_factory.get_day(isim)
+		hour = 0
+		hourmax = self.sim_factory.get_hour(isim)
+
+		while(day != daymax):
+			if hour == 24:
+				hour = 0
+				day += 1
+			else:
+				hour += 1
+			ls += [day+(hour/100)]
+		hour = 0
+		while hour != hourmax:
+			ls += [day+hour/100]
+			hour += 1
+		return ls
+
+	def get_components_data(self, isim, irover):
+		# Méthode qui retourne la liste ydata nécessaire pour l'ordonnées des graphes aux chargement
+		ls = [[],[],[],[],[],[],[]]
+		data = self.sim_factory.get_history_rover(isim, irover)
+		i = 0
+		for string in ["wheel1","arm","frame","camera","solar_pannel","cell","antenna"]:
+			ls[i] = data[string]
+			i += 1
+		return ls
+
+	def get_meteo_data(self, isim):
+		# Méthode qui retourne la liste ydata nécessaire pour l'ordonnées des graphes aux chargement
+		data = self.sim_factory.get_history_simulation(isim)
+		ls = [[],[],[]]
+		for x in range(len(data["meteo"])):
+			meteo = data["meteo"][x]
+			if meteo == "SandStorm":
+				ls[0] += [1]
+				ls[1] += [0]
+				ls[2] += [0]
+			elif meteo == "SolarStorm":
+				ls[0] += [0]
+				ls[1] += [1]
+				ls[2] += [0]
+			else:
+				ls[0] += [0]
+				ls[1] += [0]
+				ls[2] += [1]				
+		return ls
+
+
+	def get_temperature_data(self, isim):
+		# Méthode qui retourne la liste ydata nécessaire pour l'ordonnées des graphes aux chargement
+		data = self.sim_factory.get_history_simulation(isim)
+		ls = data["temperature"]
+		return ls
+
+
+	def get_rover_data(self, isim):
+		# Méthode qui retourne la liste ydata nécessaire pour l'ordonnées des graphes aux chargement
+		data = self.sim_factory.get_history_simulation(isim)
+		ls = data["roveralive"]
+		return ls
 
 
 
