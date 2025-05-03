@@ -98,8 +98,6 @@ class CRover:
 		#Antenne
 		self.antenna.damage_durability(dmg, temp)
 		
-		for name, comp in self.components.items():
-			self.history[name].append(comp.durability)
 
 	def apply_damage_solarstorm(self, damage, intensity, temp):
 		# Méthode pour appliquer les dégats de la tempête solaire
@@ -113,8 +111,6 @@ class CRover:
 		#Antenne
 		self.antenna.damage_durability(dmg, temp)
 		
-		for name, comp in self.components.items():
-			self.history[name].append(comp.durability)
 	################################################ 
 
 	# Setter
