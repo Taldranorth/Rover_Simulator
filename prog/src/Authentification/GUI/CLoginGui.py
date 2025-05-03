@@ -12,7 +12,7 @@ class CLoginGUI(QWidget):
 		# Init fenetre
 		super().__init__(parent)
 		self.setWindowTitle("Connexion")
-		self.setFixedSize(300, 150)
+		self.setFixedSize(400, 250)
 		
 		# Ligne pour écrire son username
 		self.username_label = QLabel("Nom d'utilisateur")

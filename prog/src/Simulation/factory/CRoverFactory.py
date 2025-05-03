@@ -42,7 +42,7 @@ class CRoverFactory:
 
 	def show_status_rover_single(self, i):
 		# Méthode pour afficher le status d'un unique Rover
-		print(f"[Rover {i}] Nom : {self.ls_rover[i].name if hasattr(self.ls_rover[i], 'name') else 'Inconnu'}")
+		#print(f"[Rover {i}] Nom : {self.ls_rover[i].name if hasattr(self.ls_rover[i], 'name') else 'Inconnu'}")
 		if hasattr(self.ls_rover[i], 'show_status'):  # Si le rover a une méthode de status
 			print(self.ls_rover[i].show_status())		
 
@@ -52,5 +52,13 @@ class CRoverFactory:
 			print(f"[Rover {i+1}] Nom : {rover.name if hasattr(rover, 'name') else 'Inconnu'}")
 			if hasattr(rover, 'show_status'):  # Si le rover a une méthode de status
 				print(rover.show_status())
+
+	def load_rovers_from_dict(self, rovers_data):
+		self.ls_rover = []
+		for rover_data in rovers_data:
+			rover = CRover()
+			rover.from_dict(rover_data)
+			self.ls_rover += [rover]
+		self.nb = len(self.ls_rover)
 
 

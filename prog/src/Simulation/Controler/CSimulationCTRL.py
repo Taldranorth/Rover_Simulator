@@ -48,7 +48,7 @@ class CSimulationCTRL:
 		self.param_factory.remove_parameter(i)
 
 	def get_parameter(self, i):
-		# Méthode pour récupérer l'objet SImulation à la I place
+		# Méthode pour récupérer l'objet parameter à la I place
 		return self.param_factory.get_parameter(i)
 
 	##### Button #####
@@ -65,7 +65,7 @@ class CSimulationCTRL:
 	#### Gestion Loop ####
 
 	def update_loop(self, GUI, i):
-		# Méthode pour update la loop est renvoyé les données au GUI
+		# Méthode pour update la loop et renvoyer les données au GUI
 		s = self.get_simulation(i)
 		time = s.delays
 		while((s.is_end() == False) and (self.stop == False)):

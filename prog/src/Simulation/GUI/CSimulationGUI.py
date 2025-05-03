@@ -358,9 +358,10 @@ class CSimulationGUI(QWidget):
 			self.add_graphe_rover(len(self.lslabelrover)-1, "components")
 			# On load les données des tableaux du Rover
 			# TO DO
-
+			
 		# On load les données des tableaux Globaux
 		# TO DO
+		self.update_graph()
 
 	##### Menu Button ####
 	def back_button(self):
@@ -435,7 +436,8 @@ class CSimulationGUI(QWidget):
 		# On recup le nom
 		filename = Qlist.currentItem().text()
 		# On le balance au Controler
-		self.CTRL.load_simulation(self.activ_sim,filename)
+		self.CTRL.load_simulation(self.activ_sim, filename) 
+
 		# On update l'interface/Reload
 		self.update_load()
 		# On ferme la fenêtre

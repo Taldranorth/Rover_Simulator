@@ -226,11 +226,7 @@ class CSimulation:
 		self.temp = data["temp"]
 		
 		#charger les rover et leur etat
-		self.factory.ls_rover = []
-		for rover_data in data.get("rovers", []):
-			#for rover_data in data["rovers"]:
-			rover = CRover()
-			rover.from_dict(rover_data)
-			self.factory.ls_rover += [rover]
+		self.factory.load_rovers_from_dict(data.get("rovers", []))
+
 
 

@@ -1,0 +1,165 @@
+{
+    "days": 1,
+    "hour": 0,
+    "sandstorm": {
+        "is_sandstorm": true,
+        "intensity": 10
+    },
+    "solarstorm": {
+        "is_solarstorm": false,
+        "intensity": 6
+    },
+    "temp": -67,
+    "rovers": [
+        {
+            "dead": false,
+            "components": {
+                "wheel1": {
+                    "name": "Roue1",
+                    "durability": -7.162499999999994,
+                    "resistance": 25,
+                    "mintemp": -143,
+                    "maxtemp": 20
+                },
+                "wheel2": {
+                    "name": "Roue2",
+                    "durability": -7.162499999999994,
+                    "resistance": 25,
+                    "mintemp": -143,
+                    "maxtemp": 20
+                },
+                "wheel3": {
+                    "name": "Roue3",
+                    "durability": -7.162499999999994,
+                    "resistance": 25,
+                    "mintemp": -143,
+                    "maxtemp": 20
+                },
+                "wheel4": {
+                    "name": "Roue4",
+                    "durability": -7.162499999999994,
+                    "resistance": 25,
+                    "mintemp": -143,
+                    "maxtemp": 20
+                },
+                "arm": {
+                    "name": "Bras",
+                    "durability": -7.162499999999994,
+                    "resistance": 25,
+                    "mintemp": -143,
+                    "maxtemp": 20
+                },
+                "frame": {
+                    "name": "Chassis",
+                    "durability": -7.162499999999994,
+                    "resistance": 25,
+                    "mintemp": -143,
+                    "maxtemp": 20
+                },
+                "camera": {
+                    "name": "Camera",
+                    "durability": -93.475,
+                    "resistance": 25,
+                    "mintemp": -143,
+                    "maxtemp": 20
+                },
+                "solar_pannel": {
+                    "name": "Panneaux Solaire",
+                    "durability": -93.475,
+                    "resistance": 25,
+                    "mintemp": -143,
+                    "maxtemp": 20
+                },
+                "cell": {
+                    "name": "Batterie",
+                    "durability": 3.0250000000000057,
+                    "resistance": 25,
+                    "mintemp": -143,
+                    "maxtemp": 20
+                },
+                "antenna": {
+                    "name": "Antenne",
+                    "durability": -93.475,
+                    "resistance": 25,
+                    "mintemp": -143,
+                    "maxtemp": 20
+                }
+            }
+        },
+        {
+            "dead": false,
+            "components": {
+                "wheel1": {
+                    "name": "Roue1",
+                    "durability": -7.162499999999994,
+                    "resistance": 25,
+                    "mintemp": -143,
+                    "maxtemp": 20
+                },
+                "wheel2": {
+                    "name": "Roue2",
+                    "durability": -7.162499999999994,
+                    "resistance": 25,
+                    "mintemp": -143,
+                    "maxtemp": 20
+                },
+                "wheel3": {
+                    "name": "Roue3",
+                    "durability": -7.162499999999994,
+                    "resistance": 25,
+                    "mintemp": -143,
+                    "maxtemp": 20
+                },
+                "wheel4": {
+                    "name": "Roue4",
+                    "durability": -7.162499999999994,
+                    "resistance": 25,
+                    "mintemp": -143,
+                    "maxtemp": 20
+                },
+                "arm": {
+                    "name": "Bras",
+                    "durability": -7.162499999999994,
+                    "resistance": 25,
+                    "mintemp": -143,
+                    "maxtemp": 20
+                },
+                "frame": {
+                    "name": "Chassis",
+                    "durability": -7.162499999999994,
+                    "resistance": 25,
+                    "mintemp": -143,
+                    "maxtemp": 20
+                },
+                "camera": {
+                    "name": "Camera",
+                    "durability": -93.475,
+                    "resistance": 25,
+                    "mintemp": -143,
+                    "maxtemp": 20
+                },
+                "solar_pannel": {
+                    "name": "Panneaux Solaire",
+                    "durability": -93.475,
+                    "resistance": 25,
+                    "mintemp": -143,
+                    "maxtemp": 20
+                },
+                "cell": {
+                    "name": "Batterie",
+                    "durability": 3.0250000000000057,
+                    "resistance": 25,
+                    "mintemp": -143,
+                    "maxtemp": 20
+                },
+                "antenna": {
+                    "name": "Antenne",
+                    "durability": -93.475,
+                    "resistance": 25,
+                    "mintemp": -143,
+                    "maxtemp": 20
+                }
+            }
+        }
+    ]
+}

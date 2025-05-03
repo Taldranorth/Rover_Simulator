@@ -29,6 +29,9 @@ class CRover:
 
 		self.dead = False
 
+		#Historique états des composants des rovers
+		self.history = {name: [] for name in self.components.keys()}
+
 
 	###### Dégâts Composants ###### 
 
@@ -62,6 +65,9 @@ class CRover:
 		if self.antenna.durability > 0:
 			self.antenna.damage_durability(lsdamage[6], temp)
 
+		for name, comp in self.components.items():
+			self.history[name].append(comp.durability)
+
 	def apply_damage_sandstorm(self, damage, intensity, temp):
 		# Méthode pour appliquer les dégats de la tempête de sable
 		dmg = damage*intensity
@@ -80,6 +86,9 @@ class CRover:
 		self.frame.damage_durability(dmg, temp)
 		#Antenne
 		self.antenna.damage_durability(dmg, temp)
+		
+		for name, comp in self.components.items():
+			self.history[name].append(comp.durability)
 
 	def apply_damage_solarstorm(self, damage, intensity, temp):
 		# Méthode pour appliquer les dégats de la tempête solaire
@@ -92,6 +101,9 @@ class CRover:
 		self.solar_pannel.damage_durability(dmg, temp)
 		#Antenne
 		self.antenna.damage_durability(dmg, temp)
+		
+		for name, comp in self.components.items():
+			self.history[name].append(comp.durability)
 	################################################ 
 
 	# Setter
@@ -276,7 +288,8 @@ class CRover:
 				"solar_pannel": self.solar_pannel.to_dict(),
 				"cell": self.cell.to_dict(),
 				"antenna": self.antenna.to_dict()			
-			}
+			},
+			"history": self.history
 		}
 		return data
 

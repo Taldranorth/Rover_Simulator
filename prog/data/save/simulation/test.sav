@@ -1,0 +1,14 @@
+{
+    "days": 1,
+    "hour": 0,
+    "sandstorm": {
+        "is_sandstorm": false,
+        "intensity": 7
+    },
+    "solarstorm": {
+        "is_solarstorm": false,
+        "intensity": 5
+    },
+    "temp": -88,
+    "rovers": []
+}
