@@ -12,8 +12,6 @@ class CParameterCTRL:
 		self.sim_factory = sim_factory
 		self.param_factory = param_factory
 
-
-
 	# Simulation
 	def create_simulation(self, CParam):
 		# Méthode pour ajouter une simulation par la méthode de la factory

@@ -55,7 +55,7 @@ class CParameterGUI(QWidget):
 
 		# Centre
 		# Boutton lancement de parameter
-		button = QPushButton("Launch parameter")
+		button = QPushButton("Launch Simulation")
 		button.clicked.connect(self.launch_sim_clicked)
 		subcenter_layoutbutton.addWidget(button)
 		# Boutton back

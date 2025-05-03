@@ -55,18 +55,12 @@ from data.db.db_utils import init_db
 # - lors du Reset nettoyer bien les tableau √
 
 # Objectif 3 mars:
-# - Séparation en 2 threads et communication entre les threads
-#       --> Remplacer modifier tout les CTRL pour qu'ils vérifient si server == 0 
-#           --> Si server == 0 alors on appels directement les factory link
-#           --> Sinon server == thread du process
-#               --> On demande au server set ou de nous renvoyer les données
 
-# Objectif 4 mars:
-# - Terminer ce qui reste à faire
-#   --> Nettoyer/Ranger le programme
-#   --> Séparation en threads
-#   --> Link la Sauvegarde de la Simulation
-#   --> Le chargement des Graphes
+# - ajouter le link vers le chargements de la save dans le menu Principale √
+# - Nettoyer et fix √
+# - Rechargement des Graphes
+#   --> Fix load Graphes
+# - Abandonner la séparation en Thread
 
 # Notes:
 #   - Je ne suis pas sur de mon coup pour le link entre les différents GUI,

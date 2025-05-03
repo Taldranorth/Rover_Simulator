@@ -48,6 +48,9 @@ class CGraph(FigureCanvas):
 		# On charge les données
 		self.xdata = xdata
 		self.ydata = ydata
+		print("type:", self.type)
+		print("xdata:",xdata)
+		print("ydata:",ydata)
 		# On change le graph
 		# On clear
 		self.axes.cla()
@@ -58,7 +61,6 @@ class CGraph(FigureCanvas):
 				i += 1
 			self.axes.legend()
 		elif type == "meteo":
-
 			self.axes.plot(self.xdata, self.ydata[0], label = "SandStorm")
 			self.axes.plot(self.xdata, self.ydata[1], label = "SolarStorm")
 			self.axes.plot(self.xdata, self.ydata[2], label = "Clear")

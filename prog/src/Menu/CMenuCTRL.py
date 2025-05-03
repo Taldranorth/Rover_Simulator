@@ -26,13 +26,16 @@ class CMenuCTRL:
 
 	def load_simulation(self, filename):
 		# Méthode pour gérer le chargement d'une simulation avec le filename donné
+		# On Créer une Instace de Paramètre
+		self.parameter_factory.create_parameter()
+		# On Créer une Instance de Simulation
+		self.simulation_factory.create_simulation(self.parameter_factory.get_parameter(0))
+		# On Charge la save
+		self.simulation_factory.load_simulation(0, filename)
 		# Charge le GUI simulation
-
-		#self.main_window.change_GUI("CSimulationGUI")
-		# Charge la save
-
-		pass
-
+		self.main_window.change_GUI("CSimulationGUI")
+		# On Update l'interface
+		self.main_window.widget.update_load()
 
 	def manage_result(self):
 		# Méthode pour gérer les résultat enregistrés
