@@ -54,20 +54,28 @@ class CGraph(FigureCanvas):
 		# On change le graph
 		# On clear
 		self.axes.cla()
-		if type== "components":
+		# On affiche
+		if self.type == "components":
+			print("components")
+			print("time:",len(self.xdata))
+			print("components[0]:",len(self.ydata[0]))
 			i = 0
 			for string in ["wheel","arm","frame","camera","solar_panel","cell","antenna"]:
+				print(self.ydata[i])
 				self.axes.plot(self.xdata,self.ydata[i], label = string)
 				i += 1
 			self.axes.legend()
-		elif type == "meteo":
+		elif self.type == "meteo":
+			print("meteo")
 			self.axes.plot(self.xdata, self.ydata[0], label = "SandStorm")
 			self.axes.plot(self.xdata, self.ydata[1], label = "SolarStorm")
 			self.axes.plot(self.xdata, self.ydata[2], label = "Clear")
 			self.axes.legend()
-		elif type == "temperature":
+		elif self.type == "temperature":
+			print("temperature")
 			self.axes.plot(self.xdata, self.ydata)
-		elif type == "rover":
+		elif self.type == "rover":
+			print("rover")
 			self.axes.plot(self.xdata, self.ydata)
 
 	def update_components(self, lx, time):
@@ -87,9 +95,9 @@ class CGraph(FigureCanvas):
 
 	def update_meteo(self, time, meteo):
 		# Méthode pour Update le graph meteo
-		print("On update le graph meteo")
-		print(time)
-		print(meteo)
+		#print("On update le graph meteo")
+		#print(time)
+		#print(meteo)
 		if meteo == "SandStorm":
 			self.ydata[0] += [1]
 			self.ydata[1] += [0]
@@ -102,7 +110,7 @@ class CGraph(FigureCanvas):
 			self.ydata[0] += [0]
 			self.ydata[1] += [0]
 			self.ydata[2] += [1]
-		print("time:",self.ydata)
+		#print("time:",self.ydata)
 		self.xdata += [time]
 		# On Clear
 		self.axes.cla()
@@ -114,9 +122,9 @@ class CGraph(FigureCanvas):
 
 	def update_temp(self, time, temp):
 		# Méthode pour update le graph temperature
-		print("On update le graph température")
-		print(time)
-		print(temp)
+		#print("On update le graph température")
+		#print(time)
+		#print(temp)
 		# On ajoute au données
 		self.xdata += [time]
 		self.ydata += [temp]
@@ -127,9 +135,9 @@ class CGraph(FigureCanvas):
 
 	def update_rover(self, time, nbrover):
 		# Méthode pour udpate le graph rover
-		print("On update le graph rover")
-		print(time)
-		print(nbrover)
+		#print("On update le graph rover")
+		#print(time)
+		#print(nbrover)
 		# On ajoute au données
 		self.xdata += [time]
 		self.ydata += [nbrover]

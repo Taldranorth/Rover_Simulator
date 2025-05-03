@@ -168,16 +168,15 @@ class CSimulationCTRL:
 		hour = 0
 		hourmax = self.sim_factory.get_hour(isim)
 
-		while(day != daymax):
+		while(day < daymax):
+			hour += 1
 			if hour == 24:
 				hour = 0
 				day += 1
-			else:
-				hour += 1
 			ls += [day+(hour/100)]
 		hour = 0
-		while hour != hourmax:
-			ls += [day+hour/100]
+		while hour < hourmax:
+			ls += [day+(hour/100)]
 			hour += 1
 		return ls
 
