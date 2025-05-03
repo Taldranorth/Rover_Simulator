@@ -66,7 +66,6 @@ from data.db.db_utils import init_db
 #   --> Nettoyer/Ranger le programme
 #   --> Séparation en threads
 #   --> Link la Sauvegarde de la Simulation
-#   --> L'update de tout les graphes
 #   --> Le chargement des Graphes
 
 # Notes:
@@ -162,11 +161,8 @@ def test_ParameterGUI(window, sim_factory, param_factory):
     window.set_widget(CParameterGUI(window, sim_factory, param_factory))
 
 
-
-
 def test_menuGUI(window, sim_factory, param_factory):
     # Fonction Test de l'interface du Menu
-
     # Initialise l'interface du Menu Principale
     window.set_widget(CMenuGUI(window, sim_factory, param_factory))
 
@@ -176,12 +172,9 @@ def test_authentificationGUI(window, sim_factory, param_factory):
     pass
 
 
-
-
 if __name__ == "__main__":
     HeightWindow = 700
     WidthWindow = 1200
-
 
     ##### Initialisation de la fenêtre #####
     # Initialise la routine de l'appli
@@ -237,8 +230,6 @@ if __name__ == "__main__":
     ##### Code Test pour plus tard du Multithreading #####
 
     #
-
-
 
     # Execute l'appli
     app.exec()

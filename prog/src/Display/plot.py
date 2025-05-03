@@ -34,25 +34,28 @@ class CGraph(FigureCanvas):
 		self.axes = fig.add_subplot(111)
 
 		if type == "components":
-			self.xdata = [[],[],[],[],[],[],[]]
-			self.ydata = []
+			self.ydata = [[],[],[],[],[],[],[]]
+			self.xdata = []
+		elif type == "meteo":
+			self.ydata = [[],[],[]]
+			self.xdata = []
 		else:
 			self.xdata = []
 			self.ydata = []
 
 
-	def update_components(self, lx, y):
+	def update_components(self, lx, time):
 		# Méthode pour Update le graph
 		# On récup les données
 		for i in range(len(lx)):
-			self.xdata[i] += [lx[i]]
-		self.ydata += [y]
+			self.ydata[i] += [lx[i]]
+		self.xdata += [time]
 		# On clear
 		self.axes.cla()
 		# On affiche
 		i = 0
 		for string in ["wheel","arm","frame","camera","solar_panel","cell","antenna"]:
-			self.axes.plot(self.xdata[i],self.ydata, label = string)
+			self.axes.plot(self.xdata,self.ydata[i], label = string)
 			i += 1
 		self.axes.legend()
 
@@ -61,7 +64,27 @@ class CGraph(FigureCanvas):
 		print("On update le graph meteo")
 		print(time)
 		print(meteo)
-		pass
+		if meteo == "SandStorm":
+			self.ydata[0] += [1]
+			self.ydata[1] += [0]
+			self.ydata[2] += [0]
+		elif meteo == "SolarStorm":
+			self.ydata[0] += [0]
+			self.ydata[1] += [1]
+			self.ydata[2] += [0]
+		elif meteo == "Clear":
+			self.ydata[0] += [0]
+			self.ydata[1] += [0]
+			self.ydata[2] += [1]
+		print("time:",self.ydata)
+		self.xdata += [time]
+		# On Clear
+		self.axes.cla()
+		# On affiche
+		self.axes.plot(self.xdata, self.ydata[0], label = "SandStorm")
+		self.axes.plot(self.xdata, self.ydata[1], label = "SolarStorm")
+		self.axes.plot(self.xdata, self.ydata[2], label = "Clear")
+		self.axes.legend()
 
 	def update_temp(self, time, temp):
 		# Méthode pour update le graph temperature
