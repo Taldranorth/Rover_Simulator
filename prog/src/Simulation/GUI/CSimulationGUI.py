@@ -358,10 +358,24 @@ class CSimulationGUI(QWidget):
 			self.add_graphe_rover(len(self.lslabelrover)-1, "components")
 			# On load les données des tableaux du Rover
 			# TO DO
+			# Charger les logs de chaque rover
+			rover_log = self.CTRL.get_simulation(self.activ_sim).get_rover_log()
+			self.tabstringrover[x] = rover_log
+			self.lslabelrover[x].setText(rover_log)
 			
+			# Charger les graphes pour ce rover
+			components_data = self.CTRL.get_components_durability_all(self.activ_sim, x)
+			self.lstabrover[x].widget(1).update_components(components_data, self.CTRL.get_time(self.activ_sim))
+
+		# On charge les données des tableaux Globaux
+		time = self.CTRL.get_time(self.activ_sim)
 		# On load les données des tableaux Globaux
 		# TO DO
-		self.update_graph()
+		# Update global graphs
+		global_tab = self.tab.widget(0)
+		global_tab.widget(1).update_meteo(time, self.CTRL.get_meteo(self.activ_sim))
+		global_tab.widget(2).update_temp(time, self.CTRL.get_temp(self.activ_sim))
+		global_tab.widget(3).update_rover(time, self.CTRL.get_alive_rover(self.activ_sim))
 
 	##### Menu Button ####
 	def back_button(self):

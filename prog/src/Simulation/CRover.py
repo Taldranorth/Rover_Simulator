@@ -28,7 +28,18 @@ class CRover:
 		self.antenna = CComponents("Antenne", 25)
 
 		self.dead = False
-
+		self.components = {
+			"wheel1": self.wheel1,
+			"wheel2": self.wheel2,
+			"wheel3": self.wheel3,
+			"wheel4": self.wheel4,
+			"arm": self.arm,
+			"frame": self.frame,
+			"camera": self.camera,
+			"solar_pannel": self.solar_pannel,
+			"cell": self.cell,
+			"antenna": self.antenna
+		}
 		#Historique états des composants des rovers
 		self.history = {name: [] for name in self.components.keys()}
 
@@ -310,4 +321,4 @@ class CRover:
 		self.cell.from_dict(data["components"]["cell"])
 		self.antenna.from_dict(data["components"]["antenna"])
 		
-		
+		self.history = data["history"]

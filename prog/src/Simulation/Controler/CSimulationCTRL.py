@@ -14,6 +14,9 @@ class CSimulationCTRL:
 		# On set les factory
 		self.sim_factory = sim_factory
 		self.param_factory = param_factory
+		# Liste d'objets CSimulation
+		self.simulations = []
+		self.current_sim_id = 0
 
 		# Pour les Thread
 		self.stop = False
