@@ -1,4 +1,6 @@
-#Fichier qui gère la base de données 
+########################################################################
+# Fichier qui gère la base de données 
+########################################################################
 
 import psycopg2
 from psycopg2 import sql, errors

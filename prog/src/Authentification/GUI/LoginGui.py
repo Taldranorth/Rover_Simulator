@@ -4,8 +4,7 @@
 ########################################################################
 from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import *
-from data.db.db_utils import check_user_data, add_user
-from src.Authentification.CUser import CUser
+from src.Authentification.Controler.LoginCTRL import try_login, register_user
 
 class CLoginGUI(QWidget):
 	def __init__(self, parent=None):
@@ -21,7 +20,7 @@ class CLoginGUI(QWidget):
 		# Ligne pour écrire son mot de passe
 		self.password_label = QLabel("Mot de passe")
 		self.password_input = QLineEdit()
-		#self.password_input.setEchoMode(QLineEdit.Password)
+		self.password_input.setEchoMode(QLineEdit.EchoMode.Password)
 		
 		#bouton pour se connecter
 		self.login_button = QPushButton("Se connecter")
@@ -39,8 +38,8 @@ class CLoginGUI(QWidget):
 		layout.addWidget(self.password_input)
 		layout.addWidget(self.login_button)
 		layout.addWidget(self.register_button)
-		
 		self.setLayout(layout)
+		
 		self.user = None 	#CUser si la connexion réussit
 
 	def try_login(self):
@@ -48,8 +47,9 @@ class CLoginGUI(QWidget):
 		username = self.username_input.text()
 		password = self.password_input.text()
 		#Vérifie username et mdp, si true connexion et fermeture de la fenetre
-		if check_user_data(username, password) == True:
-			self.user = CUser(username)
+		user = try_login(username, password)
+		if user:
+			self.user = user
 			QMessageBox.information(self, "Succès", "Connexion réussie!")
 			self.close()
 		#Si false, message d'erreur
@@ -61,9 +61,8 @@ class CLoginGUI(QWidget):
 		username = self.username_input.text()	
 		password = self.password_input.text()	
 		#Si l'user qui veut s'enregistrer n'existe pas alors on le crée et on ferme la fenetre
-		if add_user(username, password) == True:
+		if register_user(username, password):
 			QMessageBox.information(self, "Succès", "Utilisateur créé avec succès. Vous pouvez maintenant vous connecter.")
-			self.accept()
 		else:
 			QMessageBox.warning(self, "Erreur", "Echec de l'enregistrement, le nom d'utilisateur est déjà pris.")
 			
