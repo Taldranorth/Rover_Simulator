@@ -18,9 +18,9 @@ from src.Simulation.factory.CSimulationFactory import CSimulationFactory
 from src.Menu.CMenuGUI import CMenuGUI
 from src.Simulation.GUI.CSimulationGUI import CSimulationGUI
 from src.Parameters.GUI.CParameterGUI import CParameterGUI
-from src.Authentification.GUI.CLoginGui import CLoginGUI
+#from src.Authentification.GUI.CLoginGui import CLoginGUI
 # Import DB
-from data.db.db_utils import init_db
+#from data.db.db_utils import init_db
 
 # Rappel:
 # - GUI = interface graphique
@@ -58,8 +58,8 @@ from data.db.db_utils import init_db
 
 # - ajouter le link vers le chargements de la save dans le menu Principale √
 # - Nettoyer et fix √
-# - Rechargement des Graphes
-#   --> Fix load Graphes
+# - Rechargement des Graphes √
+#   --> Fix load Graphes √
 # - Abandonner la séparation en Thread
 
 # Notes:
@@ -174,19 +174,19 @@ if __name__ == "__main__":
     # Initialise la routine de l'appli
     app = QApplication(sys.argv) 
     #initialise la db au démarage de l'appli
-    init_db()	
+    #init_db()	
     
     ########Test fenetre de login ########
     #Etape 1: Fenêtre de login 
-    login = CLoginGUI()
-    login.show()
-    app.exec()
+    #login = CLoginGUI()
+    #login.show()
+    #app.exec()
 	#Si on rentre aucune info alors on ferme la fenêtre de connexion
-    if login.user is None:
-        print("Connexion annulée. Fermeture de l'application.")
-        sys.exit()
-    user = login.user  
-    print(f"Utilisateur connecté : {user.username}")
+    #if login.user is None:
+    #    print("Connexion annulée. Fermeture de l'application.")
+    #    sys.exit()
+    #user = login.user  
+    #print(f"Utilisateur connecté : {user.username}")
 	#########################
 	
 	# Etape 2: lance l'appli 

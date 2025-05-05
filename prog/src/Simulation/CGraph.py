@@ -95,9 +95,9 @@ class CGraph(FigureCanvas):
 
 	def update_meteo(self, time, meteo):
 		# Méthode pour Update le graph meteo
-		#print("On update le graph meteo")
-		#print(time)
-		#print(meteo)
+		print("On update le graph meteo")
+		print(time)
+		print(meteo)
 		if meteo == "SandStorm":
 			self.ydata[0] += [1]
 			self.ydata[1] += [0]
@@ -112,6 +112,8 @@ class CGraph(FigureCanvas):
 			self.ydata[2] += [1]
 		#print("time:",self.ydata)
 		self.xdata += [time]
+		print("time: ",self.xdata)
+		print("meteo: ",self.ydata)
 		# On Clear
 		self.axes.cla()
 		# On affiche
@@ -122,12 +124,14 @@ class CGraph(FigureCanvas):
 
 	def update_temp(self, time, temp):
 		# Méthode pour update le graph temperature
-		#print("On update le graph température")
-		#print(time)
-		#print(temp)
+		print("On update le graph température")
+		print(time)
+		print(temp)
 		# On ajoute au données
 		self.xdata += [time]
 		self.ydata += [temp]
+		print("time: ",self.xdata)
+		print("temp: ", self.ydata)
 		# On clear
 		self.axes.cla()
 		# On draw
@@ -135,12 +139,14 @@ class CGraph(FigureCanvas):
 
 	def update_rover(self, time, nbrover):
 		# Méthode pour udpate le graph rover
-		#print("On update le graph rover")
-		#print(time)
-		#print(nbrover)
+		print("On update le graph rover")
+		print(time)
+		print(nbrover)
 		# On ajoute au données
 		self.xdata += [time]
 		self.ydata += [nbrover]
+		print("time: ",self.xdata)
+		print("rover: ", self.ydata)
 		# On clear
 		self.axes.cla()
 		# On draw

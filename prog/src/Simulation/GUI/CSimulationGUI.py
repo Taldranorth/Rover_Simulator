@@ -5,7 +5,7 @@
 
 from src.Simulation.Controler.CSimulationCTRL import CSimulationCTRL
 from src.Simulation.CData import scan_simulation_file
-from src.Display.plot import CGraph
+from src.Simulation.CGraph import CGraph
 
 from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QAction
@@ -28,14 +28,15 @@ class CSimulationGUI(QWidget):
 		# head info
 		self.init_layout_head_info()
 
-		# tab Rover
-		self.init_tab_rover()
+		# tab
+		self.init_tab()
 		# label
 		self.stringallrover = ""
 		self.tabstringrover = [""]
 		self.lslabelrover = []
 		self.lstabrover = []
 		self.init_tab_global()
+
 
 		# button
 		self.init_layout_button(main_window)
@@ -111,7 +112,7 @@ class CSimulationGUI(QWidget):
 		self.tab.addTab(tab, "All Rover")
 
 	#### Initialisation Tab Rover ####
-	def init_tab_rover(self):
+	def init_tab(self):
 		# Méthode pour initialiser le tab Rover
 		self.tab = QTabWidget()
 		self.layoutscroll.addWidget(self.tab)
