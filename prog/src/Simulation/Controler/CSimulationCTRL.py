@@ -83,6 +83,8 @@ class CSimulationCTRL:
 			GUI.update_graph()
 			# On update l'header
 			GUI.update_head()
+			# On dit à l'appli d'update l'affichage
+			self.main_window.app.processEvents()
 			sleep(i)
 			# On programme la prochaine executions du programme
 			#next_thread = Thread(target = self.update_loop(GUI, i))
