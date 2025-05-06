@@ -297,7 +297,7 @@ class CSimulationGUI(QWidget):
 	#### Button launch Sim ####
 	def button_launch_Sim(self):
 		# Méthode pour créer un button qui appeler la création d'un rover
-		button = QPushButton("Launch Sim")
+		button = QPushButton("Start")
 		# On set l'action
 		button.clicked.connect(self.button_launch_Sim_clicked)
 		# On ajoute au layoutbutton
