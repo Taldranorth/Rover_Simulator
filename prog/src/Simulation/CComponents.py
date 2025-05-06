@@ -3,7 +3,7 @@
 # Initialiser dans Server
 ########################################################################
 #ajouter gestion des dégats selon la température
-
+from random import uniform
 
 
 class CComponents:
@@ -36,6 +36,9 @@ class CComponents:
 
 		#### Calcule de l'effet de la résistance ####
 		effect = change*(self.resistance/100)
+
+		### Applique un peu de random ###
+		effect = self.apply_randomness(effect)
 
 		#### On applique les dégâts ####
 		self.durability -= (effect + (effect*temp_effect))
@@ -75,3 +78,6 @@ class CComponents:
 		self.mintemp = data["mintemp"]
 		self.maxtemp = data["maxtemp"]
 
+	def apply_randomness(self, damage):
+		random_factor = uniform(0.0, 1.5)
+		return damage * random_factor
