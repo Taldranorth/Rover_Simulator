@@ -18,7 +18,7 @@ from src.Simulation.factory.CSimulationFactory import CSimulationFactory
 from src.Menu.CMenuGUI import CMenuGUI
 from src.Simulation.GUI.CSimulationGUI import CSimulationGUI
 from src.Parameters.GUI.CParameterGUI import CParameterGUI
-from src.Authentification.GUI.LoginGui import *
+from src.Authentification.GUI.LoginGui import LoginGui
 # Import DB
 from src.Authentification.DAO.UserDao import init_db
 
@@ -28,56 +28,12 @@ from src.Authentification.DAO.UserDao import init_db
 # - DAO = Data Access Object, transfert des données de la base de données en données utilisable en programme
 
 
-# Objectif 1 mars:
-# - version Basique Menu Principale √
-# - Mettre en place les boutons du ParameterGUI √
-# - Mettre en place le linkage entre le Menu Principale, Simulation et Paramètre √
-# - refait le button launch sim pour transferer la boucle dans le controller/factory √
-# - Repousser à Samedi la séparation du Thread le temps de me laisser y réfléchir un peu plus
-# - Ajouter Header Info Simple √
-# - Metre en place tab pour regarder les données d'un rover en particulier √
-# - Boutton pour retourner au Menu Principale √
-# - Délai lors de l'éxécutions de la boucle √
-# - Pause/Reprise de la Simulation √
-# - Optimiser Calcul de la Simulation √
-#   --> Ne pas prendre en compte un Composant si Mort √
-#   --> Si Rover totalement décédé ne plus prendre en compte dans les Composants √
-
-
-# Objectif 2 mars:
-
-# - gérer update de l'interface Paramètre après chargement preset √
-# - Changer l'affichage des données pour qu'elle que chose d'optimiser, au lieu de tout afficher on n'affiche que les dernières données √
-# - Mise en place d'une Structure pour les graphes √
-# - Mise en place de plusieurs type de graphe voir fichier plot.py √
-# - Mise en place interface de Sauvegarde/Chargement des Paramètre/Simulations √
-# - Mise en place de sous-Tab pour Chaque Rover √
-# - lors du Reset nettoyer bien les tableau √
-
-# Objectif 3 mars:
-
-# - ajouter le link vers le chargements de la save dans le menu Principale √
-# - Nettoyer et fix √
-# - Rechargement des Graphes √
-#   --> Fix load Graphes √
-# - Abandonner la séparation en Thread
-
-# Notes:
-#   - Je ne suis pas sur de mon coup pour le link entre les différents GUI,
-#   mais j'ai finit par mettre la main-window en attribut des CTRL afin qu'il puisse y accèder est appelé les changement de
-#   GUI de la main window
-#       --> Par contre cela veut dire que la MainWindow garde aussi en mémoire les Singletons factory
-#          --> Voir à terme par remplacer la Class CMainWindow par une Classe Applications carrément
-
-# Ils va peut être falloir à terme mettre en place un CDataGUI et CDataController car les données sont sensé être stocker coté server
-
-
 class CMainWindow(QMainWindow):
     def __init__(self):
         # Initialiser la classe hérité
         super().__init__()
         # Initialise le titre
-        self.setWindowTitle("TRover Simulator")
+        self.setWindowTitle("Rover Simulator")
         # On garde une référence au widget actuellement actif
         widget = 0
         # On déplace la fenêtre en haut à gauche
@@ -174,7 +130,7 @@ if __name__ == "__main__":
     # Initialise la routine de l'appli
     app = QApplication(sys.argv) 
     #initialise la db au démarage de l'appli
-    #init_db()	
+    init_db()	
     
     ########Test fenetre de login ########
     #Etape 1: Fenêtre de login 
@@ -222,8 +178,6 @@ if __name__ == "__main__":
     #test_SimulationGUI(window, sim_factory, param_factory)
 
     ##### Code Test pour plus tard du Multithreading #####
-
-    #
 
     # Execute l'appli
     app.exec()
