@@ -10,7 +10,6 @@
   - [d. Scénario Nominal](#d-scénario-nominal)  
   - [e. Diagramme de Séquence](#e-diagramme-de-séquence)  
 - [2. Axe Statique](#2-axe-statique)  
-- [3. Axe Dynamique](#3-axe-dynamique)  
 - [Amélioration Possible][#amelioration-possible]
 - [Conclusion](#conclusion)  
 - [Annexes](#annexes)  
@@ -112,7 +111,54 @@ L'axe fonctionnel nous a permis de mettre en place les différentes faces du pro
 ![Diagramme de Classe](./imageRendu/DiagClass.png)  
 ---
 
-## Amélioration Possible
+
+
+## 3. Projets
+
+### a. Dépendances et Technologies
+
+Aucune dépandances requise pour ce projet.
+
+Technologie Utilisé : *python3*, *Markdown*
+
+### b. Utiliser l'application
+
+Pour lancer le projet partir de la source, faire :
+
+```python3 prog/main.py ```
+
+Une fois dans l'app il vous suffit de créer un compte grâce a cette page: 
+
+![Connexion](Page_connexion.png)
+
+Vous pouvez creer votre première Simulation !
+
+![Menu](Menu.png)
+
+Ici vous modifier vos parametres, *Attention* il faut bien appuyer sur **entrée** quand vous validez vos changements :
+
+![Parametres](Parametres.png)
+
+Après avoir cliqué sur start il vous suffit d'ajouter des Rovers et launch la simulation.
+
+![launch](launch.png)
+
+Après avoir attendu 30s (ou plus en fonction du nombres de jours de la sim), vous pouvez retrouvez les graphes globaux ou spécifiques au rovers en alternant entre les tabs. Il est alors possible de sauvegarder votre simulation, d'exit l'app et même retourner au menu principale pour creer une nouvelle simulation avec des paramêtres différents !
+
+---
+### c. Répartition des tâches
+
+|   | Kilian  | Fearghal | Joshua |
+| :--------------- |:---------------:| :-----:| :-----:|
+| Conception | X | X | X |
+| Maquettage | | X | X |
+| Implémentation | - | - | - |
+| Simulation |  | X | X |
+| GUI |  | X | |
+| Authentification | X |  |  |
+
+---
+## d. Amélioration Possible
 
 - Séparation des processus en Serveur/Client avec Autant de Client qui peut se connecter au Serveur
 
@@ -121,6 +167,16 @@ L'axe fonctionnel nous a permis de mettre en place les différentes faces du pro
 - Ajout d'un Paramètre Délai et séparer le thread de Calcul de la boucle de Simulation, afin de pouvoir mettre en pause la Simulation une fois lancé
 
 - Poussé les Paramètres de la Simulations
+
+---
+
+### e. Problèmes rencontrés
+
+- Separation multi-thread 
+  
+- Difficulte lors de la création du diagramme de classe: première rencontre avec les termes Factory, DAO... 
+  
+- Retranscription du diagramme de Classe
 
 ---
 
