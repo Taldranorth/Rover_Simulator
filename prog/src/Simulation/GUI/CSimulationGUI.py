@@ -64,7 +64,7 @@ class CSimulationGUI(QWidget):
 		# Méthode pour initialiser le layout des info d'entête
 
 		# Météo
-		self.labelmeteo = QLabel(f"Meteo: {self.CTRL.get_meteo(self.activ_sim)}")
+		self.labelmeteo = QLabel(f"Weather: {self.CTRL.get_meteo(self.activ_sim)}")
 		self.labelmeteo.setAlignment(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignTop)
 		self.layouthead_info.addWidget(self.labelmeteo)
 		# Jour
@@ -104,7 +104,7 @@ class CSimulationGUI(QWidget):
 		tab.addTab(self.scroll,"Global")
 
 		# On initialise les tab Météo, température et rover
-		for txt in ["meteo","temperature","rover"]:
+		for txt in ["Weather","temperature","rover"]:
 			graph = CGraph(txt)
 			tab.addTab(graph, txt)
 
