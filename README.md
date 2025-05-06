@@ -20,41 +20,35 @@ Exigence Simulation:
 
 ----------
 Bibliothèque Graphique:
-- Django
-- PyQt
+- PyQt6
+- matplot
 
+-psycopg2
 
-- Représentation des rovers par des icones
 - Rover décomposé en plusieurs parties (roue,chassis,corps,panneau solaire, caméra, bras articulé(s))
-- 2 types de Rovers:
- - Exploration
- - Collecte d'échantillon
-- 2 types de Déploiement de Rovers:
-  - En Constellation / dans une Zone précise avec un nombre précis
-  - En Solo
 - paramètre Simulation:
   - gravité
-  - abrasion du sol
   - Vitesse de la Simulation
   - Rovers
      - Usure
-     - Vitesse des Rovers
-     - Distance de communications entre les rovers
   - Météo
      - Niveau d'alerte
      - placement des tempêtes de sables
      - radiation Solaire
-     - fréquence des séisme
-     - fréquence des pluies de météorites
      - Cycle Jour/Nuit
-- Génération Procédurale de la Carte
-  - Pouvoir Utiliser des Heightmap
-  - Point d'intéret aléatoire pour les échantillons
-  - Strate Rocheuse
 
 (https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/803050/ss_f9ef6053f923abe60d4503327800e16c597990ba.1920x1080.jpg?t=1733496904)
 
 Bonus:
+- 2 types de Rovers:
+	- Exploration
+	- Collecte d'échantillon
+- 2 types de Déploiement de Rovers:
+	- En Constellation / dans une Zone précise avec un nombre précis
+	- En Solo
+- Vitesse des Rovers
+- Distance de communications entre les rovers
+- Génération Procédurale de la Carte
 - Prise en Compte des Grottes
 - Température
 - Mars la bleue
