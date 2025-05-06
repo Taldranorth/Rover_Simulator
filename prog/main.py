@@ -29,9 +29,11 @@ from src.Authentification.DAO.UserDao import init_db
 
 
 class CMainWindow(QMainWindow):
-    def __init__(self):
+    def __init__(self, app):
         # Initialiser la classe hérité
         super().__init__()
+        # Attribut Application 
+        self.app = app
         # Initialise le titre
         self.setWindowTitle("Rover Simulator")
         # On garde une référence au widget actuellement actif
@@ -146,7 +148,7 @@ if __name__ == "__main__":
 	#########################
 	
 	# Etape 2: lance l'appli 
-    window = CMainWindow()
+    window = CMainWindow(app)
 
     # Setup Taille
     window.resize(WidthWindow, HeightWindow)
