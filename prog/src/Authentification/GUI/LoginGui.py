@@ -10,24 +10,24 @@ class CLoginGUI(QWidget):
 	def __init__(self, parent=None):
 		# Init fenetre
 		super().__init__(parent)
-		self.setWindowTitle("Connexion")
+		self.setWindowTitle("Connection")
 		self.setFixedSize(400, 250)
 		
 		# Ligne pour écrire son username
-		self.username_label = QLabel("Nom d'utilisateur")
+		self.username_label = QLabel("Username")
 		self.username_input = QLineEdit()
 		
 		# Ligne pour écrire son mot de passe
-		self.password_label = QLabel("Mot de passe")
+		self.password_label = QLabel("Password")
 		self.password_input = QLineEdit()
 		self.password_input.setEchoMode(QLineEdit.EchoMode.Password)
 		
 		#bouton pour se connecter
-		self.login_button = QPushButton("Se connecter")
+		self.login_button = QPushButton("Login")
 		self.login_button.clicked.connect(self.try_login)
 		
 		#bouton pour s'enregistrer
-		self.register_button = QPushButton("S'enregistrer")
+		self.register_button = QPushButton("Register")
 		self.register_button.clicked.connect(self.register_user)
 		
 		# Ajout des widgets
@@ -50,11 +50,11 @@ class CLoginGUI(QWidget):
 		user = try_login(username, password)
 		if user:
 			self.user = user
-			QMessageBox.information(self, "Succès", "Connexion réussie!")
+			QMessageBox.information(self, "Success", "Connection done!")
 			self.close()
 		#Si false, message d'erreur
 		else:
-			QMessageBox.warning(self, "Erreur", "Nom d'utilisateur ou mot de passe incorrect.")
+			QMessageBox.warning(self, "Error", "Incorrect password or username.")
     		
 	def register_user(self):
 		#Enregistre un user
@@ -62,9 +62,9 @@ class CLoginGUI(QWidget):
 		password = self.password_input.text()	
 		#Si l'user qui veut s'enregistrer n'existe pas alors on le crée et on ferme la fenetre
 		if register_user(username, password):
-			QMessageBox.information(self, "Succès", "Utilisateur créé avec succès. Vous pouvez maintenant vous connecter.")
+			QMessageBox.information(self, "Success", "User register with success. Now you can login.")
 		else:
-			QMessageBox.warning(self, "Erreur", "Echec de l'enregistrement, le nom d'utilisateur est déjà pris.")
+			QMessageBox.warning(self, "Error", "Register failure, username already taken.")
 			
     		
     		
