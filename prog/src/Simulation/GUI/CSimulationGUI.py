@@ -183,13 +183,13 @@ class CSimulationGUI(QWidget):
 	def init_menu(self, main_window):
 		# Méthode pour initialiser le Menu
 
-		menu = self.CTRL.main_window.menuBar()
+		self.menu = self.CTRL.main_window.menuBar()
 
 		# Save
 		save_button = QAction("Save", self)
 		save_button.triggered.connect(lambda:  self.dialog_simulation(main_window, 1))
 
-		save_menu = menu.addMenu("Save")
+		save_menu = self.menu.addMenu("Save")
 		save_menu.addAction(save_button)
 		save_menu.addSeparator()
 
@@ -197,7 +197,7 @@ class CSimulationGUI(QWidget):
 		load_button = QAction("Load", self)
 		load_button.triggered.connect(lambda:  self.dialog_simulation(main_window))
 
-		load_menu = menu.addMenu("Load")
+		load_menu = self.menu.addMenu("Load")
 		load_menu.addAction(load_button)
 		load_menu.addSeparator()
 
@@ -205,7 +205,7 @@ class CSimulationGUI(QWidget):
 		back_button = QAction("Back Main Menu", self)
 		back_button.triggered.connect(self.back_button)
 
-		back_menu = menu.addMenu("Back Main Menu")
+		back_menu = self.menu.addMenu("Back Main Menu")
 		back_menu.addAction(back_button)
 
 	#############################################
@@ -391,6 +391,8 @@ class CSimulationGUI(QWidget):
 	def back_button(self):
 		# Méthode pour gérer l'action du boutton save menu
 		self.CTRL.back_menu()
+		# On détruit le menu
+		self.menu.clear()
 
 	def button_stop(self):
 		# Méthode pour créer un button pour mettre en pause l'éxécution de la Simulation
