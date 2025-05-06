@@ -104,7 +104,7 @@ class CSimulationGUI(QWidget):
 		tab.addTab(self.scroll,"Global")
 
 		# On initialise les tab Météo, température et rover
-		for txt in ["meteo","temperature","rover"]:
+		for txt in ["weather","temperature","rover"]:
 			graph = CGraph(txt)
 			tab.addTab(graph, txt)
 

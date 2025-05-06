@@ -118,9 +118,9 @@ L'axe fonctionnel nous a permis de mettre en place les différentes faces du pro
 
 - Compléter Manage Result en permettant d'Exporter les Résultats des Simulations dans un fichier pdf Latex
 
-- Poussé les Paramètres de la Simulations
-
 - Ajout d'un Paramètre Délai et séparer le thread de Calcul de la boucle de Simulation, afin de pouvoir mettre en pause la Simulation une fois lancé
+
+- Poussé les Paramètres de la Simulations
 
 ---
 

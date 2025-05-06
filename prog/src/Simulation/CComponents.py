@@ -41,7 +41,8 @@ class CComponents:
 		effect = self.apply_randomness(effect)
 
 		#### On applique les dégâts ####
-		self.durability -= (effect + (effect*temp_effect))
+		if self.durability >0:
+			self.durability -= (effect + (effect*temp_effect))
 
 
 	# Setter
@@ -79,5 +80,5 @@ class CComponents:
 		self.maxtemp = data["maxtemp"]
 
 	def apply_randomness(self, damage):
-		random_factor = uniform(0.0, 1.5)
+		random_factor = uniform(0.5, 1.5)
 		return damage * random_factor

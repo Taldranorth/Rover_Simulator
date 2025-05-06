@@ -16,7 +16,7 @@ from matplotlib.figure import Figure
 # - Évolution de l'état des Composants
 # - Évolution du nombre de Rover en état de marche
 # Cela définit donc 4 type:
-# - meteo
+# - weather
 # - temperature
 # - components
 # - rover
@@ -36,7 +36,7 @@ class CGraph(FigureCanvas):
 		if type == "components":
 			self.ydata = [[],[],[],[],[],[],[]]
 			self.xdata = []
-		elif type == "meteo":
+		elif type == "weather":
 			self.ydata = [[],[],[]]
 			self.xdata = []
 		else:
@@ -48,9 +48,9 @@ class CGraph(FigureCanvas):
 		# On charge les données
 		self.xdata = xdata
 		self.ydata = ydata
-		print("type:", self.type)
-		print("xdata:",xdata)
-		print("ydata:",ydata)
+		#print("type:", self.type)
+		#print("xdata:",xdata)
+		#print("ydata:",ydata)
 		# On change le graph
 		# On clear
 		self.axes.cla()
@@ -65,8 +65,8 @@ class CGraph(FigureCanvas):
 				self.axes.plot(self.xdata,self.ydata[i], label = string)
 				i += 1
 			self.axes.legend()
-		elif self.type == "meteo":
-			print("meteo")
+		elif self.type == "weather":
+			print("weather")
 			self.axes.plot(self.xdata, self.ydata[0], label = "SandStorm")
 			self.axes.plot(self.xdata, self.ydata[1], label = "SolarStorm")
 			self.axes.plot(self.xdata, self.ydata[2], label = "Clear")
@@ -94,27 +94,27 @@ class CGraph(FigureCanvas):
 			i += 1
 		self.axes.legend()
 
-	def update_meteo(self, time, meteo):
-		# Méthode pour Update le graph meteo
-		print("On update le graph meteo")
-		print(time)
-		print(meteo)
-		if meteo == "SandStorm":
+	def update_meteo(self, time, weather):
+		# Méthode pour Update le graph weather
+		print("On update le graph weather")
+		#print(time)
+		#print(weather)
+		if weather == "SandStorm":
 			self.ydata[0] += [1]
 			self.ydata[1] += [0]
 			self.ydata[2] += [0]
-		elif meteo == "SolarStorm":
+		elif weather == "SolarStorm":
 			self.ydata[0] += [0]
 			self.ydata[1] += [1]
 			self.ydata[2] += [0]
-		elif meteo == "Clear":
+		elif weather == "Clear":
 			self.ydata[0] += [0]
 			self.ydata[1] += [0]
 			self.ydata[2] += [1]
 		#print("time:",self.ydata)
 		self.xdata += [time]
-		print("time: ",self.xdata)
-		print("meteo: ",self.ydata)
+		#print("time: ",self.xdata)
+		#print("weather: ",self.ydata)
 		# On Clear
 		self.axes.cla()
 		# On affiche
@@ -126,13 +126,13 @@ class CGraph(FigureCanvas):
 	def update_temp(self, time, temp):
 		# Méthode pour update le graph temperature
 		print("On update le graph température")
-		print(time)
-		print(temp)
+		#print(time)
+		#print(temp)
 		# On ajoute au données
 		self.xdata += [time]
 		self.ydata += [temp]
-		print("time: ",self.xdata)
-		print("temp: ", self.ydata)
+		#print("time: ",self.xdata)
+		#print("temp: ", self.ydata)
 		# On clear
 		self.axes.cla()
 		# On draw
@@ -141,13 +141,13 @@ class CGraph(FigureCanvas):
 	def update_rover(self, time, nbrover):
 		# Méthode pour udpate le graph rover
 		print("On update le graph rover")
-		print(time)
-		print(nbrover)
+		#print(time)
+		#print(nbrover)
 		# On ajoute au données
 		self.xdata += [time]
 		self.ydata += [nbrover]
-		print("time: ",self.xdata)
-		print("rover: ", self.ydata)
+		#print("time: ",self.xdata)
+		#print("rover: ", self.ydata)
 		# On clear
 		self.axes.cla()
 		# On draw
