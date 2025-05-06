@@ -10,9 +10,13 @@
   - [d. Scénario Nominal](#d-scénario-nominal)  
   - [e. Diagramme de Séquence](#e-diagramme-de-séquence)  
 - [2. Axe Statique](#2-axe-statique)  
-- [Amélioration Possible][#amelioration-possible]
-- [Conclusion](#conclusion)  
-- [Annexes](#annexes)  
+- [3. Projets](#3-projets)
+  - [a. Dépendances et Technologies](#a-dépendances-et-technologies)
+  - [b. Utiliser l'application ](#b-utiliser-lapplication )
+  - [c. Répartition des tâches](#c-répartition-des-tâches)
+  - [d. Amélioration Possible](#d-amélioration-possible)
+  - [e. Problèmes rencontrés](#e-problèmes-rencontrés)
+- [Conclusion](#conclusion)   
 
 ---
 
@@ -183,7 +187,3 @@ Après avoir attendu 30s (ou plus en fonction du nombres de jours de la sim), vo
 ## Conclusion  
 *(Contenu à venir...)*  
 
----
-
-## Annexes  
-Inclure du code ou des ressources utiles si nécessaire.  
