@@ -5,8 +5,8 @@ package "Authentification"{
  CLoginGUI *-- CInputGUI
  CLoginGUI ..|> CLoginCTRL
  CLoginGUI <|.. CLoginCTRL
- CLoginCTRL.. Sing
- CUserFactory.. Sing
+ note "Sing" as S
+ CUserFactory.. S
  CLoginCTRL ..|> CUserFactory
  CLoginCTRL ..|> CUser
  CUserFactory ..|> CUser
@@ -14,7 +14,6 @@ package "Authentification"{
 }
 
 CLoginCTRL -down--> CMenuGUI
-CMenuGUI *-- CButtonGUI
 CMenuGUI ..> CMenuCTRL
 
 package "SimulationManage"{
@@ -23,26 +22,27 @@ package "SimulationManage"{
  CMenuCTRL ..> CSimulationGUI
  note "Sing" as S
  S .. CSimulationFactory
- S .. CRoverFactory
- CSimulationGUI *-- CButtonGUI
  CSimulationGUI ..> CSimulationCTRL
  CSimulationCTRL ..> CRoverFactory
  CRoverFactory ..> CRover
  CSimulationCTRL ..> CRover
- CSimulation <.. CMenuCTRL
  CSimulationCTRL ..> CSimulationDAO
- CData <..> CSimulationCTRL
+ CDataSimulation <..> CSimulationFactory
+ note "Correspond à CData" as dat
+ dat .. CDataSimulation
  CSimulation ..> CSimulationCTRL
 }
 
 package "ParameterManage"{
  CMenuCTRL ..>CParameterGUI
- CMenuCTRL ..>CParameter
  CMenuCTRL ..> CParameterFactory
+ note "Sing" as S
+ CParameterFactory.. S
  CParameterFactory ..> CParameter
  CParameter ..> CParameterCTRL
  CParameterGUI ..> CParameterCTRL
  CParameterCTRL ..> CParameterDAO
- CParameterGUI *-- CButtonGUI
- CDataParameter <..> CParameterCTRL
+ CDataParameter <..> CParameterFactory
+ note "Correspond à CData" as dat
+ dat .. CDataParameter
 @enduml

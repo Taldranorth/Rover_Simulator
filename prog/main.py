@@ -18,7 +18,7 @@ from src.Simulation.factory.CSimulationFactory import CSimulationFactory
 from src.Menu.CMenuGUI import CMenuGUI
 from src.Simulation.GUI.CSimulationGUI import CSimulationGUI
 from src.Parameters.GUI.CParameterGUI import CParameterGUI
-from src.Authentification.GUI.LoginGui import LoginGui
+from src.Authentification.GUI.LoginGui import CLoginGUI
 # Import DB
 from src.Authentification.DAO.UserDao import init_db
 
