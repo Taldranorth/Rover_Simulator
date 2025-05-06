@@ -1,5 +1,5 @@
 #######
-# Fichier Principale
+# Fichier Principal
 #######
 import sys
 import PyQt6
@@ -77,7 +77,7 @@ class CMainWindow(QMainWindow):
         # Initialiser la classe hérité
         super().__init__()
         # Initialise le titre
-        self.setWindowTitle("Test Simulateur de Rover")
+        self.setWindowTitle("TRover Simulator")
         # On garde une référence au widget actuellement actif
         widget = 0
         # On déplace la fenêtre en haut à gauche
@@ -120,7 +120,7 @@ class CMainWindow(QMainWindow):
         elif GUI == "CParameterGUI":
             self.set_widget(CParameterGUI(self ,self.sim_factory, self.param_factory))
         else:
-            print("Erreur Mauvais Paramètre GUI")
+            print("Error bad GUI parameter")
             print("GUI:",GUI)
 
     def set_widget(self, widget):
@@ -183,10 +183,10 @@ if __name__ == "__main__":
     app.exec()
 	#Si on rentre aucune info alors on ferme la fenêtre de connexion
     if login.user is None:
-        print("Connexion annulée. Fermeture de l'application.")
+        print("Connection stopped. Application closing.")
         sys.exit()
     user = login.user  
-    print(f"Utilisateur connecté : {user.username}")
+    print(f"User login : {user.username}")
 	#########################
 	
 	# Etape 2: lance l'appli 
