@@ -52,21 +52,21 @@ class CSimulation:
 		# Tempête Solaire
 		solar_prob = randint(0,100)
 		if not self.is_solarstorm: #Si pas de tempete
-			if self.parameters.solarstorm_probability_spawn <= solar_prob: # On regarde la proba d'une apparition
+			if self.parameters.solarstorm_probability_spawn > solar_prob: # On regarde la proba d'une apparition
 				self.is_solarstorm = True
 				self.solarstorm_intensity = randint(1,10)
 		else:
-			if self.parameters.solarstorm_probability_despawn <= solar_prob: # Sinon de disparition
+			if self.parameters.solarstorm_probability_despawn > solar_prob: # Sinon de disparition
 				self.is_solarstorm = False
 
 		# Tempête Sable
 		sand_prob = randint(0,100)
 		if not self.is_sandstorm:
-			if self.parameters.sandstorm_probability_spawn <= sand_prob:
+			if self.parameters.sandstorm_probability_spawn > sand_prob:
 				self.is_sandstorm = True
 				self.sandstorm_intensity = randint(1,10)
 		else:
-			if self.parameters.sandstorm_probability_despawn <= sand_prob:
+			if self.parameters.sandstorm_probability_despawn > sand_prob:
 				self.is_sandstorm = False
 
 	def apply_damage(self):
