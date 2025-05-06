@@ -43,7 +43,6 @@ class CRover:
 		#Historique états des composants des rovers
 		self.history = {name: [] for name in self.components.keys()}
 
-
 	###### Dégâts Composants ###### 
 
 	def apply_damage_global(self, lsdamage, temp):
@@ -280,6 +279,17 @@ class CRover:
 			f"{self.antenna.name}: Durabilité = {self.antenna.durability:.2f}%, Résistance = {self.antenna.resistance}",
 		]
 		return "\n".join(status)
+
+	#####
+	def load_parameters(self, parameters):
+		# Méthode pour charger les paramètre de la Simulation
+		# On set les différents COmposants
+		for components in ["wheel","arm","frame","camera","solar_panel","cell","antenna"]:
+			# On set la durabilité
+			self.set_durability(components,parameters.get_components_durability(components))
+			# On set la Résistance
+			self.set_resistance(components,parameters.get_components_resistance(components))
+
 
 
 		#### Save/Load ####

@@ -190,7 +190,7 @@ class CParameterGUI(QWidget):
 		layout_components.addWidget(label_text)
 
 		line_edit = QLineEdit(str(self.CTRL.get_components_durability(self.activ_param, "wheel")))
-		line_edit.returnPressed.connect(lambda s = line_edit: self.set_components_durability("Wheel", s))
+		line_edit.returnPressed.connect(lambda s = line_edit: self.set_components_durability("wheel", s))
 		layout_components.addWidget(line_edit)
 		self.ls_line += [line_edit]
 
@@ -198,7 +198,7 @@ class CParameterGUI(QWidget):
 		label_text = QLabel("Resistance: ")
 		layout_components.addWidget(label_text)
 		line_edit = QLineEdit(str(self.CTRL.get_components_resistance(self.activ_param, "wheel")))
-		line_edit.returnPressed.connect(lambda s = line_edit: self.set_components_resistance("Wheel", s))
+		line_edit.returnPressed.connect(lambda s = line_edit: self.set_components_resistance("wheel", s))
 		layout_components.addWidget(line_edit)
 		self.ls_line += [line_edit]
 
@@ -206,7 +206,7 @@ class CParameterGUI(QWidget):
 		label_text = QLabel("Damage: ")
 		layout_components.addWidget(label_text)
 		line_edit = QLineEdit(str(self.CTRL.get_components_damage(self.activ_param, "wheel")))
-		line_edit.returnPressed.connect(lambda s = line_edit: self.set_components_damage("Wheel", s))
+		line_edit.returnPressed.connect(lambda s = line_edit: self.set_components_damage("wheel", s))
 		layout_components.addWidget(line_edit)
 		self.ls_line += [line_edit]
 

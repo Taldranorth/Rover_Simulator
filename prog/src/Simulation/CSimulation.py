@@ -175,6 +175,8 @@ class CSimulation:
 	def create_Rover(self):
 		# Méthode pour appeler la création d'un rover
 		self.factory.create_Rover()
+		# On applique les paremètres de la Simulation
+		self.factory.load_parameters_rover(self.parameters, self.factory.get_nbrover()-1)
 
 
 	def get_meteo(self):

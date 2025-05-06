@@ -104,7 +104,7 @@ class CSimulationGUI(QWidget):
 		tab.addTab(self.scroll,"Global")
 
 		# On initialise les tab Météo, température et rover
-		for txt in ["Weather","temperature","rover"]:
+		for txt in ["meteo","temperature","rover"]:
 			graph = CGraph(txt)
 			tab.addTab(graph, txt)
 
@@ -312,7 +312,7 @@ class CSimulationGUI(QWidget):
 
 	def update_head(self):
 		# Méthode pour update l'interface
-		self.labelmeteo.setText(f"Meteo: {self.CTRL.get_meteo(self.activ_sim)}")
+		self.labelmeteo.setText(f"Weather: {self.CTRL.get_meteo(self.activ_sim)}")
 		self.labelday.setText(f"Days: {self.CTRL.get_day(self.activ_sim)}")
 		self.labelhour.setText(f"hour: {self.CTRL.get_hour(self.activ_sim)}")
 		self.labelnbrover.setText(f"nb Rover: {self.CTRL.get_nbrover(self.activ_sim)}")

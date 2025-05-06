@@ -30,6 +30,9 @@ class CRoverFactory:
 	def get_history_rover(self, irover):
 		return self.ls_rover[irover].get_history()
 
+	def load_parameters_rover(self, CParam, irover):
+		self.ls_rover[irover].load_parameters(CParam)
+
 
 	def create_Rover(self):
 		# Méthode pour ajouter un rover
