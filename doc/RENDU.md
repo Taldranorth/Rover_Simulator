@@ -166,6 +166,8 @@ Après avoir attendu 30s (ou plus en fonction du nombres de jours de la sim), vo
 
 - Poussé les Paramètres de la Simulations
 
+- Ajout d'un Paramètre Délai et séparer le thread de Calcul de la boucle de Simulation, afin de pouvoir mettre en pause la Simulation une fois lancé
+
 ---
 
 ### e. Problèmes rencontrés
