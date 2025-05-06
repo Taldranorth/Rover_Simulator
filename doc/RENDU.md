@@ -11,6 +11,7 @@
   - [e. Diagramme de Séquence](#e-diagramme-de-séquence)  
 - [2. Axe Statique](#2-axe-statique)  
 - [3. Axe Dynamique](#3-axe-dynamique)  
+- [Amélioration Possible][#amelioration-possible]
 - [Conclusion](#conclusion)  
 - [Annexes](#annexes)  
 
@@ -109,6 +110,16 @@ Le scénario nominal nous a permis de concevoir un **diagramme de séquence** d�
 L'axe fonctionnel nous a permis de mettre en place les différentes faces du projet qui nous a menés à créer ce **diagramme de classe**:
 
 ![Diagramme de Classe](./imageRendu/DiagClass.png)  
+---
+
+## Amélioration Possible
+
+- Séparation des processus en Serveur/Client avec Autant de Client qui peut se connecter au Serveur
+
+- Compléter Manage Result en permettant d'Exporter les Résultats des Simulations dans un fichier pdf Latex
+
+- Poussé les Paramètres de la Simulations
+
 ---
 
 ## Conclusion  
