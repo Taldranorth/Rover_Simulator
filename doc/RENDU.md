@@ -120,6 +120,8 @@ L'axe fonctionnel nous a permis de mettre en place les différentes faces du pro
 
 - Poussé les Paramètres de la Simulations
 
+- Ajout d'un Paramètre Délai et séparer le thread de Calcul de la boucle de Simulation, afin de pouvoir mettre en pause la Simulation une fois lancé
+
 ---
 
 ## Conclusion  
