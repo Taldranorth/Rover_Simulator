@@ -27,7 +27,9 @@ package "SimulationManage"{
  CRoverFactory ..> CRover
  CSimulationCTRL ..> CRover
  CSimulationCTRL ..> CSimulationDAO
- CData <..> CSimulationCTRL
+ CDataSimulation <..> CSimulationFactory
+ note "Correspond à CData" as dat
+ dat .. CDataSimulation
  CSimulation ..> CSimulationCTRL
 }
 
@@ -40,5 +42,7 @@ package "ParameterManage"{
  CParameter ..> CParameterCTRL
  CParameterGUI ..> CParameterCTRL
  CParameterCTRL ..> CParameterDAO
- CDataParameter <..> CParameterCTRL
+ CDataParameter <..> CParameterFactory
+ note "Correspond à CData" as dat
+ dat .. CDataParameter
 @enduml
