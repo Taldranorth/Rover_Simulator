@@ -76,7 +76,8 @@ class CGraph(FigureCanvas):
 			self.axes.plot(self.xdata, self.ydata)
 		elif self.type == "rover":
 			print("rover")
-			self.axes.plot(self.xdata, self.ydata)
+			self.axes.plot(self.xdata, self.ydata, label = "Rover Alive")
+			self.axes.legen()
 
 	def update_components(self, lx, time):
 		# Méthode pour Update le graph
@@ -150,4 +151,5 @@ class CGraph(FigureCanvas):
 		# On clear
 		self.axes.cla()
 		# On draw
-		self.axes.plot(self.xdata, self.ydata)
+		self.axes.plot(self.xdata, self.ydata, label = "Rover Alive")
+		self.axes.legend()
