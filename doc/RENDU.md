@@ -171,6 +171,8 @@ Après avoir attendu 30s (ou plus en fonction du nombres de jours de la sim), vo
 
 - Poussé les Paramètres de la Simulations
 
+- Gérer la Position des Rovers sur une Carte créer aléatoirement
+
 ---
 
 ### e. Problèmes rencontrés
