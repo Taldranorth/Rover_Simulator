@@ -58,7 +58,7 @@ Pour ce faire nous nous sommes inspiré de *Per Aspera* un jeu Tlön Industries,
 
 Le jeu ressemble a ceci:
 ![inspi](./imageMaquettage/Maquettage.jpg) 
-- Grâce a ceci nous avons réalisé la première version qui est notre vision complète mais peux realiste :
+- Grâce a ceci nous avons réalisé la première version qui est notre vision complète mais peu realiste :
 ![maquette](./imageMaquettage/maquette1.png)
 
 - deuxième version plus réaliste :
@@ -70,7 +70,6 @@ Le jeu ressemble a ceci:
 ### b. Acteurs  
 Nous avons identifié les principaux acteurs intervenant dans la simulation :  
 ![Acteurs](./imageRendu/Acteur.png)  
-
 
 ---
 
