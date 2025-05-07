@@ -43,7 +43,6 @@ Afin de définir le cadre du projet, nous avons établi une liste des exigences 
 #### **Exigences de la Simulation**  
 - Doit pouvoir sélectionner le Spawn des Rovers
 - Doit pouvoir gérer la taille de la carte
-- Doit pouvoir gérer la taille de la carte
 - Doit pouvoir Simuler une météo basique
 - Doit pouvoir gérer la Durée de la Simulation 
 - L'utilisateur Doit pouvoir gérer des paramètres poussés de la simulation
@@ -123,7 +122,7 @@ L'axe fonctionnel nous a permis de mettre en place les différentes faces du pro
 
 Technologie Utilisé : *python3*, *Markdown*
 
-Dépandances nécessaires: *PyQT6*, *Psycopg2*
+Dépendances nécessaires: *PyQT6*, *Psycopg2*
 
 ### b. Utiliser l'application
 
@@ -171,6 +170,8 @@ Après avoir attendu 30s (ou plus en fonction du nombres de jours de la sim), vo
 - Ajout d'un Paramètre Délai et séparer le thread de Calcul de la boucle de Simulation, afin de pouvoir mettre en pause la Simulation une fois lancé
 
 - Poussé les Paramètres de la Simulations
+
+- Gérer la Position des Rovers sur une Carte créer aléatoirement
 
 ---
 
