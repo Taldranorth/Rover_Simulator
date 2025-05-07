@@ -52,9 +52,25 @@ Afin de définir le cadre du projet, nous avons établi une liste des exigences 
 
 ---
 
+### c. Maquettage
+Nous avons procédé a un maquettage:
+Pour ce faire nous nous sommes inspiré de *Per Aspera* un jeu Tlön Industries, pour en savoir plus [ici](https://store.steampowered.com/app/803050/Per_Aspera/). 
+
+Le jeu ressemble a ceci:
+![inspi](./imageMaquettage/Maquettage.jpg) 
+- Grâce a ceci nous avons réalisé la première version qui est notre vision complète mais peux realiste :
+![maquette](./imageMaquettage/maquette1.png)
+
+- deuxième version plus réaliste :
+![Maquette2_log](./imageMaquettage/maquettage_login.png) 
+![Maquette2_maim](./imageMaquettage/maquettage_mainmenu.png) 
+![Maquette2_parma](./imageMaquettage/maquettage_parameter.png) 
+---
+
 ### b. Acteurs  
 Nous avons identifié les principaux acteurs intervenant dans la simulation :  
 ![Acteurs](./imageRendu/Acteur.png)  
+
 
 ---
 
