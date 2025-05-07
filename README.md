@@ -30,25 +30,25 @@ L'objectif du projet est de simuler l'exploration autonome de rovers sur un terr
 ## 1. Axe Fonctionnel  
 
 ### a. Exigences  
-Afin de définir le cadre du projet, nous avons établi une liste des exigences essentielles.  
+Afin de définir le cadre du projet, nous avons établis une liste des exigences essentielles.  
 
 #### **Exigences des Rovers**  
-- Doit être connecté entre eux
-- Doit pouvoir gérer la perte d'un membre de manière automatique
-- Doit pouvoir gérer sa trajectoire selon la topographie
-- Doit pouvoir gérer l'usure
-- Doit pouvoir gérer la positions des échantillons
+- Doivent être connecté entre eux​
+- Doit pouvoir gérer la perte d'un membre de manière automatique​
+- Doit pouvoir gérer sa trajectoire selon la topographie​
+- Doit pouvoir gérer l'usure​
+- Doit pouvoir gérer la position des échantillons​
 - Doit pouvoir gérer un réseau de Rover
 
 #### **Exigences de la Simulation**  
-- Doit pouvoir sélectionner le Spawn des Rovers
-- Doit pouvoir gérer la taille de la carte
-- Doit pouvoir Simuler une météo basique
-- Doit pouvoir gérer la Durée de la Simulation 
-- L'utilisateur Doit pouvoir gérer des paramètres poussés de la simulation
-- Doit pouvoir enregistrer un setup de pramaètres (preset)
-- Doit pouvoir exporter les résultats de la simulation (fichier txt)
-- Doit pouvoir sauvegarder et charger une simulation encore en cours
+- L'utilisateur doit pouvoir sélectionner le spawn des Rovers ​
+- L'utilisateur doit pouvoir gérer la taille de la carte ​
+- L'utilisateur doit pouvoir simuler une météo basique ​
+- L'utilisateur doit pouvoir gérer la durée de la simulation ​
+- L'utilisateur doit pouvoir gérer des paramètres poussés de la simulation ​
+- L'utilisateur doit pouvoir enregistrer un setup de paramètres (preset) ​
+- L'utilisateur doit pouvoir exporter les résultats de la simulation (fichier .txt) ​
+- L'utilisateur doit pouvoir sauvegarder et charger une simulation 
 
 ---
 
@@ -176,7 +176,7 @@ https://www.psycopg.org/docs/
 
 ### b. Utiliser l'application
 
-Pour lancer le projet partir de la source, faire :
+Pour lancer le projet à partir de la source, faire :
 
 ```bash 
 python3 prog/main.py 
@@ -190,7 +190,7 @@ Vous pouvez creer votre première Simulation !
 
 <img src="./doc/imageAppli/Menu.png" alt="Mar" width="600px" height="350px">
 
-Ici vous modifier vos parametres, *Attention* il faut bien appuyer sur **entrée** quand vous validez vos changements :
+Ici vous modifier vos paramètres, *Attention* il faut bien appuyer sur **entrer** quand vous validez vos changements :
 
 <img src="./doc/imageAppli/Parametres.png" alt="Mar" width="600px" height="350px">
 
@@ -198,7 +198,7 @@ Après avoir cliqué sur start il vous suffit d'ajouter des Rovers et launch la 
 
 <img src="./doc/imageAppli/launch.png" alt="Mar" width="600px" height="350px">
 
-Après avoir attendu 30s (ou plus en fonction du nombres de jours de la sim), vous pouvez retrouvez les graphes globaux ou spécifiques au rovers en alternant entre les tabs. Il est alors possible de sauvegarder votre simulation, d'exit l'app et même retourner au menu principale pour creer une nouvelle simulation avec des paramêtres différents !
+Après avoir attendu 30s (ou plus en fonction du nombres de jour de la sim), vous pouvez retrouvez les graphes globaux ou spécifiques aux rovers en alternant entre les tabs. Il est alors possible de sauvegarder votre simulation, de quitter l'application et même de retourner au menu principal pour créer une nouvelle simulation avec des paramètres différents !
 
 ---
 ### c. Répartition des tâches
@@ -229,19 +229,19 @@ Après avoir attendu 30s (ou plus en fonction du nombres de jours de la sim), vo
 
 ### e. Problèmes rencontrés
 
-- Separation multi-thread 
+- Séparation multi-thread 
   
-- Difficulte lors de la création du diagramme de classe: première rencontre avec les termes Factory, DAO... 
+- Difficulté lors de la création du diagramme de classe: première rencontre avec les termes Factory, DAO, CTRL, ...
   
 - Retranscription du diagramme de Classe
 
 ---
 
 ## Conclusion  
-Ce projet de simulation de rovers nous a permis de mettre en pratique un ensemble varié de compétences, que ce soit sur le plan technique ou méthodologique. En partant d’un projet clair : simuler l’exploration autonome de rovers. Nous avons donc conçu une architecture logicielle cohérente, construit une interface utilisateur fonctionnelle et mis en œuvre une logique de simulation.
+Ce projet de simulation de rover nous a permis de mettre en pratique un ensemble varié de compétences, que ce soit sur le plan technique ou méthodologique. En partant d’un projet clair : simuler l’exploration autonome de rovers. Nous avons donc conçu une architecture logicielle cohérente, construit une interface utilisateur fonctionnelle et mis en œuvre une logique de simulation.
 
-Nous avons rencontré plusieurs défis, notamment la gestion du multithreading, la conception d’un diagramme de classes structuré, et l’intégration des différentes composantes du système.
+Nous avons rencontrés plusieurs défis, notamment la gestion du multithreading, la conception d’un diagramme de classes structuré, et l’intégration des différentes composantes du système.
 
-Il y a toujours des perspectives d’amélioration , que ce soit en termes de performance, de modularité (client-serveur), ou une visualisation 2D de la simulation. Cepandant les fonds pour continuer l'implementation n'était pas suffisants, les developpeurs ont donc du quitter le projet.
+Il y a toujours des perspectives d’améliorations , que ce soit en termes de performance, de modularité (client-serveur), ou une visualisation 2D de la simulation. Cepandant les fonds pour continuer l'implémentation n'était pas suffisants, les développeurs ont donc du quitter le projet.
 
-Enfin, cette expérience a renforcé notre compréhension du travail en équipe (notamment sur comment utiliser la méthode agile a notre avantage) dans un contexte de développement logiciel
+Enfin, cette expérience a renforcé notre compréhension du travail en équipe (notamment sur comment utiliser la méthode agile à notre avantage) dans un contexte de développement logiciel.
