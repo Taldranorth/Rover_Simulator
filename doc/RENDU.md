@@ -57,14 +57,18 @@ Nous avons procédé a un maquettage:
 Pour ce faire nous nous sommes inspiré de *Per Aspera* un jeu Tlön Industries, pour en savoir plus [ici](https://store.steampowered.com/app/803050/Per_Aspera/). 
 
 Le jeu ressemble a ceci:
-![inspi](./imageMaquettage/Maquettage.jpg) 
-- Grâce a ceci nous avons réalisé la première version qui est notre vision complète mais peu realiste :
-![maquette](./imageMaquettage/maquette1.png)
 
-- deuxième version plus réaliste :
-![Maquette2_log](./imageMaquettage/maquettage_login.png) 
-![Maquette2_maim](./imageMaquettage/maquettage_mainmenu.png) 
-![Maquette2_parma](./imageMaquettage/maquettage_parameter.png) 
+<img src="./imageMaquettage/Maquettage.jpg" alt="Mar" width="600px" height="350px">
+
+Grâce a ceci nous avons réalisé la première version qui est notre vision complète mais peu realiste :
+
+<img src="./imageMaquettage/maquette1.png" alt="Mar" width="600px" height="350px">
+
+Deuxième version plus réaliste :
+
+<img src="./imageMaquettage/maquettage_login.png" alt="Mar" width="500px" height="350px">
+<img src="./imageMaquettage/maquettage_mainmenu.png" alt="Mar" width="500px" height="350px">
+<img src="./imageMaquettage/maquettage_parameter.png" alt="Mar" width="500px" height="350px">
 ---
 
 ### b. Acteurs  
@@ -139,11 +143,44 @@ Technologie Utilisé : *python3*, *Markdown*
 
 Dépendances nécessaires: *PyQT6*, *Psycopg2*
 
+Pour les installer:
+
+#### - **PyQt6**
+
+**Via terminal** (pip) :
+```bash
+pip install PyQt6
+```
+
+*GitHub* (documentation officielle) :  
+https://github.com/PyQt/PyQt6
+
+**Documentation détaillée** :  
+https://www.riverbankcomputing.com/static/Docs/PyQt6/
+
+---
+
+#### - **psycopg2**
+
+**Via terminal** (pip) :
+```bash
+pip install psycopg2-binary
+```
+(La version `psycopg2-binary` est souvent recommandée pour éviter d’avoir à compiler)
+
+**GitHub** :  
+https://github.com/psycopg/psycopg2
+
+**Documentation officielle** :  
+https://www.psycopg.org/docs/
+
 ### b. Utiliser l'application
 
 Pour lancer le projet partir de la source, faire :
 
-```python3 prog/main.py ```
+```bash 
+python3 prog/main.py 
+```
 
 Une fois dans l'app il vous suffit de créer un compte grâce a cette page: 
 
@@ -151,15 +188,15 @@ Une fois dans l'app il vous suffit de créer un compte grâce a cette page:
 
 Vous pouvez creer votre première Simulation !
 
-![Menu](./imageAppli/Menu.png)
+<img src="./imageAppli/Menu.png" alt="Mar" width="600px" height="350px">
 
 Ici vous modifier vos parametres, *Attention* il faut bien appuyer sur **entrée** quand vous validez vos changements :
 
-![Parametres](./imageAppli/Parametres.png)
+<img src="./imageAppli/Parametres.png" alt="Mar" width="600px" height="350px">
 
 Après avoir cliqué sur start il vous suffit d'ajouter des Rovers et launch la simulation.
 
-![launch](./imageAppli/launch.png)
+<img src="./imageAppli/launch.png" alt="Mar" width="600px" height="350px">
 
 Après avoir attendu 30s (ou plus en fonction du nombres de jours de la sim), vous pouvez retrouvez les graphes globaux ou spécifiques au rovers en alternant entre les tabs. Il est alors possible de sauvegarder votre simulation, d'exit l'app et même retourner au menu principale pour creer une nouvelle simulation avec des paramêtres différents !
 
