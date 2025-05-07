@@ -185,5 +185,10 @@ Après avoir attendu 30s (ou plus en fonction du nombres de jours de la sim), vo
 ---
 
 ## Conclusion  
-*(Contenu à venir...)*  
+Ce projet de simulation de rovers nous a permis de mettre en pratique un ensemble varié de compétences, que ce soit sur le plan technique ou méthodologique. En partant d’un projet clair : simuler l’exploration autonome de rovers. Nous avons donc conçu une architecture logicielle cohérente, construit une interface utilisateur fonctionnelle et mis en œuvre une logique de simulation.
 
+Nous avons rencontré plusieurs défis, notamment la gestion du multithreading, la conception d’un diagramme de classes structuré, et l’intégration des différentes composantes du système.
+
+Il y a toujours des perspectives d’amélioration , que ce soit en termes de performance, de modularité (client-serveur), ou une visualisation 2D de la simulation. Cepandant les fonds pour continuer l'implementation n'était pas suffisants, les developpeurs ont donc du quitter le projet.
+
+Enfin, cette expérience a renforcé notre compréhension du travail en équipe (notamment sur comment utiliser la méthode agile a notre avantage) dans un contexte de développement logiciel
