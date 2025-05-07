@@ -123,7 +123,7 @@ L'axe fonctionnel nous a permis de mettre en place les différentes faces du pro
 
 Technologie Utilisé : *python3*, *Markdown*
 
-Dépandances nécessaires: *PyQT6*, *Psycopg2*
+Dépendances nécessaires: *PyQT6*, *Psycopg2*
 
 ### b. Utiliser l'application
 
