@@ -14,7 +14,7 @@
   - [a. Dépendances et Technologies](#a-dépendances-et-technologies)
   - [b. Utiliser l'application ](#b-utiliser-lapplication )
   - [c. Répartition des tâches](#c-répartition-des-tâches)
-  - [d. Amélioration Possible](#d-amélioration-possible)
+  - [d. Améliorations Possibles](#d-améliorations-possibles)
   - [e. Problèmes rencontrés](#e-problèmes-rencontrés)
 - [Conclusion](#conclusion)   
 
@@ -176,17 +176,17 @@ Après avoir attendu 30s (ou plus en fonction du nombres de jours de la sim), vo
 | Authentification | X |  |  |
 
 ---
-## d. Amélioration Possible
+## d. Améliorations Possibles
 
-- Séparation des processus en Serveur/Client avec Autant de Client qui peut se connecter au Serveur
+- Séparation des processus en Serveur/Client avec autant de client qui peuvent se connecter au Serveur
 
-- Compléter Manage Result en permettant d'Exporter les Résultats des Simulations dans un fichier pdf Latex
+- Compléter Manage Result en permettant d'Exporter les résultats des simulations dans un fichier .pdf Latex
 
 - Ajout d'un Paramètre Délai et séparer le thread de Calcul de la boucle de Simulation, afin de pouvoir mettre en pause la Simulation une fois lancé
 
-- Poussé les Paramètres de la Simulations
+- Améliorer les paramètres de la Simulation
 
-- Gérer la Position des Rovers sur une Carte créer aléatoirement
+- Gérer la Position des Rovers sur une Carte créée aléatoirement
 
 ---
 
