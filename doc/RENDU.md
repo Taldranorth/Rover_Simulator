@@ -43,7 +43,6 @@ Afin de définir le cadre du projet, nous avons établi une liste des exigences 
 #### **Exigences de la Simulation**  
 - Doit pouvoir sélectionner le Spawn des Rovers
 - Doit pouvoir gérer la taille de la carte
-- Doit pouvoir gérer la taille de la carte
 - Doit pouvoir Simuler une météo basique
 - Doit pouvoir gérer la Durée de la Simulation 
 - L'utilisateur Doit pouvoir gérer des paramètres poussés de la simulation
